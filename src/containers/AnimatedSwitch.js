@@ -42,7 +42,7 @@ export default class AnimatedSwitch extends Switch {
 			transform: Animated.template `
 				translate3d(0,${this.state.animate.interpolate({
 				inputRange: [0, 1],
-				outputRange: ["112px", "0px"]
+				outputRange: ["52px", "0px"]
 			})},0)
 			`
 		};
