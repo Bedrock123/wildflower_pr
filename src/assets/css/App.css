@@ -23,7 +23,7 @@
   height: calc(100% - 32px);
 }
 
-.menu-frame a {
+.menu-frame .four-corner-link {
   text-transform: lowercase;
   font-size: 28px;
   font-weight: 700;
@@ -35,7 +35,7 @@
   letter-spacing: 2.5px;
 }
 
-.menu-frame a:hover {
+.menu-frame .four-corner-link:hover {
   transition: all 0.5s ease;
   color: #009373;
 }
@@ -62,4 +62,11 @@
   position: fixed;
   right: 0px;
   bottom: 0px;
+}
+
+.menu-frame .menu-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
 }
