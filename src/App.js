@@ -46,6 +46,7 @@ class App extends React.Component {
               </div>
             </div>
             <ExtraBorder />
+            <Footer />
           </ScrollToTop>
         </div>
       </BrowserRouter>
