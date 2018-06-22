@@ -7,7 +7,7 @@ class CallOut extends React.Component {
   render() {
     return (
       <div className="footer-wrapper">
-        <p>hello wrodl</p>
+        <p> </p>{" "}
       </div>
     );
   }
