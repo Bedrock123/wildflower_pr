@@ -1,7 +1,7 @@
 .global-container {
   font-family: "Montserrat", sans-serif !important;
   overflow: hidden;
-  min-height: 76vh;
+  min-height: 85vh;
   background-size: cover;
   background-image: url("https://i.imgur.com/BpCHP6J.png");
 }
@@ -283,6 +283,7 @@
   margin-top: 15px;
   font-weight: 600;
   letter-spacing: 2.5px;
+  font-size: 25px;
 }
 @media screen and (max-width: 1500px) {
   .content-wrapper {
@@ -340,4 +341,15 @@
 
   text-align: right !important;
  
+}
+.press-object {
+  height: 329px;
+  background: #e0bee0;
+}
+.press-object .internal-press-container {
+  width: 70%;
+  height: 50px;
+  background: white;
+  margin: 0 auto;
+
 }

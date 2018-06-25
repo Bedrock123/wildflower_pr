@@ -54,25 +54,55 @@ class Clients extends React.Component {
   }
 
   renderCategoryObjects(entries) {
-
-          return entries.map(entry => {
-      return (
-        <Col lg={{ span: 6 }}>
-          <a href={entry.fields.clientUrl} target="_blank">
-            <div className="client-object">
-              <img
-                src={
-                  entry.fields.clientImage.fields.file.url +
-                  "?w=400&h=400&fit=fill"
-                }
-              />
-              <br />
-              <h3>{entry.fields.clientName}</h3>
-            </div>
-          </a>
-        </Col>
-      );
+    var count = 0
+    var allCategoryClients = []
+    var singleClientRow = []
+    var secondClientRow = []
+   
+    entries.map(entry => {
+      count = count + 1
+      if (count == 1 || count == 2 || count == 3 || count ==4) {
+        var clientObject  = (
+          <Col lg={{ span: 6 }} md={{ span: 12 }} sm={{ span: 24 }}>
+            <a href={entry.fields.clientUrl} target="_blank">
+              <div className="client-object">
+                <img
+                  src={
+                    entry.fields.clientImage.fields.file.url +
+                    "?w=400&h=400&fit=fill"
+                  }
+                />
+                <br />
+                <h3>{entry.fields.clientName}</h3>
+              </div>
+            </a>
+          </Col>
+        );
+        singleClientRow.push(clientObject)
+      }
+      if (count == 5 || count == 6 || count == 7 || count ==8) {
+        var clientObject  = (
+          <Col lg={{ span: 6 }} md={{ span: 12 }} sm={{ span: 24 }}>
+            <a href={entry.fields.clientUrl} target="_blank">
+              <div className="client-object">
+                <img
+                  src={
+                    entry.fields.clientImage.fields.file.url +
+                    "?w=400&h=400&fit=fill"
+                  }
+                />
+                <br />
+                <h3>{entry.fields.clientName}</h3>
+              </div>
+            </a>
+          </Col>
+        );
+        secondClientRow.push(clientObject)
+      }
     });
+    allCategoryClients.push(<Row>{singleClientRow}</Row>)
+    allCategoryClients.push(<Row>{secondClientRow}</Row>)
+    return allCategoryClients
   }
   renderClientObjects() {
     var titles = []
@@ -82,7 +112,9 @@ class Clients extends React.Component {
                 <Row>
                 <h2>{category}</h2>
                 <br />
+                <Row>
                 {this.renderCategoryObjects(this.state.cleanedEntries[category])}
+                </Row>
                 <br />
       
                 </Row>

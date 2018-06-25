@@ -84,15 +84,16 @@ class FullNavigation extends React.Component {
           {this.state.styleBarExposed || this.state.styleBarUrlActivate ? (
             <div className="bottom-bar style-bottom-bar" />
           ) : null}{" "}
-          <a
-            href="#"
+          <NavLink
+            activeClassName="active"
+            to="/press"
             className="four-corner-link press-link"
             onMouseEnter={this.changePressBarState.bind(this)}
             onMouseLeave={this.changePressBarState.bind(this)}
           >
             press{" "}
-          </a>{" "}
-          {this.state.pressBarExposed ? (
+          </NavLink>{" "}
+          {this.state.pressBarExposed || this.state.pressBarUrlActivate ? (
             <div className="bottom-bar press-bottom-bar" />
           ) : null}{" "}
           <NavLink
