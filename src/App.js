@@ -4,6 +4,8 @@ import "./assets/css/App.css";
 import logo from "./assets/images/logo.svg";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./containers/Home";
+import Style from "./containers/Style";
+import { NavLink } from "react-router-dom";
 import FullNavigation from "./components/FullNavigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./containers/ScrollToTop";
@@ -25,13 +27,13 @@ class App extends React.Component {
         <div>
           <ScrollToTop>
             <div className="global-container">
-              <a href="#">
+              <NavLink to="/">
                 <img
                   src={logo}
                   alt="Wildflower PR Logo"
                   className="menu-logo"
                 />
-              </a>
+              </NavLink>
               <FullNavigation />
               <div className="content-wrapper">
                 <Route
@@ -39,6 +41,7 @@ class App extends React.Component {
                     <TransitionGroup component="main">
                       <AnimatedSwitch key={location.key} location={location}>
                         <Route exact path="/" component={Home} />
+                        <Route exact path="/style" component={Style} />
                       </AnimatedSwitch>
                     </TransitionGroup>
                   )}

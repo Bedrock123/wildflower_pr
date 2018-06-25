@@ -27,14 +27,15 @@ class FullNavigation extends React.Component {
     return (
       <div className="menu-frame">
         <div className="menu-frame-inner">
-          <a
-            href="#"
+          <NavLink
+            activeClassName="active"
+            to="/style"
             className="four-corner-link style-link"
             onMouseEnter={this.changeStyleBarState.bind(this)}
             onMouseLeave={this.changeStyleBarState.bind(this)}
           >
             style
-          </a>
+          </NavLink>
           {this.state.styleBarExposed ? (
             <div className="bottom-bar style-bottom-bar" />
           ) : null}

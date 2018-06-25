@@ -8,7 +8,12 @@ class CallOut extends React.Component {
     return (
       <div className="footer-wrapper">
         <Row style={{ height: "100%" }}>
-          <Col sm={12} md={{ span: 6, offset: 1 }} style={{ height: "100%" }}>
+          <Col
+            md={24}
+            lg={{ span: 6, offset: 1 }}
+            style={{ height: "100%" }}
+            className="mobile-hidden"
+          >
             <div className="footer-block">
               <p>Want to join our team!?</p>
               <br />
@@ -17,7 +22,7 @@ class CallOut extends React.Component {
               </a>
             </div>
           </Col>
-          <Col sm={12} md={10} style={{ height: "100%" }}>
+          <Col md={24} lg={10} style={{ height: "100%" }}>
             <div className="footer-block">
               <img src={logo} className="footer-logo" />
               <br />
@@ -42,7 +47,12 @@ class CallOut extends React.Component {
               </Row>
             </div>
           </Col>
-          <Col sm={12} md={6} style={{ height: "100%" }}>
+          <Col
+            md={24}
+            lg={6}
+            style={{ height: "100%" }}
+            className="mobile-hidden"
+          >
             <div className="footer-block">
               <p>Sign up for our newsletter</p>
               <input
