@@ -16,6 +16,19 @@ class FullNavigation extends React.Component {
     clientsBarUrlActivate: false,
     isVisible: false
   };
+  componentWillMount() {
+    let activeOpenKey = `${this.props.location.pathname.split("/")[1]}`;
+    activeOpenKey = activeOpenKey + "BarUrlActivate";
+    this.setState({
+      styleBarUrlActivate: false,
+      pressBarUrlActivate: false,
+      teamBarUrlActivate: false,
+      clientsBarUrlActivate: false
+    });
+    this.setState({
+      [activeOpenKey]: true
+    });
+  }
   componentWillReceiveProps(nextProps) {
     let oldOpenKey = `${this.props.location.pathname.split("/")[1]}`;
     let activeOpenKey = `${nextProps.location.pathname.split("/")[1]}`;
@@ -26,22 +39,34 @@ class FullNavigation extends React.Component {
       teamBarUrlActivate: false,
       clientsBarUrlActivate: false
     });
-    this.setState({ [activeOpenKey]: true });
+    this.setState({
+      [activeOpenKey]: true
+    });
     if (oldOpenKey !== activeOpenKey) {
-      this.setState({ isVisible: false });
+      this.setState({
+        isVisible: false
+      });
     }
   }
   changeStyleBarState(barName) {
-    this.setState({ styleBarExposed: !this.state.styleBarExposed });
+    this.setState({
+      styleBarExposed: !this.state.styleBarExposed
+    });
   }
   changePressBarState(barName) {
-    this.setState({ pressBarExposed: !this.state.pressBarExposed });
+    this.setState({
+      pressBarExposed: !this.state.pressBarExposed
+    });
   }
   changeTeamBarState(barName) {
-    this.setState({ teamBarExposed: !this.state.teamBarExposed });
+    this.setState({
+      teamBarExposed: !this.state.teamBarExposed
+    });
   }
   changeClientsBarState(barName) {
-    this.setState({ clientsBarExposed: !this.state.clientsBarExposed });
+    this.setState({
+      clientsBarExposed: !this.state.clientsBarExposed
+    });
   }
   render() {
     return (
@@ -54,53 +79,59 @@ class FullNavigation extends React.Component {
             onMouseEnter={this.changeStyleBarState.bind(this)}
             onMouseLeave={this.changeStyleBarState.bind(this)}
           >
-            style
-          </NavLink>
+            style{" "}
+          </NavLink>{" "}
           {this.state.styleBarExposed || this.state.styleBarUrlActivate ? (
             <div className="bottom-bar style-bottom-bar" />
-          ) : null}
+          ) : null}{" "}
           <a
             href="#"
             className="four-corner-link press-link"
             onMouseEnter={this.changePressBarState.bind(this)}
             onMouseLeave={this.changePressBarState.bind(this)}
           >
-            press
-          </a>
+            press{" "}
+          </a>{" "}
           {this.state.pressBarExposed ? (
             <div className="bottom-bar press-bottom-bar" />
-          ) : null}
-          <a
-            href="#"
+          ) : null}{" "}
+          <NavLink
+            activeClassName="active"
+            to="/team"
             className="four-corner-link team-link"
             onMouseEnter={this.changeTeamBarState.bind(this)}
             onMouseLeave={this.changeTeamBarState.bind(this)}
           >
-            team
-          </a>
-          {this.state.teamBarExposed ? (
+            team{" "}
+          </NavLink>{" "}
+          {this.state.teamBarExposed || this.state.teamBarUrlActivate ? (
             <div className="bottom-bar team-bottom-bar" />
-          ) : null}
-          <a
-            href="#"
+          ) : null}{" "}
+          <NavLink
+            activeClassName="active"
+            to="/clients"
             className="four-corner-link clients-link"
-            onMouseEnter={this.changeClientsBarState.bind(this)}
-            onMouseLeave={this.changeClientsBarState.bind(this)}
+            onMouseEnter={this.changeTeamBarState.bind(this)}
+            onMouseLeave={this.changeTeamBarState.bind(this)}
           >
-            clients
-          </a>
-          {this.state.clientsBarExposed ? (
+            clients{" "}
+          </NavLink>{" "}
+          {this.state.clientsBarExposed || this.state.clientsBarUrlActivate ? (
             <div className="bottom-bar clients-bottom-bar" />
-          ) : null}
-        </div>
+          ) : null}{" "}
+        </div>{" "}
         <i
           className="fas fa-bars menu-icon "
-          onClick={() => this.setState({ isVisible: !this.state.isVisible })}
-        />
+          onClick={() =>
+            this.setState({
+              isVisible: !this.state.isVisible
+            })
+          }
+        />{" "}
         <Dock
           position="right"
           fluid={false}
-          dockStyle={{ background: "#f7f7f7" }}
+          dockStyle={{ background: "#fffef1" }}
           isVisible={this.state.isVisible}
           dimStyle={{ background: "rgba(0, 0, 0, 0.45)" }}
           size={300}
@@ -108,7 +139,7 @@ class FullNavigation extends React.Component {
           <div className="dock-inner-container">
             <div onClick={() => this.setState({ isVisible: false })}>
               <i className="fas fa-times close-icon" />
-            </div>
+            </div>{" "}
             <div className="link-container">
               <NavLink
                 activeClassName="active"
@@ -117,8 +148,8 @@ class FullNavigation extends React.Component {
                 onMouseEnter={this.changeStyleBarState.bind(this)}
                 onMouseLeave={this.changeStyleBarState.bind(this)}
               >
-                home
-              </NavLink>
+                home{" "}
+              </NavLink>{" "}
               <br />
               <NavLink
                 activeClassName="active"
@@ -127,8 +158,8 @@ class FullNavigation extends React.Component {
                 onMouseEnter={this.changeStyleBarState.bind(this)}
                 onMouseLeave={this.changeStyleBarState.bind(this)}
               >
-                style
-              </NavLink>
+                style{" "}
+              </NavLink>{" "}
               <br />
               <NavLink
                 activeClassName="active"
@@ -137,8 +168,8 @@ class FullNavigation extends React.Component {
                 onMouseEnter={this.changeStyleBarState.bind(this)}
                 onMouseLeave={this.changeStyleBarState.bind(this)}
               >
-                press
-              </NavLink>
+                press{" "}
+              </NavLink>{" "}
               <br />
               <NavLink
                 activeClassName="active"
@@ -147,8 +178,8 @@ class FullNavigation extends React.Component {
                 onMouseEnter={this.changeStyleBarState.bind(this)}
                 onMouseLeave={this.changeStyleBarState.bind(this)}
               >
-                team
-              </NavLink>
+                team{" "}
+              </NavLink>{" "}
               <br />
               <NavLink
                 activeClassName="active"
@@ -157,11 +188,11 @@ class FullNavigation extends React.Component {
                 onMouseEnter={this.changeStyleBarState.bind(this)}
                 onMouseLeave={this.changeStyleBarState.bind(this)}
               >
-                clients
-              </NavLink>
-            </div>
-          </div>
-        </Dock>
+                clients{" "}
+              </NavLink>{" "}
+            </div>{" "}
+          </div>{" "}
+        </Dock>{" "}
       </div>
     );
   }

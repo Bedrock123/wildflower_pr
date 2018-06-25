@@ -4,6 +4,8 @@ import "./assets/css/App.css";
 import logo from "./assets/images/logo.svg";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./containers/Home";
+import Team from "./containers/Team";
+import Clients from "./containers/Clients";
 import Style from "./containers/Style";
 import { NavLink } from "react-router-dom";
 import FullNavigation from "./components/FullNavigation";
@@ -42,6 +44,8 @@ class App extends React.Component {
                       <AnimatedSwitch key={location.key} location={location}>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/style" component={Style} />
+                        <Route exact path="/team" component={Team} />
+                        <Route exact path="/clients" component={Clients} />
                       </AnimatedSwitch>
                     </TransitionGroup>
                   )}
