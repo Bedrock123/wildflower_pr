@@ -229,6 +229,11 @@
   outline: none;
 }
 
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1500px) {
   .content-wrapper {
     margin-left: 28px;
@@ -237,6 +242,13 @@
 }
 
 @media screen and (max-width: 989px) {
+  .menu-icon {
+    display: inline;
+    font-size: 31px;
+    position: fixed;
+    right: 32px;
+    top: 48px;
+  }
   .mobile-hidden {
     display: none;
   }
@@ -257,4 +269,20 @@
   .home-wrapper {
     margin-top: 160px;
   }
+}
+
+.close-icon {
+  position: absolute;
+  right: 70px;
+  font-size: 27px;
+  top: 55px;
+  color: black;
+  cursor: pointer;
+}
+.link-container {
+  position: absolute;
+  right: 20px;
+  top: 95px;
+  text-align: right !important;
+  line-height: 50px;
 }

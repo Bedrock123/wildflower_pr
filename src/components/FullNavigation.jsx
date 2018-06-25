@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-
+import Dock from "react-dock";
 var classNames = require("classnames");
 
 class FullNavigation extends React.Component {
@@ -13,9 +13,11 @@ class FullNavigation extends React.Component {
     styleBarUrlActivate: false,
     pressBarUrlActivate: false,
     teamBarUrlActivate: false,
-    clientsBarUrlActivate: false
+    clientsBarUrlActivate: false,
+    isVisible: false
   };
   componentWillReceiveProps(nextProps) {
+    let oldOpenKey = `${this.props.location.pathname.split("/")[1]}`;
     let activeOpenKey = `${nextProps.location.pathname.split("/")[1]}`;
     activeOpenKey = activeOpenKey + "BarUrlActivate";
     this.setState({
@@ -25,6 +27,9 @@ class FullNavigation extends React.Component {
       clientsBarUrlActivate: false
     });
     this.setState({ [activeOpenKey]: true });
+    if (oldOpenKey !== activeOpenKey) {
+      this.setState({ isVisible: false });
+    }
   }
   changeStyleBarState(barName) {
     this.setState({ styleBarExposed: !this.state.styleBarExposed });
@@ -88,6 +93,75 @@ class FullNavigation extends React.Component {
             <div className="bottom-bar clients-bottom-bar" />
           ) : null}
         </div>
+        <i
+          className="fas fa-bars menu-icon "
+          onClick={() => this.setState({ isVisible: !this.state.isVisible })}
+        />
+        <Dock
+          position="right"
+          fluid={false}
+          dockStyle={{ background: "#f7f7f7" }}
+          isVisible={this.state.isVisible}
+          dimStyle={{ background: "rgba(0, 0, 0, 0.45)" }}
+          size={300}
+        >
+          <div className="dock-inner-container">
+            <div onClick={() => this.setState({ isVisible: false })}>
+              <i className="fas fa-times close-icon" />
+            </div>
+            <div className="link-container">
+              <NavLink
+                activeClassName="active"
+                to="/"
+                className="four-corner-link "
+                onMouseEnter={this.changeStyleBarState.bind(this)}
+                onMouseLeave={this.changeStyleBarState.bind(this)}
+              >
+                home
+              </NavLink>
+              <br />
+              <NavLink
+                activeClassName="active"
+                to="/style"
+                className="four-corner-link "
+                onMouseEnter={this.changeStyleBarState.bind(this)}
+                onMouseLeave={this.changeStyleBarState.bind(this)}
+              >
+                style
+              </NavLink>
+              <br />
+              <NavLink
+                activeClassName="active"
+                to="/press"
+                className="four-corner-link "
+                onMouseEnter={this.changeStyleBarState.bind(this)}
+                onMouseLeave={this.changeStyleBarState.bind(this)}
+              >
+                press
+              </NavLink>
+              <br />
+              <NavLink
+                activeClassName="active"
+                to="/team"
+                className="four-corner-link "
+                onMouseEnter={this.changeStyleBarState.bind(this)}
+                onMouseLeave={this.changeStyleBarState.bind(this)}
+              >
+                team
+              </NavLink>
+              <br />
+              <NavLink
+                activeClassName="active"
+                to="/clients"
+                className="four-corner-link "
+                onMouseEnter={this.changeStyleBarState.bind(this)}
+                onMouseLeave={this.changeStyleBarState.bind(this)}
+              >
+                clients
+              </NavLink>
+            </div>
+          </div>
+        </Dock>
       </div>
     );
   }
