@@ -11,7 +11,8 @@
   margin-right: 128px;
 }
 
-.menu-frame {}
+.menu-frame {
+}
 
 .menu-frame-inner {
   /* border: 16px solid #FDDEA8; */
@@ -195,11 +196,11 @@
 .social-icons a:hover {
   padding: 0px 15px;
   color: #222;
-  color: #4FE3C2;
+  color: #4fe3c2;
 }
 
 .button {
-  background: #4FE3C2;
+  background: #4fe3c2;
   padding: 15px 30px;
   color: white;
   transition: all 0.5s ease;
@@ -245,5 +246,15 @@
   }
   .menu-frame-inner {
     display: none;
+  }
+  .menu-logo {
+    margin-top: 45px;
+    position: fixed;
+    left: 120px;
+    margin-left: -83px;
+    z-index: 9999;
+  }
+  .home-wrapper {
+    margin-top: 160px;
   }
 }

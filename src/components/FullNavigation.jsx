@@ -9,8 +9,23 @@ class FullNavigation extends React.Component {
     styleBarExposed: false,
     pressBarExposed: false,
     teamBarExposed: false,
-    clientsBarExposed: false
+    clientsBarExposed: false,
+    styleBarUrlActivate: false,
+    pressBarUrlActivate: false,
+    teamBarUrlActivate: false,
+    clientsBarUrlActivate: false
   };
+  componentWillReceiveProps(nextProps) {
+    let activeOpenKey = `${nextProps.location.pathname.split("/")[1]}`;
+    activeOpenKey = activeOpenKey + "BarUrlActivate";
+    this.setState({
+      styleBarUrlActivate: false,
+      pressBarUrlActivate: false,
+      teamBarUrlActivate: false,
+      clientsBarUrlActivate: false
+    });
+    this.setState({ [activeOpenKey]: true });
+  }
   changeStyleBarState(barName) {
     this.setState({ styleBarExposed: !this.state.styleBarExposed });
   }
@@ -36,7 +51,7 @@ class FullNavigation extends React.Component {
           >
             style
           </NavLink>
-          {this.state.styleBarExposed ? (
+          {this.state.styleBarExposed || this.state.styleBarUrlActivate ? (
             <div className="bottom-bar style-bottom-bar" />
           ) : null}
           <a
