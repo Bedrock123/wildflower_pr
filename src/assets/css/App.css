@@ -272,7 +272,6 @@
   letter-spacing: 2.5px;
 }
 .client-object {
-  height: 300px;
   padding: 34px;
   margin-top: 30px;
 }
@@ -318,7 +317,7 @@
     z-index: 9999;
   }
   .home-wrapper {
-    margin-top: 160px;
+    margin: 160px 50px 50px 50px;
   }
 }
 
@@ -330,10 +329,15 @@
   color: black;
   cursor: pointer;
 }
-.link-container {
+.link-container  {
   position: absolute;
   right: 20px;
   top: 95px;
   text-align: right !important;
   line-height: 50px;
+}
+.link-container  a {
+
+  text-align: right !important;
+ 
 }

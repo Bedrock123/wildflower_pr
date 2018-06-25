@@ -7,7 +7,7 @@ class Home extends React.Component {
     return (
       <div className="home-wrapper">
         <Row>
-          <Col md={{ span: 16, offset: 4 }} sm={{ span: 20, offset: 2 }}>
+          <Col md={{ span: 16, offset: 4 }} sm={{ span: 20, offset: 2 }} className="image-container-red ">
             <img
               src={couch_photo}
               alt="Couch On A Beach"

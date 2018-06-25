@@ -111,8 +111,8 @@ class FullNavigation extends React.Component {
             activeClassName="active"
             to="/clients"
             className="four-corner-link clients-link"
-            onMouseEnter={this.changeTeamBarState.bind(this)}
-            onMouseLeave={this.changeTeamBarState.bind(this)}
+            onMouseEnter={this.changeClientsBarState.bind(this)}
+            onMouseLeave={this.changeClientsBarState.bind(this)}
           >
             clients{" "}
           </NavLink>{" "}
@@ -188,8 +188,8 @@ class FullNavigation extends React.Component {
                 onMouseEnter={this.changeStyleBarState.bind(this)}
                 onMouseLeave={this.changeStyleBarState.bind(this)}
               >
-                clients{" "}
-              </NavLink>{" "}
+                clients
+              </NavLink>
             </div>{" "}
           </div>{" "}
         </Dock>{" "}

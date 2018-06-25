@@ -8,7 +8,8 @@ class Clients extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      entries: []
+      entries: [],
+      cleanedEntries: {}
     };
   }
   client = contentful.createClient({
@@ -17,7 +18,7 @@ class Clients extends React.Component {
       "e6a73de0cbe113450d3bb4b02e54a0db2552cd57c390f8d1cb53e278c9075c8d"
   });
 
-  componentWillMount() {
+  componentDidMount() {
     var that = this;
     this.client
       .getEntries({
@@ -25,10 +26,36 @@ class Clients extends React.Component {
       })
       .then(function(entries) {
         that.setState({ entries: entries.items });
+        var arrayLength = entries.items.length;
+        var cleanedEntries = {};
+        for (var i = 0; i < arrayLength; i++) {
+          var singleClientObject = entries.items[i];
+          if (
+            !(
+              singleClientObject.fields.clientType.fields.name in
+              that.state.cleanedEntries
+            )
+          ) {
+            cleanedEntries[singleClientObject.fields.clientType.fields.name] = [];
+            that.setState({ cleanedEntries: cleanedEntries });
+            console.log(singleClientObject.fields.clientType.fields.name);
+          } 
+        }
+        var arrayLength = entries.items.length;
+        for (var i = 0; i < arrayLength; i++) {
+          var singleClientObject = entries.items[i];
+          if (singleClientObject.fields.clientType.fields.name in that.state.cleanedEntries) {
+            that.state.cleanedEntries[singleClientObject.fields.clientType.fields.name].push(singleClientObject)
+          }
+        }
+
+
       });
   }
-  renderClientObjects() {
-    return this.state.entries.map(entry => {
+
+  renderCategoryObjects(entries) {
+
+          return entries.map(entry => {
       return (
         <Col lg={{ span: 6 }}>
           <a href={entry.fields.clientUrl} target="_blank">
@@ -47,14 +74,30 @@ class Clients extends React.Component {
       );
     });
   }
+  renderClientObjects() {
+    var titles = []
+    for (var category in this.state.cleanedEntries){
+        if (typeof this.state.cleanedEntries[category] !== 'function') {
+            titles.push(
+                <Row>
+                <h2>{category}</h2>
+                <br />
+                {this.renderCategoryObjects(this.state.cleanedEntries[category])}
+                <br />
+      
+                </Row>
+            )
+         
+
+        }
+    }
+
+    return titles
+  }
   render() {
     return (
       <div className="home-wrapper company-listings">
-        <Row>
-          <h2>Wellness & Ecofriendly Companies</h2>
-          <br />
-          {this.renderClientObjects()}
-        </Row>
+    {this.renderClientObjects()}
       </div>
     );
   }
