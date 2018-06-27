@@ -10,6 +10,7 @@ import Press from "./containers/Press";
 import Style from "./containers/Style";
 import { NavLink } from "react-router-dom";
 import FullNavigation from "./components/FullNavigation";
+import JoinOurTeam from "./containers/JoinOurTeam";
 import Footer from "./components/Footer";
 import ScrollToTop from "./containers/ScrollToTop";
 import TransitionGroup from "react-transition-group/TransitionGroup";
@@ -48,6 +49,7 @@ class App extends React.Component {
                         <Route exact path="/team" component={Team} />
                         <Route exact path="/clients" component={Clients} />
                         <Route exact path="/press" component={Press} />
+                        <Route exact path="/join-our-team" component={JoinOurTeam} />
                       </AnimatedSwitch>
                     </TransitionGroup>
                   )}

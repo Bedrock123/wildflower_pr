@@ -18,7 +18,7 @@ class Clients extends React.Component {
       "e6a73de0cbe113450d3bb4b02e54a0db2552cd57c390f8d1cb53e278c9075c8d"
   });
 
-  componentDidMount() {
+  findItems() {
     var that = this;
     this.client
       .getEntries({
@@ -51,6 +51,9 @@ class Clients extends React.Component {
 
 
       });
+  }
+  componentDidMount() {
+    this.findItems()
   }
 
   renderCategoryObjects(entries) {

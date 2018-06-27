@@ -11,8 +11,7 @@
   margin-right: 128px;
 }
 
-.menu-frame {
-}
+.menu-frame {}
 
 .menu-frame-inner {
   /* border: 16px solid #FDDEA8; */
@@ -204,6 +203,7 @@
   padding: 15px 30px;
   color: white;
   transition: all 0.5s ease;
+  white-space: nowrap;
 }
 
 .button:hover {
@@ -235,10 +235,12 @@
 }
 
 /* Styles Page Styles */
+
 .image-content-green {
   background: #cee1dd;
   padding: 30px;
 }
+
 .image-container-green img {
   width: 100%;
   box-shadow: 14px 15px 0px 1px #cee1dd;
@@ -248,18 +250,22 @@
   background: #e6d9d6;
   padding: 30px;
 }
+
 .image-container-red img {
   width: 100%;
   box-shadow: 14px 15px 0px 1px #e6d9d6;
 }
+
 .image-content-yellow {
   background: #fddea8;
   padding: 30px;
 }
+
 .image-container-yellow img {
   width: 100%;
   box-shadow: 14px 15px 0px 1px #fddea8;
 }
+
 .company-listings {
   max-width: 1400px;
   margin: 210px auto;
@@ -271,13 +277,16 @@
   font-size: 25px;
   letter-spacing: 2.5px;
 }
+
 .client-object {
   padding: 34px;
   margin-top: 30px;
 }
+
 .client-object img {
   width: 100%;
 }
+
 .client-object h3 {
   text-align: center;
   margin-top: 15px;
@@ -285,6 +294,7 @@
   letter-spacing: 2.5px;
   font-size: 25px;
 }
+
 @media screen and (max-width: 1500px) {
   .content-wrapper {
     margin-left: 28px;
@@ -330,26 +340,51 @@
   color: black;
   cursor: pointer;
 }
-.link-container  {
+
+.link-container {
   position: absolute;
   right: 20px;
   top: 95px;
   text-align: right !important;
   line-height: 50px;
 }
-.link-container  a {
 
+.link-container a {
   text-align: right !important;
- 
 }
+
 .press-object {
   height: 329px;
   background: #e0bee0;
 }
+
 .press-object .internal-press-container {
   width: 70%;
   height: 50px;
   background: white;
   margin: 0 auto;
+}
 
+.ant-input {
+  border: 0px !important;
+  border-bottom: 2px solid black !important;
+  border-radius: 0px !important;
+  background: none !important;
+  padding-left: 0px !important;
+}
+
+.ant-input:focus {
+  outline: none !important;
+  -webkit-box-shadow: 0px 0px !important;
+  border-bottom: 3px solid #4fe3c2 !important;
+}
+
+.ant-btn-primary {
+  background: #4ee3c2 !important;
+  border-color: #4ee3c2 !important;
+  height: 50px !important;
+  line-height: -7px !important;
+  padding: 0px 47px !important;
+  border-radius: 0px !important;
+  font-family: "Montserrat", sans-serif !important;
 }
