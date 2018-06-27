@@ -14,13 +14,11 @@ class Team extends React.Component {
           </Col>
           <Col sm={{ span: 20, offset: 4 }} md={{ span: 8, offset: 1 }}>
             <br />
-            <br />
-            <br />
-            <br />
+
             <div className="image-container-yellow">
               <div className="image-content-yellow">
                 <h2>who we are</h2>
-                <p>
+                <p style={{ lineHeight: "30px" }}>
                   Cum sociis natoque penatibus et magnis dis parturient montes,
                   nascetur ridiculus mus. Aenean eu leo quam. Pellentesque
                   ornare sem lacinia quam venenatis vestibulum.
