@@ -141,10 +141,11 @@ class FullNavigation extends React.Component {
             <div onClick={() => this.setState({ isVisible: false })}>
               <i className="fas fa-times close-icon" />
             </div>{" "}
-            <div className="link-container">
+            <div className="link-container mobile-link-container">
               <NavLink
                 activeClassName="active"
                 to="/"
+                exact
                 className="four-corner-link "
                 onMouseEnter={this.changeStyleBarState.bind(this)}
                 onMouseLeave={this.changeStyleBarState.bind(this)}

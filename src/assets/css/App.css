@@ -287,6 +287,18 @@
   width: 100%;
   box-shadow: 0 3px 5px #ababab;
   border-radius: 3px;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.client-object img:hover {
+  top: 10px;
+  box-shadow: 0 6px 20px #ababab;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  top: 10px;
 }
 
 .client-object h3 {
@@ -309,6 +321,7 @@
     display: inline;
     font-size: 31px;
     position: fixed;
+    z-index: 9999;
     right: 32px;
     top: 48px;
   }
@@ -331,6 +344,15 @@
   }
   .home-wrapper {
     margin: 160px 50px 50px 50px;
+  }
+  .image-container-green {
+    margin: 50px 0px;
+  }
+  .image-container-red {
+    margin: 50px 0px;
+  }
+  .image-container-yellow {
+    margin: 50px 0px;
   }
 }
 
@@ -396,6 +418,16 @@
   border-radius: 3px;
   padding-top: 05px;
   margin: auto;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.press-object:hover {
+  box-shadow: 0 6px 20px #ababab;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .press-logo {
@@ -410,4 +442,9 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.mobile-link-container .active {
+  color: #127a70;
+  border-bottom: 3px solid #127a70;
 }
