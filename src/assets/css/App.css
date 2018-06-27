@@ -285,6 +285,8 @@
 
 .client-object img {
   width: 100%;
+  box-shadow: 0 3px 5px #ababab;
+  border-radius: 3px;
 }
 
 .client-object h3 {
@@ -385,19 +387,25 @@
 }
 
 .press-object {
-  height: 259px;
-  width: 259px;
+  height: 200px;
+  width: 200px;
   background: #e0bee0;
   background-image: url('https://i.imgur.com/dd41lZO.png');
   background-size: cover;
   box-shadow: 0 2px 5px #ababab;
   border-radius: 3px;
-  padding-top: 50px;
+  padding-top: 05px;
+  margin: auto;
+}
+
+.press-logo {
+  width: 100%;
+  padding: 10px 45px;
 }
 
 .press-photo {
   border: 7px solid white;
-  width: 180px;
+  width: 65%;
   text-align: center;
   display: block;
   margin-left: auto;

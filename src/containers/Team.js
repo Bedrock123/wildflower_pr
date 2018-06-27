@@ -14,6 +14,7 @@ class Team extends React.Component {
           </Col>
           <Col sm={{ span: 20, offset: 4 }} md={{ span: 8, offset: 1 }}>
             <br />
+            <br />
 
             <div className="image-container-yellow">
               <div className="image-content-yellow">
