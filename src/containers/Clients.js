@@ -36,36 +36,41 @@ class Clients extends React.Component {
               that.state.cleanedEntries
             )
           ) {
-            cleanedEntries[singleClientObject.fields.clientType.fields.name] = [];
+            cleanedEntries[
+              singleClientObject.fields.clientType.fields.name
+            ] = [];
             that.setState({ cleanedEntries: cleanedEntries });
-            console.log(singleClientObject.fields.clientType.fields.name);
-          } 
+          }
         }
+        console.log(that.state.cleanedEntries);
         var arrayLength = entries.items.length;
         for (var i = 0; i < arrayLength; i++) {
           var singleClientObject = entries.items[i];
-          if (singleClientObject.fields.clientType.fields.name in that.state.cleanedEntries) {
-            that.state.cleanedEntries[singleClientObject.fields.clientType.fields.name].push(singleClientObject)
+          if (
+            singleClientObject.fields.clientType.fields.name in
+            that.state.cleanedEntries
+          ) {
+            that.state.cleanedEntries[
+              singleClientObject.fields.clientType.fields.name
+            ].push(singleClientObject);
           }
         }
-
-
       });
   }
   componentDidMount() {
-    this.findItems()
+    this.findItems();
   }
 
   renderCategoryObjects(entries) {
-    var count = 0
-    var allCategoryClients = []
-    var singleClientRow = []
-    var secondClientRow = []
-   
+    var count = 0;
+    var allCategoryClients = [];
+    var singleClientRow = [];
+    var secondClientRow = [];
+
     entries.map(entry => {
-      count = count + 1
-      if (count == 1 || count == 2 || count == 3 || count ==4) {
-        var clientObject  = (
+      count = count + 1;
+      if (count == 1 || count == 2 || count == 3 || count == 4) {
+        var clientObject = (
           <Col lg={{ span: 6 }} md={{ span: 12 }} sm={{ span: 24 }}>
             <a href={entry.fields.clientUrl} target="_blank">
               <div className="client-object">
@@ -81,10 +86,10 @@ class Clients extends React.Component {
             </a>
           </Col>
         );
-        singleClientRow.push(clientObject)
+        singleClientRow.push(clientObject);
       }
-      if (count == 5 || count == 6 || count == 7 || count ==8) {
-        var clientObject  = (
+      if (count == 5 || count == 6 || count == 7 || count == 8) {
+        var clientObject = (
           <Col lg={{ span: 6 }} md={{ span: 12 }} sm={{ span: 24 }}>
             <a href={entry.fields.clientUrl} target="_blank">
               <div className="client-object">
@@ -100,39 +105,36 @@ class Clients extends React.Component {
             </a>
           </Col>
         );
-        secondClientRow.push(clientObject)
+        secondClientRow.push(clientObject);
       }
     });
-    allCategoryClients.push(<Row>{singleClientRow}</Row>)
-    allCategoryClients.push(<Row>{secondClientRow}</Row>)
-    return allCategoryClients
+    allCategoryClients.push(<Row>{singleClientRow}</Row>);
+    allCategoryClients.push(<Row>{secondClientRow}</Row>);
+    return allCategoryClients;
   }
   renderClientObjects() {
-    var titles = []
-    for (var category in this.state.cleanedEntries){
-        if (typeof this.state.cleanedEntries[category] !== 'function') {
-            titles.push(
-                <Row>
-                <h2>{category}</h2>
-                <br />
-                <Row>
-                {this.renderCategoryObjects(this.state.cleanedEntries[category])}
-                </Row>
-                <br />
-      
-                </Row>
-            )
-         
-
-        }
+    var titles = [];
+    for (var category in this.state.cleanedEntries) {
+      if (typeof this.state.cleanedEntries[category] !== "function") {
+        titles.push(
+          <Row>
+            <h2>{category}</h2>
+            <br />
+            <Row>
+              {this.renderCategoryObjects(this.state.cleanedEntries[category])}
+            </Row>
+            <br />
+          </Row>
+        );
+      }
     }
 
-    return titles
+    return titles;
   }
   render() {
     return (
       <div className="home-wrapper company-listings">
-    {this.renderClientObjects()}
+        {this.renderClientObjects()}
       </div>
     );
   }
