@@ -73,14 +73,23 @@
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   letter-spacing: 2.5px;
+  border: 0px solid #ffc7a1;
 }
 
 .menu-frame .four-corner-link:hover {
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  color: black;
+  padding: 10px 10px;
+  border: 3px solid #ffc7a1;
 }
-
+.fourcorner-active {
+  color: white !important;
+  padding: 10px 10px;
+  background: #ffc7a1;
+  border: 3px solid #ffc7a1;
+}
 .menu-frame .style-link {
   position: fixed;
   left: 0px;
@@ -290,6 +299,7 @@
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  border: 0px solid white;
 }
 
 .client-object img:hover {
@@ -299,6 +309,7 @@
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   top: 10px;
+  border: 13px solid white;
 }
 
 .client-object h3 {
@@ -448,4 +459,11 @@
 .mobile-link-container .active {
   color: #127a70;
   border-bottom: 3px solid #127a70;
+}
+.client-link:hover h3 {
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+
+  font-size: 20px;
 }

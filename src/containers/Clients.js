@@ -4,6 +4,26 @@ import couch_photo from "../assets/images/couch.jpg";
 
 var contentful = require("contentful");
 
+function sortProperties(obj) {
+  // convert object into array
+  var sortable = [];
+  for (var key in obj)
+    if (obj.hasOwnProperty(key)) sortable.push([key, obj[key]]); // each item is an array in format [key, value]
+
+  // sort items by value
+  sortable.sort(function(a, b) {
+    var x = a[1]["order"],
+      y = b[1]["order"];
+    return x < y ? -1 : x > y ? 1 : 0;
+  });
+  var newList = {};
+  var arrayLength = sortable.length;
+  for (var i = 0; i < arrayLength; i++) {
+    newList[sortable[i][0]] = sortable[i][1];
+  }
+  return newList; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
+}
+
 class Clients extends React.Component {
   constructor(props) {
     super(props);
@@ -36,13 +56,17 @@ class Clients extends React.Component {
               that.state.cleanedEntries
             )
           ) {
-            cleanedEntries[
-              singleClientObject.fields.clientType.fields.name
-            ] = [];
+            cleanedEntries[singleClientObject.fields.clientType.fields.name] = {
+              array: [],
+              order: singleClientObject.fields.clientType.fields.order
+            };
             that.setState({ cleanedEntries: cleanedEntries });
           }
         }
-        console.log(that.state.cleanedEntries);
+        var sortedEntries = sortProperties(that.state.cleanedEntries);
+        that.setState({ cleanedEntries: sortedEntries });
+
+        console.log(sortedEntries);
         var arrayLength = entries.items.length;
         for (var i = 0; i < arrayLength; i++) {
           var singleClientObject = entries.items[i];
@@ -52,7 +76,7 @@ class Clients extends React.Component {
           ) {
             that.state.cleanedEntries[
               singleClientObject.fields.clientType.fields.name
-            ].push(singleClientObject);
+            ]["array"].push(singleClientObject);
           }
         }
       });
@@ -72,7 +96,11 @@ class Clients extends React.Component {
       if (count == 1 || count == 2 || count == 3 || count == 4) {
         var clientObject = (
           <Col lg={{ span: 6 }} md={{ span: 12 }} sm={{ span: 24 }}>
-            <a href={entry.fields.clientUrl} target="_blank">
+            <a
+              href={entry.fields.clientUrl}
+              target="_blank"
+              className="client-link"
+            >
               <div className="client-object">
                 <img
                   src={
@@ -91,7 +119,11 @@ class Clients extends React.Component {
       if (count == 5 || count == 6 || count == 7 || count == 8) {
         var clientObject = (
           <Col lg={{ span: 6 }} md={{ span: 12 }} sm={{ span: 24 }}>
-            <a href={entry.fields.clientUrl} target="_blank">
+            <a
+              href={entry.fields.clientUrl}
+              target="_blank"
+              className="client-link"
+            >
               <div className="client-object">
                 <img
                   src={
@@ -121,7 +153,9 @@ class Clients extends React.Component {
             <h2>{category}</h2>
             <br />
             <Row>
-              {this.renderCategoryObjects(this.state.cleanedEntries[category])}
+              {this.renderCategoryObjects(
+                this.state.cleanedEntries[category]["array"]
+              )}
             </Row>
             <br />
           </Row>

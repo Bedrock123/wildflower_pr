@@ -17,7 +17,7 @@ class CallOut extends React.Component {
             <div className="footer-block">
               <p>Want to join our team!?</p>
               <br />
-              <Link className="button"        to="/join-our-team">
+              <Link className="button" to="/join-our-team">
                 join our team
               </Link>
             </div>
@@ -34,12 +34,7 @@ class CallOut extends React.Component {
                   <a href="#" target="_blank">
                     <i class="fab fa-instagram" />
                   </a>
-                  <a href="#" target="_blank">
-                    <i class="fab fa-facebook-f" />
-                  </a>
-                  <a href="#" target="_blank">
-                    <i class="fab fa-twitter" />
-                  </a>
+
                   <a href="#" target="_blank">
                     <i class="far fa-envelope" />
                   </a>

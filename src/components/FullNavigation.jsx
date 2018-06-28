@@ -73,7 +73,7 @@ class FullNavigation extends React.Component {
       <div className="menu-frame">
         <div className="menu-frame-inner">
           <NavLink
-            activeClassName="active"
+            activeClassName="fourcorner-active"
             to="/style"
             className="four-corner-link style-link"
             onMouseEnter={this.changeStyleBarState.bind(this)}
@@ -81,11 +81,8 @@ class FullNavigation extends React.Component {
           >
             style{" "}
           </NavLink>{" "}
-          {this.state.styleBarExposed || this.state.styleBarUrlActivate ? (
-            <div className="bottom-bar style-bottom-bar" />
-          ) : null}{" "}
           <NavLink
-            activeClassName="active"
+            activeClassName="fourcorner-active"
             to="/press"
             className="four-corner-link press-link"
             onMouseEnter={this.changePressBarState.bind(this)}
@@ -93,11 +90,8 @@ class FullNavigation extends React.Component {
           >
             press{" "}
           </NavLink>{" "}
-          {this.state.pressBarExposed || this.state.pressBarUrlActivate ? (
-            <div className="bottom-bar press-bottom-bar" />
-          ) : null}{" "}
           <NavLink
-            activeClassName="active"
+            activeClassName="fourcorner-active"
             to="/team"
             className="four-corner-link team-link"
             onMouseEnter={this.changeTeamBarState.bind(this)}
@@ -105,11 +99,8 @@ class FullNavigation extends React.Component {
           >
             team{" "}
           </NavLink>{" "}
-          {this.state.teamBarExposed || this.state.teamBarUrlActivate ? (
-            <div className="bottom-bar team-bottom-bar" />
-          ) : null}{" "}
           <NavLink
-            activeClassName="active"
+            activeClassName="fourcorner-active"
             to="/clients"
             className="four-corner-link clients-link"
             onMouseEnter={this.changeClientsBarState.bind(this)}
@@ -117,9 +108,6 @@ class FullNavigation extends React.Component {
           >
             clients{" "}
           </NavLink>{" "}
-          {this.state.clientsBarExposed || this.state.clientsBarUrlActivate ? (
-            <div className="bottom-bar clients-bottom-bar" />
-          ) : null}{" "}
         </div>{" "}
         <i
           className="fas fa-bars menu-icon "
