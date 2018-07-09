@@ -136,6 +136,7 @@ class Clients extends React.Component {
             >
               <div className="client-object">
                 <img
+                  className="client-image"
                   src={
                     entry.fields.clientImage.fields.file.url +
                     "?w=400&h=400&fit=fill"

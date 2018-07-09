@@ -465,10 +465,3 @@
   color: #127a70;
   border-bottom: 3px solid #127a70;
 }
-
-.client-link:hover h3 {
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  font-size: 20px;
-}
