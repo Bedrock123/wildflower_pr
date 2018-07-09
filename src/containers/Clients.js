@@ -40,9 +40,7 @@ class Clients extends React.Component {
   findItems() {
     var that = this;
     this.client
-      .getEntries({
-        content_type: "client"
-      })
+      .getEntries({ content_type: "client", order: "fields.clientName" })
       .then(function(entries) {
         that.setState({ entries: entries.items });
         var arrayLength = entries.items.length;
@@ -90,9 +88,6 @@ class Clients extends React.Component {
     }
     stateChange(that);
   }
-  componentWillReceiveProps() {
-    this.findItems();
-  }
 
   renderCategoryObjects(entries) {
     var count = 0;
@@ -117,6 +112,7 @@ class Clients extends React.Component {
             >
               <div className="client-object">
                 <img
+                  className="client-image"
                   src={
                     entry.fields.clientImage.fields.file.url +
                     "?w=400&h=400&fit=fill"
