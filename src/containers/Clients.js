@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col } from "antd";
-import couch_photo from "../assets/images/couch.jpg";
 
 var contentful = require("contentful");
 
@@ -83,6 +82,16 @@ class Clients extends React.Component {
   }
   componentDidMount() {
     this.findItems();
+    var that = this;
+    function stateChange(that) {
+      setTimeout(function() {
+        that.setState({ readyToRender: true });
+      }, 1000);
+    }
+    stateChange(that);
+  }
+  componentWillReceiveProps() {
+    this.findItems();
   }
 
   renderCategoryObjects(entries) {
@@ -95,7 +104,12 @@ class Clients extends React.Component {
       count = count + 1;
       if (count == 1 || count == 2 || count == 3 || count == 4) {
         var clientObject = (
-          <Col lg={{ span: 6 }} md={{ span: 12 }} sm={{ span: 24 }}>
+          <Col
+            lg={{ span: 6 }}
+            md={{ span: 12 }}
+            sm={{ span: 24 }}
+            key={Math.random()}
+          >
             <a
               href={entry.fields.clientUrl}
               target="_blank"
@@ -144,22 +158,24 @@ class Clients extends React.Component {
     allCategoryClients.push(<Row>{secondClientRow}</Row>);
     return allCategoryClients;
   }
-  renderClientObjects() {
-    var titles = [];
-    for (var category in this.state.cleanedEntries) {
-      if (typeof this.state.cleanedEntries[category] !== "function") {
-        titles.push(
-          <Row>
-            <h2>{category}</h2>
-            <br />
+  renderClientObjects(cleanedEntries) {
+    if (cleanedEntries) {
+      var titles = [];
+      for (var category in this.state.cleanedEntries) {
+        if (typeof this.state.cleanedEntries[category] !== "function") {
+          titles.push(
             <Row>
-              {this.renderCategoryObjects(
-                this.state.cleanedEntries[category]["array"]
-              )}
+              <h2>{category}</h2>
+              <br />
+              <Row>
+                {this.renderCategoryObjects(
+                  this.state.cleanedEntries[category]["array"]
+                )}
+              </Row>
+              <br />
             </Row>
-            <br />
-          </Row>
-        );
+          );
+        }
       }
     }
 
@@ -168,7 +184,7 @@ class Clients extends React.Component {
   render() {
     return (
       <div className="home-wrapper company-listings">
-        {this.renderClientObjects()}
+        {this.renderClientObjects(this.state.cleanedEntries)}
       </div>
     );
   }
