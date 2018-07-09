@@ -465,3 +465,9 @@
   color: #127a70;
   border-bottom: 3px solid #127a70;
 }
+
+.client-object .press-title {
+  font-weight: 400 !important;
+  text-align: left !important;
+  font-size: 15px;
+}

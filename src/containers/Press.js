@@ -27,7 +27,8 @@ class Clients extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      entries: null
+      entries: null,
+      cleanedEntries: []
     };
   }
   client = contentful.createClient({
@@ -43,9 +44,42 @@ class Clients extends React.Component {
         content_type: "pressObject"
       })
       .then(function(entries) {
-        that.setState({
-          entries: entries.items
-        });
+        that.setState({ entries: entries.items });
+        var arrayLength = entries.items.length;
+        var cleanedEntries = {};
+        for (var i = 0; i < arrayLength; i++) {
+          var singleClientObject = entries.items[i];
+          if (
+            !(
+              singleClientObject.fields.pressClient.fields.clientName in
+              that.state.cleanedEntries
+            )
+          ) {
+            cleanedEntries[
+              singleClientObject.fields.pressClient.fields.clientName
+            ] = {
+              array: [],
+              order: singleClientObject.fields.pressClient.fields.order
+            };
+            that.setState({ cleanedEntries: cleanedEntries });
+          }
+        }
+        var sortedEntries = sortProperties(that.state.cleanedEntries);
+        that.setState({ cleanedEntries: sortedEntries });
+
+        console.log(sortedEntries);
+        var arrayLength = entries.items.length;
+        for (var i = 0; i < arrayLength; i++) {
+          var singleClientObject = entries.items[i];
+          if (
+            singleClientObject.fields.pressClient.fields.clientName in
+            that.state.cleanedEntries
+          ) {
+            that.state.cleanedEntries[
+              singleClientObject.fields.pressClient.fields.clientName
+            ]["array"].push(singleClientObject);
+          }
+        }
       });
   }
   componentDidMount() {
@@ -61,9 +95,9 @@ class Clients extends React.Component {
     }
     stateChange(that);
   }
-  renderPressObjects() {
+  renderPressObjects(entries) {
     if (this.state.entries) {
-      return this.state.entries.map(entry => {
+      return entries.map(entry => {
         return (
           <Col
             lg={{ span: 6 }}
@@ -81,9 +115,10 @@ class Clients extends React.Component {
                   className="press-logo"
                   src={
                     entry.fields.pressSource.fields.pressCompanyIcon.fields.file
-                      .url + "?w=400&h=200&fit=pad"
+                      .url + "?w=350&h=200&fit=pad"
                   }
                 />
+                <br />
                 <img
                   className="client-image"
                   src={
@@ -92,8 +127,7 @@ class Clients extends React.Component {
                   }
                 />
                 <br />
-
-                <h3>{entry.fields.title}</h3>
+                <h3 className="press-title">{entry.fields.title}</h3>
               </div>
             </a>
           </Col>
@@ -101,14 +135,35 @@ class Clients extends React.Component {
       });
     }
   }
+
+  renderPressCategorytObjects(cleanedEntries) {
+    if (cleanedEntries) {
+      var titles = [];
+      for (var category in this.state.cleanedEntries) {
+        if (typeof this.state.cleanedEntries[category] !== "function") {
+          titles.push(
+            <Row>
+              <h2>{category}</h2>
+              <br />
+              <Row>
+                {this.renderPressObjects(
+                  this.state.cleanedEntries[category]["array"]
+                )}
+              </Row>
+              <br />
+            </Row>
+          );
+        }
+      }
+    }
+
+    return titles;
+  }
+
   render() {
     return (
       <div className="home-wrapper company-listings">
-        <Row>
-          <h2> animus </h2>
-          <Row>{this.renderPressObjects()}</Row>
-          <br />
-        </Row>
+        {this.renderPressCategorytObjects(this.state.cleanedEntries)}
       </div>
     );
   }
