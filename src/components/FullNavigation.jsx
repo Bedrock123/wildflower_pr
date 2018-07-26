@@ -84,6 +84,7 @@ class FullNavigation extends React.Component {
           <NavLink
             activeClassName="fourcorner-active"
             to="/press"
+            exact
             className="four-corner-link press-link"
             onMouseEnter={this.changePressBarState.bind(this)}
             onMouseLeave={this.changePressBarState.bind(this)}
@@ -154,6 +155,7 @@ class FullNavigation extends React.Component {
               <NavLink
                 activeClassName="active"
                 to="/press"
+                exact
                 className="four-corner-link "
                 onMouseEnter={this.changeStyleBarState.bind(this)}
                 onMouseLeave={this.changeStyleBarState.bind(this)}

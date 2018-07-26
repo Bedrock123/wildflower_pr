@@ -7,6 +7,7 @@ import Home from "./containers/Home";
 import Team from "./containers/Team";
 import Clients from "./containers/Clients";
 import Press from "./containers/Press";
+import PressClientOnly from "./containers/PressClientOnly";
 import Style from "./containers/Style";
 import { NavLink } from "react-router-dom";
 import FullNavigation from "./components/FullNavigation";
@@ -48,6 +49,8 @@ class App extends React.Component {
                         <Route exact path="/style" component={Style} />
                         <Route exact path="/team" component={Team} />
                         <Route exact path="/clients" component={Clients} />
+                        <Route exact path="/press" component={Press} exact />
+                        <Route exact path="/press/:clientName" component={PressClientOnly} />
                         <Route exact path="/press" component={Press} />
                         <Route exact path="/join-our-team" component={JoinOurTeam} />
                       </AnimatedSwitch>

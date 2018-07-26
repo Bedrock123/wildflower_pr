@@ -99,6 +99,9 @@ class Clients extends React.Component {
       });
   }
   componentDidMount() {
+      console.log('xxxxxxxx')
+      this.setState({client: this.props.match.params.clientName})
+      console.log('xxxxxxxx')
     this.findItems();
     var that = this;
 
@@ -113,12 +116,17 @@ class Clients extends React.Component {
   }
   
   renderPressObjects(entries) {
+    var allPressObjects = []
+    var firstPressRow = []
+    var secondPressRow = []
+    var thirdPressRow = []
+    var fourthPressRow = []
     if (entries) {
       var count = 0;
-      return entries.map(entry => {
-        if (count <= 3 ) {
-          count = count + 1;
-          return (
+     entries.map(entry => {
+        count = count + 1;
+        if (count <= 4 ) {
+          var singlePressObject = (
             <Col
               lg={{
                 span: 6
@@ -162,9 +170,110 @@ class Clients extends React.Component {
               </a>
             </Col>
           );
+          firstPressRow.push(singlePressObject)
+        }
+        if (count > 4 && count <= 8 ) {
+          var singlePressObject = (
+            <Col
+              lg={{
+                span: 6
+              }}
+              md={{
+                span: 12
+              }}
+              sm={{
+                span: 24
+              }}
+              key={Math.random()}
+            >
+              <a
+                href={entry.fields.pressUrl}
+                target="_blank"
+                className="client-link"
+              >
+                <div className="client-object">
+                { entry.fields.pressSource.fields.pressCompanyIcon ?
+                  <img
+                      className="press-logo"
+                      src={
+                        entry.fields.pressSource.fields.pressCompanyIcon.fields.file
+                          .url + "?w=350&h=200&fit=pad"
+                      }
+                    /> 
+                    :
+                    null
+                }
+                  <br />
+                  <img
+                    className="client-image"
+                    src={
+                      entry.fields.pressImage.fields.file.url +
+                      "?w=400&h=400&fit=fill"
+                    }
+                  />
+                  <br />
+                  <h3 className="press-title"> {entry.fields.title}</h3>
+                </div>
+              </a>
+            </Col>
+          );
+          secondPressRow.push(singlePressObject)
+        }
+        if (count > 8 && count <= 12 ) {
+          var singlePressObject = (
+            <Col
+              lg={{
+                span: 6
+              }}
+              md={{
+                span: 12
+              }}
+              sm={{
+                span: 24
+              }}
+              key={Math.random()}
+            >
+              <a
+                href={entry.fields.pressUrl}
+                target="_blank"
+                className="client-link"
+              >
+                <div className="client-object">
+                { entry.fields.pressSource.fields.pressCompanyIcon ?
+                  <img
+                      className="press-logo"
+                      src={
+                        entry.fields.pressSource.fields.pressCompanyIcon.fields.file
+                          .url + "?w=350&h=200&fit=pad"
+                      }
+                    /> 
+                    :
+                    null
+                }
+                  <br />
+                  <img
+                    className="client-image"
+                    src={
+                      entry.fields.pressImage.fields.file.url +
+                      "?w=400&h=400&fit=fill"
+                    }
+                  />
+                  <br />
+                  <h3 className="press-title"> {entry.fields.title}</h3>
+                </div>
+              </a>
+            </Col>
+          );
+          thirdPressRow.push(singlePressObject)
         }
       });
     }
+    allPressObjects.push(<Row>{firstPressRow}</Row>)
+    allPressObjects.push(<Row>{secondPressRow}</Row>)
+    allPressObjects.push(<Row>{thirdPressRow}</Row>)
+    allPressObjects.push(<Row>{fourthPressRow}</Row>)
+
+    return allPressObjects
   }
 
   renderPressCategorytObjects(cleanedEntries) {
@@ -172,25 +281,28 @@ class Clients extends React.Component {
       var titles = [];
       for (var category in this.state.cleanedEntries) {
         if (typeof this.state.cleanedEntries[category] !== "function") {
-          titles.push(
-            <Row>
-              <h2> {category} </h2> 
-              <Link to={"/press/" + slugify(category)} style={{
+        if (slugify(category) === this.state.client) {
 
-              textAlign: 'center',
-              display: 'block'
-
-              }}> See All Posts For {category} </Link> <br />
-
+            titles.push(
               <Row>
-                {" "}
-                {this.renderPressObjects(
-                  this.state.cleanedEntries[category]["array"]
-                )}{" "}
-              </Row>{" "}
-              <br />
-            </Row>
-          );
+                <h2> {category} </h2> 
+                <Link to={"/press/"} style={{
+  
+                textAlign: 'center',
+                display: 'block'
+  
+                }}> See All Posts</Link> <br />
+  
+                <Row>
+                  {" "}
+                  {this.renderPressObjects(
+                    this.state.cleanedEntries[category]["array"]
+                  )}{" "}
+                </Row>{" "}
+                <br />
+              </Row>
+            );
+        }
         }
       }
     }
