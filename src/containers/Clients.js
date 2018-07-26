@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
 
+
 var contentful = require("contentful");
 
 function sortProperties(obj) {
@@ -111,13 +112,18 @@ class Clients extends React.Component {
               className="client-link"
             >
               <div className="client-object">
+              {entry.fields.clientImage.fields ? 
                 <img
-                  className="client-image"
-                  src={
-                    entry.fields.clientImage.fields.file.url +
-                    "?w=400&h=400&fit=fill"
-                  }
-                />
+                    className="client-image"
+                    src={
+                      entry.fields.clientImage.fields.file.url +
+                      "?w=400&h=400&fit=fill"
+                    }
+                  />
+                  :
+                  null
+
+              } 
                 <br />
                 <h3>{entry.fields.clientName}</h3>
               </div>
@@ -135,13 +141,18 @@ class Clients extends React.Component {
               className="client-link"
             >
               <div className="client-object">
+              {entry.fields.clientImage.fields ? 
                 <img
-                  className="client-image"
-                  src={
-                    entry.fields.clientImage.fields.file.url +
-                    "?w=400&h=400&fit=fill"
-                  }
-                />
+                    className="client-image"
+                    src={
+                      entry.fields.clientImage.fields.file.url +
+                      "?w=400&h=400&fit=fill"
+                    }
+                  />
+                  :
+                  null
+
+              } 
                 <br />
                 <h3>{entry.fields.clientName}</h3>
               </div>

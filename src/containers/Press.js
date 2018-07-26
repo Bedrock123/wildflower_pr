@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
+import { Link } from "react-router-dom";
 
 var contentful = require("contentful");
 
@@ -44,7 +45,9 @@ class Clients extends React.Component {
         content_type: "pressObject"
       })
       .then(function(entries) {
-        that.setState({ entries: entries.items });
+        that.setState({
+          entries: entries.items
+        });
         var arrayLength = entries.items.length;
         var cleanedEntries = {};
         for (var i = 0; i < arrayLength; i++) {
@@ -61,11 +64,15 @@ class Clients extends React.Component {
               array: [],
               order: singleClientObject.fields.pressClient.fields.order
             };
-            that.setState({ cleanedEntries: cleanedEntries });
+            that.setState({
+              cleanedEntries: cleanedEntries
+            });
           }
         }
         var sortedEntries = sortProperties(that.state.cleanedEntries);
-        that.setState({ cleanedEntries: sortedEntries });
+        that.setState({
+          cleanedEntries: sortedEntries
+        });
 
         console.log(sortedEntries);
         var arrayLength = entries.items.length;
@@ -95,43 +102,58 @@ class Clients extends React.Component {
     }
     stateChange(that);
   }
+  
   renderPressObjects(entries) {
-    if (this.state.entries) {
+    if (entries) {
+      var count = 0;
       return entries.map(entry => {
-        return (
-          <Col
-            lg={{ span: 6 }}
-            md={{ span: 12 }}
-            sm={{ span: 24 }}
-            key={Math.random()}
-          >
-            <a
-              href={entry.fields.pressUrl}
-              target="_blank"
-              className="client-link"
+        if (count <= 3 ) {
+          count = count + 1;
+          return (
+            <Col
+              lg={{
+                span: 6
+              }}
+              md={{
+                span: 12
+              }}
+              sm={{
+                span: 24
+              }}
+              key={Math.random()}
             >
-              <div className="client-object">
-                <img
-                  className="press-logo"
-                  src={
-                    entry.fields.pressSource.fields.pressCompanyIcon.fields.file
-                      .url + "?w=350&h=200&fit=pad"
-                  }
-                />
-                <br />
-                <img
-                  className="client-image"
-                  src={
-                    entry.fields.pressImage.fields.file.url +
-                    "?w=400&h=400&fit=fill"
-                  }
-                />
-                <br />
-                <h3 className="press-title">{entry.fields.title}</h3>
-              </div>
-            </a>
-          </Col>
-        );
+              <a
+                href={entry.fields.pressUrl}
+                target="_blank"
+                className="client-link"
+              >
+                <div className="client-object">
+                {false ?
+                  <img
+                      className="press-logo"
+                      src={
+                        entry.fields.pressSource.fields.pressCompanyIcon.fields.file
+                          .url + "?w=350&h=200&fit=pad"
+                      }
+                    /> 
+                    :
+                    null
+                }
+                  <br />
+                  <img
+                    className="client-image"
+                    src={
+                      entry.fields.pressImage.fields.file.url +
+                      "?w=400&h=400&fit=fill"
+                    }
+                  />
+                  <br />
+                  <h3 className="press-title"> {entry.fields.title}</h3>
+                </div>
+              </a>
+            </Col>
+          );
+        }
       });
     }
   }
@@ -143,13 +165,20 @@ class Clients extends React.Component {
         if (typeof this.state.cleanedEntries[category] !== "function") {
           titles.push(
             <Row>
-              <h2>{category}</h2>
-              <br />
+              <h2> {category} </h2> 
+              <Link to="/" style={{
+
+              textAlign: 'center',
+              display: 'block'
+
+              }}> See All Posts For {category} </Link> <br />
+
               <Row>
+                {" "}
                 {this.renderPressObjects(
                   this.state.cleanedEntries[category]["array"]
-                )}
-              </Row>
+                )}{" "}
+              </Row>{" "}
               <br />
             </Row>
           );
@@ -163,7 +192,8 @@ class Clients extends React.Component {
   render() {
     return (
       <div className="home-wrapper company-listings">
-        {this.renderPressCategorytObjects(this.state.cleanedEntries)}
+        {" "}
+        {this.renderPressCategorytObjects(this.state.cleanedEntries)}{" "}
       </div>
     );
   }

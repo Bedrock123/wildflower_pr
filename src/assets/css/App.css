@@ -116,11 +116,9 @@
 }
 
 .menu-logo {
-  margin-top: 45px;
-  position: fixed;
-  left: 50%;
-  margin-left: -83px;
-  z-index: 9999;
+  margin: 45px auto;
+  text-align: center;
+  display: block;
 }
 
 .menu-frame .bottom-bar {
@@ -279,7 +277,7 @@
 
 .company-listings {
   max-width: 1385px;
-  margin: 210px auto;
+  margin: 100px auto;
 }
 
 .company-listings h2 {
@@ -469,5 +467,5 @@
 .client-object .press-title {
   font-weight: 400 !important;
   text-align: left !important;
-  font-size: 15px;
+  font-size: 12px;
 }
