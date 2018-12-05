@@ -9,6 +9,7 @@ import Clients from "./containers/Clients";
 import Press from "./containers/Press";
 import PressClientOnly from "./containers/PressClientOnly";
 import Style from "./containers/Style";
+import Background from "../src/assets/images/background_v1.png";
 import { NavLink } from "react-router-dom";
 import FullNavigation from "./components/FullNavigation";
 import JoinOurTeam from "./containers/JoinOurTeam";
@@ -31,7 +32,10 @@ class App extends React.Component {
       <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
         <div>
           <ScrollToTop>
-            <div className="global-container">
+            <div
+              className="global-container"
+              style={{ backgroundImage: "url(" + Background + ")" }}
+            >
               <NavLink to="/">
                 <img
                   src={logo}
@@ -50,9 +54,17 @@ class App extends React.Component {
                         <Route exact path="/team" component={Team} />
                         <Route exact path="/clients" component={Clients} />
                         <Route exact path="/press" component={Press} exact />
-                        <Route exact path="/press/:clientName" component={PressClientOnly} />
+                        <Route
+                          exact
+                          path="/press/:clientName"
+                          component={PressClientOnly}
+                        />
                         <Route exact path="/press" component={Press} />
-                        <Route exact path="/join-our-team" component={JoinOurTeam} />
+                        <Route
+                          exact
+                          path="/join-our-team"
+                          component={JoinOurTeam}
+                        />
                       </AnimatedSwitch>
                     </TransitionGroup>
                   )}

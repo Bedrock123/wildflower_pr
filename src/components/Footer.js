@@ -24,8 +24,6 @@ class CallOut extends React.Component {
           </Col>
           <Col md={24} lg={10} style={{ height: "100%" }}>
             <div className="footer-block">
-              <img src={logo} className="footer-logo" />
-              <br />
               <br />
               <p>nyc | brooklyn | 212.xxx.xxx</p>
               <p>contact us at catherine@insidecrowd.co</p>
