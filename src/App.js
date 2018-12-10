@@ -1,8 +1,8 @@
 import React from "react";
 import "./assets/css/Normalize.css";
 import "./assets/css/App.css";
-import logo from "./assets/images/logo.svg";
-import { BrowserRouter, Route } from "react-router-dom";
+import logo from "./assets/images/logo.gif";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./containers/Home";
 import Team from "./containers/Team";
 import Clients from "./containers/Clients";
@@ -15,66 +15,122 @@ import FullNavigation from "./components/FullNavigation";
 import JoinOurTeam from "./containers/JoinOurTeam";
 import Footer from "./components/Footer";
 import ScrollToTop from "./containers/ScrollToTop";
-import TransitionGroup from "react-transition-group/TransitionGroup";
-import AnimatedSwitch from "./containers/AnimatedSwitch";
+
 import ExtraBorder from "./components/ExtraBorder";
+
 class App extends React.Component {
-  state = {
-    newKey: new Date()
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      newKey: new Date(),
+      lastPath: ""
+    };
+  }
+  componentWillMount() {
+    this.setState({ lastPath: window.location.pathname });
+  }
+  renderMenu() {
+    var path = this.state.lastPath;
+    if (path !== "/") {
+      return (
+        <NavLink to="/">
+          <img src={logo} alt="Wildflower PR Logo" className="menu-logo" />
+        </NavLink>
+      );
+    }
+  }
+
+  renderBackground() {
+    var path = this.state.lastPath;
+    if (path == "/") {
+      return { backgroundImage: "url(" + Background + ")" };
+    } else {
+      return { background: "white" };
+    }
+  }
+  renderExtraBorder() {
+    var path = this.state.lastPath;
+    if (path !== "/") {
+      return <ExtraBorder />;
+    }
+  }
+  updateDate() {
+    console.log("hi");
+    if (this.state.lastPath !== window.location.pathname) {
+      this.setState({ lastPath: window.location.pathname });
+    }
+    console.log(this.state.lastPath);
+  }
 
   render() {
-    document.getElementById("body").onclick = function(e) {
-      this.setState({ newKey: new Date() });
-    }.bind(this);
-
     return (
-      <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
-        <div>
-          <ScrollToTop>
-            <div
-              className="global-container"
-              style={{ backgroundImage: "url(" + Background + ")" }}
-            >
-              <NavLink to="/">
-                <img
-                  src={logo}
-                  alt="Wildflower PR Logo"
-                  className="menu-logo"
-                />
-              </NavLink>
-              <FullNavigation />
-              <div className="content-wrapper">
+      <BrowserRouter onUpdate={() => alert("hi")}>
+        <ScrollToTop>
+          <div className="global-container" style={this.renderBackground()}>
+            {this.renderMenu()}
+
+            <FullNavigation />
+            <div className="content-wrapper">
+              <Switch>
                 <Route
-                  render={({ location }) => (
-                    <TransitionGroup component="main">
-                      <AnimatedSwitch key={location.key} location={location}>
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/style" component={Style} />
-                        <Route exact path="/team" component={Team} />
-                        <Route exact path="/clients" component={Clients} />
-                        <Route exact path="/press" component={Press} exact />
-                        <Route
-                          exact
-                          path="/press/:clientName"
-                          component={PressClientOnly}
-                        />
-                        <Route exact path="/press" component={Press} />
-                        <Route
-                          exact
-                          path="/join-our-team"
-                          component={JoinOurTeam}
-                        />
-                      </AnimatedSwitch>
-                    </TransitionGroup>
-                  )}
+                  exact
+                  path="/team"
+                  render={state => {
+                    // seems ok ?
+                    this.updateDate();
+                    return <Team match={state.match} />;
+                  }}
                 />
-              </div>
+                <Route
+                  exact
+                  path="/"
+                  render={state => {
+                    // seems ok ?
+                    this.updateDate();
+                    return <Home match={state.match} />;
+                  }}
+                />
+                <Route
+                  exact
+                  path="/style"
+                  render={state => {
+                    // seems ok ?
+                    this.updateDate();
+                    return <Style match={state.match} />;
+                  }}
+                />
+                <Route
+                  exact
+                  path="/clients"
+                  render={state => {
+                    // seems ok ?
+                    this.updateDate();
+                    return <Clients match={state.match} />;
+                  }}
+                />
+                <Route
+                  exact
+                  path="/press"
+                  render={state => {
+                    // seems ok ?
+                    this.updateDate();
+                    return <Press match={state.match} />;
+                  }}
+                  exact
+                />
+                <Route
+                  exact
+                  path="/press/:clientName"
+                  component={PressClientOnly}
+                />
+                <Route exact path="/press" component={Press} />
+                <Route exact path="/join-our-team" component={JoinOurTeam} />
+              </Switch>
             </div>
-            <ExtraBorder />
-            <Footer />
-          </ScrollToTop>
-        </div>
+            {this.renderExtraBorder()}
+          </div>
+          <Footer />
+        </ScrollToTop>
       </BrowserRouter>
     );
   }

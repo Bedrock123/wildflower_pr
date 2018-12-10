@@ -5,113 +5,54 @@ import couch_photo from "../assets/images/couch.jpg";
 class Home extends React.Component {
   render() {
     return (
-      <div className="home-wrapper">
-        <Row>
-          <Col sm={{ span: 20, offset: 4 }} md={{ span: 6, offset: 5 }}>
-            <div className="image-container-green">
-              <img src="https://i.imgur.com/iCfVHNK.jpg" />
+      <div className="style-wrapper">
+        <div className="style-container">
+          <div className="content-container">
+            <div className="content-header">
+              <p>WHAT WE DO</p>
             </div>
-          </Col>
-          <Col sm={{ span: 20, offset: 4 }} md={{ span: 6, offset: 1 }}>
-            <div className="image-container-green">
-              <div className="image-content-green">
-                <h2>creative</h2>
-                <b>design</b>
-                <p>
-                  Cum sociis natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Aenean eu leo quam. Pellentesque
-                  ornare sem lacinia quam venenatis vestibulum.
-                </p>
-                <br />
-                <b>social media</b>
-                <p>
-                  Cum sociis natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Aenean eu leo quam. Pellentesque
-                  ornare sem lacinia quam venenatis vestibulum.
-                </p>
-                <br />
-                <b>website development</b>
-                <p>
-                  Cum sociis natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Aenean eu leo quam. Pellentesque
-                  ornare sem lacinia quam venenatis vestibulum.
-                </p>
-              </div>
+            <div className="content-block">
+              <div className="content-icon" />
+              <p className="content-title">STRATEGIC COMMUNICATION</p>
+              <p className="content-paragraph">
+                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                venenatis vestibulum. Maecenas faucibus mollis interdum.
+              </p>
             </div>
-          </Col>
-        </Row>
-        <br />
-        <br />
-        <Row>
-          <Col sm={{ span: 20, offset: 4 }} md={{ span: 6, offset: 5 }}>
-            <div>
-              <div className="image-content-red">
-                <h2>public relations</h2>
-                <b>communications</b>
-                <p>
-                  Cum sociis natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Aenean eu leo quam. Pellentesque
-                  ornare sem lacinia quam venenatis vestibulum.
-                </p>
-                <br />
-                <b>strategic partnerships</b>
-                <p>
-                  Cum sociis natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Aenean eu leo quam. Pellentesque
-                  ornare sem lacinia quam venenatis vestibulum.
-                </p>
-                <br />
-                <b>media relations</b>
-                <p>
-                  Cum sociis natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Aenean eu leo quam. Pellentesque
-                  ornare sem lacinia quam venenatis vestibulum.
-                </p>
-              </div>
+            <div className="content-block">
+              <div className="content-icon" />
+              <p className="content-title">MEDIA RELATIONS</p>
+              <p className="content-paragraph">
+                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                venenatis vestibulum. Maecenas faucibus mollis interdum.
+              </p>
             </div>
-          </Col>
-          <Col sm={{ span: 20, offset: 4 }} md={{ span: 6, offset: 1 }}>
-            <div className="image-container-red">
-              <img src="https://i.imgur.com/iCfVHNK.jpg" />
+            <div className="content-block">
+              <div className="content-icon" />
+              <p className="content-title">PARTNERSHIPS & COLLOABORATIONS</p>
+              <p className="content-paragraph">
+                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                venenatis vestibulum. Maecenas faucibus mollis interdum.
+              </p>
             </div>
-          </Col>
-        </Row>
-        <br />
-        <br />
-        <Row>
-          <Col sm={{ span: 20, offset: 4 }} md={{ span: 6, offset: 5 }}>
-            <div className="image-container-yellow">
-              <img src="https://i.imgur.com/iCfVHNK.jpg" />
+            <div className="content-block">
+              <div className="content-icon" />
+              <p className="content-title">COPYWRITING</p>
+              <p className="content-paragraph">
+                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                venenatis vestibulum. Maecenas faucibus mollis interdum.
+              </p>
             </div>
-          </Col>
-          <Col sm={{ span: 20, offset: 4 }} md={{ span: 6, offset: 1 }}>
-            <div className="image-container-yellow">
-              <div className="image-content-yellow">
-                <h2>marketing</h2>
-                <b>brand development</b>
-                <p>
-                  Cum sociis natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Aenean eu leo quam. Pellentesque
-                  ornare sem lacinia quam venenatis vestibulum.
-                </p>
-                <br />
-                <b>events</b>
-                <p>
-                  Cum sociis natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Aenean eu leo quam. Pellentesque
-                  ornare sem lacinia quam venenatis vestibulum.
-                </p>
-                <br />
-                <b>strategy</b>
-                <p>
-                  Cum sociis natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Aenean eu leo quam. Pellentesque
-                  ornare sem lacinia quam venenatis vestibulum.
-                </p>
-              </div>
+            <div className="content-block">
+              <div className="content-icon" />
+              <p className="content-title">EVENTS</p>
+              <p className="content-paragraph">
+                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                venenatis vestibulum. Maecenas faucibus mollis interdum.
+              </p>
             </div>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </div>
     );
   }

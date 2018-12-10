@@ -1,3 +1,54 @@
+@font-face {
+  font-family: 'Baron Neue';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baron Neue'), url('../fonts/Baron\ Neue.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Baron Neue Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baron Neue Italic'), url('../fonts/Baron\ Neue\ Italic.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Baron Neue Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baron Neue Bold Italic'),
+    url('../fonts/Baron\ Neue\ Bold\ Italic.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Baron Neue Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baron Neue Bold'),
+    url('../fonts/Baron\ Neue\ Bold.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Baron Neue Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baron Neue Black Italic'),
+    url('../fonts/Baron\ Neue\ Black\ Italic.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Baron Neue Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Baron Neue Black'),
+    url('../fonts/Baron\ Neue\ Black.woff') format('woff');
+}
+
 .global-container {
   font-family: 'Inconsolata', monospace;
   overflow: hidden;
@@ -26,7 +77,7 @@
   z-index: 9999;
   top: 0px;
   width: 16px;
-  background-color: transparent;
+  background-color: #f7dade;
 }
 
 .side-border-right {
@@ -36,7 +87,7 @@
   top: 0px;
   z-index: 9999;
   width: 16px;
-  background-color: transparent;
+  background-color: #f7dade;
 }
 
 .side-border-bottom {
@@ -46,7 +97,7 @@
   bottom: 0px;
   z-index: 9999;
   width: 100%;
-  background-color: transparent;
+  background-color: #f7dade;
 }
 
 .side-border-top {
@@ -56,7 +107,7 @@
   z-index: 9999;
   top: 0px;
   width: 100%;
-  background-color: transparent;
+  background-color: #f7dade;
 }
 
 .menu-frame .four-corner-link {
@@ -78,14 +129,14 @@
 
 }
 
-/* .menu-frame .four-corner-link:hover {
+.menu-frame .four-corner-link:hover {
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   color: black;
   padding: 10px 10px;
-  border: 3px solid #ffc7a1;
-} */
+  border: 3px solid #3366cc;
+}
 
 .fourcorner-active {
   color: white !important;
@@ -119,8 +170,9 @@
 }
 
 .menu-logo {
-  margin: 45px auto;
+  margin: 27px auto;
   text-align: center;
+  max-width: 350px;
   display: block;
 }
 
@@ -166,13 +218,82 @@
   width: 100%;
   height: 250px;
   background: white;
-  border-top: 16px solid transparent;
+  border-top: 16px solid #f7dade;
 }
 
 .home-wrapper {
-  margin-top: 210px;
+  margin-top: 316px;
   margin-bottom: 70px;
 }
+
+.style-wrapper {
+  margin-top: 100px;
+  margin-bottom: 70px;
+
+}
+
+.style-wrapper .style-container {
+  max-width: 600px;
+  margin: auto;
+
+}
+
+.style-wrapper .style-container .content-container {
+  position: relative;
+  border: 2px solid #f7dade;
+  text-align: center;
+  /* padding-top: 61px; */
+  padding: 61px;
+
+}
+
+.style-wrapper .style-container .content-container .content-header {
+  font-size: 23px;
+  background: white;
+  max-width: 200px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -16px;
+  /* margin-bottom: 36px; */
+
+}
+
+.style-wrapper .style-container .content-container .content-block {
+  margin-bottom: 40px;
+}
+
+.style-wrapper .style-container .content-container .content-block img {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.style-wrapper .style-container .content-container .content-block .content-small-icon {
+  margin: auto;
+  max-width: 190px;
+}
+
+
+.style-wrapper .style-container .content-container .content-block .content-icon {
+  /* width: 100%; */
+  background: #3366cc;
+  height: 424px;
+  min-width: 100px;
+  border-radius: 1013px;
+  margin: 20px;
+
+}
+
+.style-wrapper .style-container .content-container .content-block .content-title {
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  font-family: "Baron Neue"
+
+
+}
+
+.style-wrapper .style-container .content-container .content-block .content-paragraph {}
 
 .home-wrapper .home-main-image {
   width: 100%;
@@ -246,6 +367,13 @@
   cursor: pointer;
 }
 
+.home-pagep-title {
+  text-transform: uppercase;
+  letter-spacing: 4.8px;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
 /* Styles Page Styles */
 
 .image-content-green {
@@ -255,7 +383,7 @@
 
 .center-logo {
   width: 100%;
-  max-width: 632px;
+  max-width: 832px;
   margin: auto;
   text-align: center;
 }
@@ -293,8 +421,10 @@
 .company-listings h2 {
   text-align: center;
   font-weight: 500;
-  font-size: 25px;
+  font-family: "Baron Neue";
+  font-size: 18px;
   letter-spacing: 2.5px;
+  text-transform: uppercase;
 }
 
 .client-object {
@@ -325,8 +455,8 @@
   text-align: center;
   margin-top: 15px;
   font-weight: 600;
-  letter-spacing: 2.5px;
-  font-size: 19px;
+  letter-spacing: 1.5px;
+  font-size: 14px;
   text-transform: lowercase !important;
 }
 
@@ -369,7 +499,7 @@
   }
 
   .home-wrapper {
-    margin: 160px 50px 50px 50px;
+    margin: 316px 50px 50px 50px;
   }
 
   .image-container-green {

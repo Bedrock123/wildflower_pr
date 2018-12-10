@@ -49,7 +49,6 @@ class Navigation extends React.Component {
     return (
       <div className="menu-container">
         <NavLink to="/">
-          {" "}
           {this.props.windowWidth < 991 ? null : (
             <div
               className="icon-square"
@@ -63,7 +62,7 @@ class Navigation extends React.Component {
                 className="menu-logo"
               />
             </div>
-          )}{" "}
+          )}
         </NavLink>
         <a
           className="hamburger-square"
@@ -73,7 +72,6 @@ class Navigation extends React.Component {
           }}
           onClick={this.handleClick.bind(this)}
         >
-          {" "}
           {this.props.windowWidth > 991 ? (
             <HamburgerButton
               open={this.state.open}
@@ -102,7 +100,7 @@ class Navigation extends React.Component {
               color="white"
               animationDuration={0.5}
             />
-          )}{" "}
+          )}
         </a>
         <div
           className={menuClasses}
@@ -132,45 +130,45 @@ class Navigation extends React.Component {
                     src={logo}
                     className="menu-logo"
                   />
-                </div>{" "}
+                </div>
               </Menu.Item>
             ) : null}
             <Menu.Item key="/">
               <NavLink to="/">
-                <span> HOME </span>{" "}
-              </NavLink>{" "}
+                <span> HOME </span>
+              </NavLink>
             </Menu.Item>
             <Menu.Item key="/firm">
               <NavLink to="/firm">
-                <span> FIRM </span>{" "}
-              </NavLink>{" "}
+                <span> FIRM </span>
+              </NavLink>
             </Menu.Item>
             <Menu.Item key="/strategy">
               <NavLink to="/strategy">
-                <span> STRATEGY </span>{" "}
-              </NavLink>{" "}
-            </Menu.Item>{" "}
+                <span> STRATEGY </span>
+              </NavLink>
+            </Menu.Item>
             <SubMenu key="sub1" title={"PORTFOLIO"}>
               <Menu.Item key="/portfolio/bernardsville">
-                <NavLink to="/portfolio/bernardsville"> Bernardsville </NavLink>{" "}
-              </Menu.Item>{" "}
+                <NavLink to="/portfolio/bernardsville"> Bernardsville </NavLink>
+              </Menu.Item>
               <Menu.Item key="/portfolio/peapack-gladstone">
                 <NavLink to="/portfolio/peapack-gladstone">
-                  Peapack - Gladstone{" "}
-                </NavLink>{" "}
-              </Menu.Item>{" "}
+                  Peapack - Gladstone
+                </NavLink>
+              </Menu.Item>
               <Menu.Item key="/portfolio/farhills">
-                <NavLink to="/portfolio/farhills"> Far Hills </NavLink>{" "}
-              </Menu.Item>{" "}
+                <NavLink to="/portfolio/farhills"> Far Hills </NavLink>
+              </Menu.Item>
               <Menu.Item key="/portfolio/mendham">
-                <NavLink to="/portfolio/mendham"> Mendham </NavLink>{" "}
-              </Menu.Item>{" "}
-            </SubMenu>{" "}
+                <NavLink to="/portfolio/mendham"> Mendham </NavLink>
+              </Menu.Item>
+            </SubMenu>
             <Menu.Item key="/investor-login">
               <NavLink to="/investor-login">
-                <span> INVESTOR LOGIN </span>{" "}
-              </NavLink>{" "}
-            </Menu.Item>{" "}
+                <span> INVESTOR LOGIN </span>
+              </NavLink>
+            </Menu.Item>
             <Menu.Item
               key="/contact"
               style={{
@@ -178,11 +176,11 @@ class Navigation extends React.Component {
               }}
             >
               <NavLink to="/contact">
-                <span> CONTACT </span>{" "}
-              </NavLink>{" "}
-            </Menu.Item>{" "}
-          </Menu>{" "}
-        </div>{" "}
+                <span> CONTACT </span>
+              </NavLink>
+            </Menu.Item>
+          </Menu>
+        </div>
       </div>
     );
   }
