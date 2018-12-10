@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
-import couch_photo from "../assets/images/couch.jpg";
+import media_relations from "../assets/images/media.png";
 
 class Home extends React.Component {
   render() {
@@ -12,7 +12,7 @@ class Home extends React.Component {
               <p>WHAT WE DO</p>
             </div>
             <div className="content-block">
-              <div className="content-icon" />
+              <img src={media_relations} alt="Media" />
               <p className="content-title">STRATEGIC COMMUNICATION</p>
               <p className="content-paragraph">
                 Aenean eu leo quam. Pellentesque ornare sem lacinia quam
@@ -20,7 +20,7 @@ class Home extends React.Component {
               </p>
             </div>
             <div className="content-block">
-              <div className="content-icon" />
+              <img src={media_relations} alt="Media" />
               <p className="content-title">MEDIA RELATIONS</p>
               <p className="content-paragraph">
                 Aenean eu leo quam. Pellentesque ornare sem lacinia quam
@@ -28,7 +28,7 @@ class Home extends React.Component {
               </p>
             </div>
             <div className="content-block">
-              <div className="content-icon" />
+              <img src={media_relations} alt="Media" />
               <p className="content-title">PARTNERSHIPS & COLLOABORATIONS</p>
               <p className="content-paragraph">
                 Aenean eu leo quam. Pellentesque ornare sem lacinia quam
@@ -36,7 +36,7 @@ class Home extends React.Component {
               </p>
             </div>
             <div className="content-block">
-              <div className="content-icon" />
+              <img src={media_relations} alt="Media" />
               <p className="content-title">COPYWRITING</p>
               <p className="content-paragraph">
                 Aenean eu leo quam. Pellentesque ornare sem lacinia quam
@@ -44,7 +44,7 @@ class Home extends React.Component {
               </p>
             </div>
             <div className="content-block">
-              <div className="content-icon" />
+              <img src={media_relations} alt="Media" />
               <p className="content-title">EVENTS</p>
               <p className="content-paragraph">
                 Aenean eu leo quam. Pellentesque ornare sem lacinia quam

@@ -16,10 +16,8 @@ class CallOut extends React.Component {
           >
             <div className="footer-block">
               <p>Want to join our team!?</p>
-              <br />
-              <Link className="button" to="/join-our-team">
-                join our team
-              </Link>
+
+              <p>Email jobs@wildflower-pr.com</p>
             </div>
           </Col>
           <Col md={24} lg={10} style={{ height: "100%" }}>

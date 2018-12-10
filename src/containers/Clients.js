@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
 
-
 var contentful = require("contentful");
 
 function sortProperties(obj) {
@@ -112,18 +111,15 @@ class Clients extends React.Component {
               className="client-link"
             >
               <div className="client-object">
-              {entry.fields.clientImage.fields ? 
-                <img
+                {entry.fields.clientImage.fields ? (
+                  <img
                     className="client-image"
                     src={
                       entry.fields.clientImage.fields.file.url +
                       "?w=400&h=400&fit=fill"
                     }
                   />
-                  :
-                  null
-
-              } 
+                ) : null}
                 <br />
                 <h3>{entry.fields.clientName}</h3>
               </div>
@@ -141,18 +137,15 @@ class Clients extends React.Component {
               className="client-link"
             >
               <div className="client-object">
-              {entry.fields.clientImage.fields ? 
-                <img
+                {entry.fields.clientImage.fields ? (
+                  <img
                     className="client-image"
                     src={
                       entry.fields.clientImage.fields.file.url +
                       "?w=400&h=400&fit=fill"
                     }
                   />
-                  :
-                  null
-
-              } 
+                ) : null}
                 <br />
                 <h3>{entry.fields.clientName}</h3>
               </div>
@@ -173,7 +166,7 @@ class Clients extends React.Component {
         if (typeof this.state.cleanedEntries[category] !== "function") {
           titles.push(
             <Row>
-              <h2>{category}</h2>
+              <h2 id={category}>{category}</h2>
               <br />
               <Row>
                 {this.renderCategoryObjects(
@@ -189,9 +182,24 @@ class Clients extends React.Component {
 
     return titles;
   }
+  scrollTo(id) {}
   render() {
     return (
       <div className="home-wrapper company-listings">
+        <div className="client-menu">
+          <p>
+            <span onClick={() => this.scrollTo("")}>VEGAN</span> /
+            <span
+              onClick={() => this.scrollTo("WELLNESS + ECO-FRIENDLY BRANDS")}
+            >
+              WELLNESS
+            </span>{" "}
+            /<span onClick={() => this.scrollTo("")}>FEMALE</span> /
+            <span onClick={() => this.scrollTo("")}>CONSCIENTIOUS</span> /
+            <span onClick={() => this.scrollTo("")}>SOCIAL IMPACT</span> /
+            <span onClick={() => this.scrollTo("")}>CORPORATE</span>
+          </p>
+        </div>
         {this.renderClientObjects(this.state.cleanedEntries)}
       </div>
     );

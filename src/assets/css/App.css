@@ -418,6 +418,26 @@
   margin: 100px auto;
 }
 
+.company-listings .client-menu {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.company-listings .client-menu p {
+  font-size: 18px;
+}
+
+.company-listings .client-menu p span {
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  margin-right: 5px;
+  margin-left: 9px;
+}
+
+.company-listings .client-menu p span:hover {
+  font-weight: 800;
+}
+
 .company-listings h2 {
   text-align: center;
   font-weight: 500;
@@ -458,6 +478,7 @@
   letter-spacing: 1.5px;
   font-size: 14px;
   text-transform: lowercase !important;
+  font-weight: inherit;
 }
 
 @media screen and (max-width: 1500px) {
@@ -608,8 +629,8 @@
 }
 
 .mobile-link-container .active {
-  color: #127a70;
-  border-bottom: 3px solid #127a70;
+  color: #000;
+  border-bottom: 3px solid #000;
 }
 
 .client-object .press-title {
