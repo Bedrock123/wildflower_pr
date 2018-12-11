@@ -2,6 +2,7 @@ import React from "react";
 import "./assets/css/Normalize.css";
 import "./assets/css/App.css";
 import logo from "./assets/images/logo.gif";
+import blue_logo from "./assets/images/blue_logo.png";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./containers/Home";
 import Team from "./containers/Team";
@@ -34,7 +35,7 @@ class App extends React.Component {
     if (path !== "/") {
       return (
         <NavLink to="/">
-          <img src={logo} alt="Wildflower PR Logo" className="menu-logo" />
+          <img src={blue_logo} alt="Wildflower PR Logo" className="menu-logo" />
         </NavLink>
       );
     }
