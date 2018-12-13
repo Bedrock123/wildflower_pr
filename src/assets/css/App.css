@@ -261,7 +261,7 @@
 }
 
 .style-wrapper .style-container {
-  max-width: 600px;
+  max-width: 1000px;
   margin: auto;
   margin-bottom: 30px;
 }
@@ -270,6 +270,7 @@
   position: relative;
   border: 2px solid #f7dade;
   text-align: center;
+  margin: 15px;
   /* padding-top: 61px; */
   padding: 61px;
 }
