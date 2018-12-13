@@ -64,8 +64,7 @@
   margin-right: 128px;
 }
 
-.menu-frame {
-}
+.menu-frame {}
 
 .menu-frame-inner {
   /* border: 16px solid #FDDEA8; */
@@ -120,6 +119,7 @@
   font-family: "Print Bold";
   line-height: 60px;
 }
+
 .menu-frame .four-corner-link {
   text-transform: uppercase;
   font-size: 13px;
@@ -195,6 +195,7 @@
   left: 0;
   right: 0;
 }
+
 .menu-frame .bottom-bar {
   height: 17px;
   z-index: 2;
@@ -253,6 +254,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .style-wrapper {
   margin-top: 100px;
   margin-bottom: 70px;
@@ -261,6 +263,7 @@
 .style-wrapper .style-container {
   max-width: 600px;
   margin: auto;
+  margin-bottom: 30px;
 }
 
 .style-wrapper .style-container .content-container {
@@ -287,25 +290,21 @@
   margin-bottom: 40px;
 }
 
+.style-wrapper .style-container .icon-container-thing .content-block {
+  margin-bottom: 10px;
+}
+
 .style-wrapper .style-container .content-container .content-block img {
   width: 100%;
   margin-bottom: 30px;
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-small-icon {
+.style-wrapper .style-container .content-container .content-block .content-small-icon {
   margin: auto;
-  max-width: 190px;
+  max-width: 130px;
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-icon {
+.style-wrapper .style-container .content-container .content-block .content-icon {
   /* width: 100%; */
   background: #3366cc;
   height: 424px;
@@ -314,22 +313,13 @@
   margin: 20px;
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-title {
+.style-wrapper .style-container .content-container .content-block .content-title {
   font-weight: 800;
   letter-spacing: 1.5px;
   font-family: "Baron Neue";
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-paragraph {
-}
+.style-wrapper .style-container .content-container .content-block .content-paragraph {}
 
 .home-wrapper .home-main-image {
   width: 100%;
@@ -341,6 +331,7 @@
   line-height: 57px;
   font-size: 23px;
 }
+
 .home-pagep-title {
   position: absolute;
   margin-top: 105px !important;

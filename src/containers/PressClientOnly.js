@@ -3,14 +3,15 @@ import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
 
 var contentful = require("contentful");
-function slugify(text)
-{
-  return text.toString().toLowerCase()
-    .replace(/\s+/g, '-')           // Replace spaces with -
-    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-    .replace(/^-+/, '')             // Trim - from start of text
-    .replace(/-+$/, '');            // Trim - from end of text
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/[^\w\-]+/g, "") // Remove all non-word chars
+    .replace(/\-\-+/g, "-") // Replace multiple - with single -
+    .replace(/^-+/, "") // Trim - from start of text
+    .replace(/-+$/, ""); // Trim - from end of text
 }
 
 function sortProperties(obj) {
@@ -99,9 +100,9 @@ class Clients extends React.Component {
       });
   }
   componentDidMount() {
-      console.log('xxxxxxxx')
-      this.setState({client: this.props.match.params.clientName})
-      console.log('xxxxxxxx')
+    console.log("xxxxxxxx");
+    this.setState({ client: this.props.match.params.clientName });
+    console.log("xxxxxxxx");
     this.findItems();
     var that = this;
 
@@ -114,18 +115,18 @@ class Clients extends React.Component {
     }
     stateChange(that);
   }
-  
+
   renderPressObjects(entries) {
-    var allPressObjects = []
-    var firstPressRow = []
-    var secondPressRow = []
-    var thirdPressRow = []
-    var fourthPressRow = []
+    var allPressObjects = [];
+    var firstPressRow = [];
+    var secondPressRow = [];
+    var thirdPressRow = [];
+    var fourthPressRow = [];
     if (entries) {
       var count = 0;
-     entries.map(entry => {
+      entries.map(entry => {
         count = count + 1;
-        if (count <= 4 ) {
+        if (count <= 4) {
           var singlePressObject = (
             <Col
               lg={{
@@ -145,17 +146,15 @@ class Clients extends React.Component {
                 className="client-link"
               >
                 <div className="client-object">
-                { entry.fields.pressSource.fields.pressCompanyIcon ?
-                  <img
+                  {entry.fields.pressSource.fields.pressCompanyIcon ? (
+                    <img
                       className="press-logo"
                       src={
-                        entry.fields.pressSource.fields.pressCompanyIcon.fields.file
-                          .url + "?w=350&h=200&fit=pad"
+                        entry.fields.pressSource.fields.pressCompanyIcon.fields
+                          .file.url + "?w=350&h=200&fit=pad"
                       }
-                    /> 
-                    :
-                    null
-                }
+                    />
+                  ) : null}
                   <br />
                   <img
                     className="client-image"
@@ -170,9 +169,9 @@ class Clients extends React.Component {
               </a>
             </Col>
           );
-          firstPressRow.push(singlePressObject)
+          firstPressRow.push(singlePressObject);
         }
-        if (count > 4 && count <= 8 ) {
+        if (count > 4 && count <= 8) {
           var singlePressObject = (
             <Col
               lg={{
@@ -192,17 +191,15 @@ class Clients extends React.Component {
                 className="client-link"
               >
                 <div className="client-object">
-                { entry.fields.pressSource.fields.pressCompanyIcon ?
-                  <img
+                  {entry.fields.pressSource.fields.pressCompanyIcon ? (
+                    <img
                       className="press-logo"
                       src={
-                        entry.fields.pressSource.fields.pressCompanyIcon.fields.file
-                          .url + "?w=350&h=200&fit=pad"
+                        entry.fields.pressSource.fields.pressCompanyIcon.fields
+                          .file.url + "?w=350&h=200&fit=pad"
                       }
-                    /> 
-                    :
-                    null
-                }
+                    />
+                  ) : null}
                   <br />
                   <img
                     className="client-image"
@@ -217,9 +214,9 @@ class Clients extends React.Component {
               </a>
             </Col>
           );
-          secondPressRow.push(singlePressObject)
+          secondPressRow.push(singlePressObject);
         }
-        if (count > 8 && count <= 12 ) {
+        if (count > 8 && count <= 12) {
           var singlePressObject = (
             <Col
               lg={{
@@ -239,17 +236,15 @@ class Clients extends React.Component {
                 className="client-link"
               >
                 <div className="client-object">
-                { entry.fields.pressSource.fields.pressCompanyIcon ?
-                  <img
+                  {entry.fields.pressSource.fields.pressCompanyIcon ? (
+                    <img
                       className="press-logo"
                       src={
-                        entry.fields.pressSource.fields.pressCompanyIcon.fields.file
-                          .url + "?w=350&h=200&fit=pad"
+                        entry.fields.pressSource.fields.pressCompanyIcon.fields
+                          .file.url + "?w=350&h=200&fit=pad"
                       }
-                    /> 
-                    :
-                    null
-                }
+                    />
+                  ) : null}
                   <br />
                   <img
                     className="client-image"
@@ -264,16 +259,16 @@ class Clients extends React.Component {
               </a>
             </Col>
           );
-          thirdPressRow.push(singlePressObject)
+          thirdPressRow.push(singlePressObject);
         }
       });
     }
-    allPressObjects.push(<Row>{firstPressRow}</Row>)
-    allPressObjects.push(<Row>{secondPressRow}</Row>)
-    allPressObjects.push(<Row>{thirdPressRow}</Row>)
-    allPressObjects.push(<Row>{fourthPressRow}</Row>)
+    allPressObjects.push(<Row>{firstPressRow}</Row>);
+    allPressObjects.push(<Row>{secondPressRow}</Row>);
+    allPressObjects.push(<Row>{thirdPressRow}</Row>);
+    allPressObjects.push(<Row>{fourthPressRow}</Row>);
 
-    return allPressObjects
+    return allPressObjects;
   }
 
   renderPressCategorytObjects(cleanedEntries) {
@@ -281,18 +276,21 @@ class Clients extends React.Component {
       var titles = [];
       for (var category in this.state.cleanedEntries) {
         if (typeof this.state.cleanedEntries[category] !== "function") {
-        if (slugify(category) === this.state.client) {
-
+          if (slugify(category) === this.state.client) {
             titles.push(
               <Row>
-                <h2> {category} </h2> 
-                <Link to={"/press/"} style={{
-  
-                textAlign: 'center',
-                display: 'block'
-  
-                }}> See All Posts</Link> <br />
-  
+                <h2> {category} </h2>
+                <Link
+                  to={"/press/"}
+                  style={{
+                    textAlign: "center",
+                    display: "block"
+                  }}
+                >
+                  {" "}
+                  See All Posts
+                </Link>{" "}
+                <br />
                 <Row>
                   {" "}
                   {this.renderPressObjects(
@@ -302,7 +300,7 @@ class Clients extends React.Component {
                 <br />
               </Row>
             );
-        }
+          }
         }
       }
     }

@@ -58,7 +58,7 @@ class Home extends React.Component {
           </div>
           <br />
           <br />
-          <div className="content-container">
+          <div className="content-container icon-container-thing">
             <div className="content-header">
               <p>THE COLLABORATORS</p>
             </div>

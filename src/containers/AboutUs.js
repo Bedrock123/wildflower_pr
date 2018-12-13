@@ -7,9 +7,9 @@ class AboutUs extends React.Component {
       <div className="home-wrapper">
         <Link className="logo-container" to="/">
           <h3 className="description-language">
-            Wildflower is a petite public relations firm for the eco-friendly,
-            conscientious. Proudly based in Brooklyn. En espanol tambien. We
-            thrive among the wild.
+            wildflower is a petite public relations firm for the eco-friendly,
+            conscientious & courageous. 🗽Brooklyn-based + bilingüe bebé✌🏼 🌾we
+            bloom among the wild✨ EST.2015
           </h3>
         </Link>
       </div>
