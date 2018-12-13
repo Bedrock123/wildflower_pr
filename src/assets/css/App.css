@@ -520,6 +520,12 @@
   }
 }
 
+@media screen and (max-width: 768) {
+  .style-wrapper .style-container .content-container {
+    margin-top: 50px;
+  }
+}
+
 @media screen and (max-width: 989px) {
   .menu-icon {
     display: inline;
