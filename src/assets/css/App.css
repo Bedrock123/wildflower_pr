@@ -1,60 +1,62 @@
 @font-face {
-  font-family: 'Baron Neue';
+  font-family: "Baron Neue";
   font-style: normal;
   font-weight: normal;
-  src: local('Baron Neue'), url('../fonts/Baron\ Neue.woff') format('woff');
+  src: local("Baron Neue"), url("../fonts/Baron\ Neue.woff") format("woff");
 }
 
-
 @font-face {
-  font-family: 'Baron Neue Italic';
+  font-family: "Baron Neue Italic";
   font-style: normal;
   font-weight: normal;
-  src: local('Baron Neue Italic'), url('../fonts/Baron\ Neue\ Italic.woff') format('woff');
+  src: local("Baron Neue Italic"),
+    url("../fonts/Baron\ Neue\ Italic.woff") format("woff");
 }
 
-
 @font-face {
-  font-family: 'Baron Neue Bold Italic';
+  font-family: "Baron Neue Bold Italic";
   font-style: normal;
   font-weight: normal;
-  src: local('Baron Neue Bold Italic'),
-    url('../fonts/Baron\ Neue\ Bold\ Italic.woff') format('woff');
+  src: local("Baron Neue Bold Italic"),
+    url("../fonts/Baron\ Neue\ Bold\ Italic.woff") format("woff");
 }
 
-
 @font-face {
-  font-family: 'Baron Neue Bold';
+  font-family: "Baron Neue Bold";
   font-style: normal;
   font-weight: normal;
-  src: local('Baron Neue Bold'),
-    url('../fonts/Baron\ Neue\ Bold.woff') format('woff');
+  src: local("Baron Neue Bold"),
+    url("../fonts/Baron\ Neue\ Bold.woff") format("woff");
 }
 
-
 @font-face {
-  font-family: 'Baron Neue Black Italic';
+  font-family: "Baron Neue Black Italic";
   font-style: normal;
   font-weight: normal;
-  src: local('Baron Neue Black Italic'),
-    url('../fonts/Baron\ Neue\ Black\ Italic.woff') format('woff');
+  src: local("Baron Neue Black Italic"),
+    url("../fonts/Baron\ Neue\ Black\ Italic.woff") format("woff");
 }
 
-
 @font-face {
-  font-family: 'Baron Neue Black';
+  font-family: "Baron Neue Black";
   font-style: normal;
   font-weight: normal;
-  src: local('Baron Neue Black'),
-    url('../fonts/Baron\ Neue\ Black.woff') format('woff');
+  src: local("Baron Neue Black"),
+    url("../fonts/Baron\ Neue\ Black.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Print Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Print Bold"), url("../fonts/printbold.woff") format("woff");
 }
 
 .global-container {
-  font-family: 'Inconsolata', monospace;
+  font-family: "Inconsolata", monospace;
   overflow: hidden;
   min-height: 100vh;
   background-size: cover;
-
 }
 
 .content-wrapper {
@@ -62,7 +64,8 @@
   margin-right: 128px;
 }
 
-.menu-frame {}
+.menu-frame {
+}
 
 .menu-frame-inner {
   /* border: 16px solid #FDDEA8; */
@@ -76,7 +79,7 @@
   left: 0px;
   z-index: 9999;
   top: 0px;
-  width: 16px;
+  width: 10px;
   background-color: #f7dade;
 }
 
@@ -86,13 +89,13 @@
   right: 0px;
   top: 0px;
   z-index: 9999;
-  width: 16px;
+  width: 10px;
   background-color: #f7dade;
 }
 
 .side-border-bottom {
   position: fixed;
-  height: 16px;
+  height: 10px;
   right: 0px;
   bottom: 0px;
   z-index: 9999;
@@ -102,7 +105,7 @@
 
 .side-border-top {
   position: fixed;
-  height: 16px;
+  height: 10px;
   right: 0px;
   z-index: 9999;
   top: 0px;
@@ -110,10 +113,17 @@
   background-color: #f7dade;
 }
 
+.description-language {
+  color: #fde392;
+  max-width: 852px;
+  font-size: 42px;
+  font-family: "Print Bold";
+  line-height: 60px;
+}
 .menu-frame .four-corner-link {
   text-transform: uppercase;
-  font-size: 19px;
-  letter-spacing: 4.5px;
+  font-size: 13px;
+  letter-spacing: 2.5px;
 
   font-weight: 300;
   margin: 45px;
@@ -128,14 +138,13 @@
   font-weight: 700;
   transition: all 0.5s ease;
   letter-spacing: 8.5px;
-
 }
 
 .menu-frame .four-corner-link:hover {
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  color: black;
+  color: #3366cc;
   padding: 10px 10px;
   border: 3px solid #3366cc;
 }
@@ -174,10 +183,18 @@
 .menu-logo {
   margin: 27px auto;
   text-align: center;
-  max-width: 350px;
+  max-width: 250px;
   display: block;
 }
 
+.menu-logo-abs {
+  position: absolute;
+  margin: auto;
+  margin-top: 17px;
+  margin-bottom: 37px;
+  left: 0;
+  right: 0;
+}
 .menu-frame .bottom-bar {
   height: 17px;
   z-index: 2;
@@ -224,20 +241,26 @@
 }
 
 .home-wrapper {
-  margin-top: 316px;
-  margin-bottom: 70px;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
+.home-wrapper .logo-container {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
 .style-wrapper {
   margin-top: 100px;
   margin-bottom: 70px;
-
 }
 
 .style-wrapper .style-container {
   max-width: 600px;
   margin: auto;
-
 }
 
 .style-wrapper .style-container .content-container {
@@ -246,7 +269,6 @@
   text-align: center;
   /* padding-top: 61px; */
   padding: 61px;
-
 }
 
 .style-wrapper .style-container .content-container .content-header {
@@ -259,7 +281,6 @@
   right: 0;
   top: -16px;
   /* margin-bottom: 36px; */
-
 }
 
 .style-wrapper .style-container .content-container .content-block {
@@ -271,31 +292,44 @@
   margin-bottom: 30px;
 }
 
-.style-wrapper .style-container .content-container .content-block .content-small-icon {
+.style-wrapper
+  .style-container
+  .content-container
+  .content-block
+  .content-small-icon {
   margin: auto;
   max-width: 190px;
 }
 
-
-.style-wrapper .style-container .content-container .content-block .content-icon {
+.style-wrapper
+  .style-container
+  .content-container
+  .content-block
+  .content-icon {
   /* width: 100%; */
   background: #3366cc;
   height: 424px;
   min-width: 100px;
   border-radius: 1013px;
   margin: 20px;
-
 }
 
-.style-wrapper .style-container .content-container .content-block .content-title {
+.style-wrapper
+  .style-container
+  .content-container
+  .content-block
+  .content-title {
   font-weight: 800;
   letter-spacing: 1.5px;
-  font-family: "Baron Neue"
-
-
+  font-family: "Baron Neue";
 }
 
-.style-wrapper .style-container .content-container .content-block .content-paragraph {}
+.style-wrapper
+  .style-container
+  .content-container
+  .content-block
+  .content-paragraph {
+}
 
 .home-wrapper .home-main-image {
   width: 100%;
@@ -307,11 +341,15 @@
   line-height: 57px;
   font-size: 23px;
 }
+.home-pagep-title {
+  position: absolute;
+  margin-top: 105px !important;
+}
 
 .footer-block {
   position: absolute;
   top: 50%;
-  font-family: 'Inconsolata', monospace;
+  font-family: "Inconsolata", monospace;
   font-weight: 400;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -385,7 +423,7 @@
 
 .center-logo {
   width: 100%;
-  max-width: 832px;
+  max-width: 602px;
   margin: auto;
   text-align: center;
 }
@@ -416,7 +454,7 @@
 }
 
 .company-listings {
-  max-width: 1385px;
+  max-width: 1064px;
   margin: 100px auto;
 }
 
@@ -517,12 +555,9 @@
     margin-top: 45px;
     position: fixed;
     left: 120px;
+    max-width: 120px;
     margin-left: -83px;
     z-index: 9999;
-  }
-
-  .home-wrapper {
-    margin: 316px 50px 50px 50px;
   }
 
   .image-container-green {
@@ -587,7 +622,7 @@
   line-height: -7px !important;
   padding: 0px 47px !important;
   border-radius: 0px !important;
-  font-family: 'Inconsolata', monospace;
+  font-family: "Inconsolata", monospace;
 }
 
 .press-object {

@@ -3,6 +3,7 @@ import "./assets/css/Normalize.css";
 import "./assets/css/App.css";
 import logo from "./assets/images/logo.gif";
 import blue_logo from "./assets/images/blue_logo.png";
+import white_logo from "./assets/images/white_logo.png";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./containers/Home";
 import Team from "./containers/Team";
@@ -14,6 +15,8 @@ import Background from "../src/assets/images/background_v1.png";
 import { NavLink } from "react-router-dom";
 import FullNavigation from "./components/FullNavigation";
 import JoinOurTeam from "./containers/JoinOurTeam";
+import AboutUs from "./containers/AboutUs";
+import TeamDescription from "./containers/TeamDescription";
 import Footer from "./components/Footer";
 import ScrollToTop from "./containers/ScrollToTop";
 
@@ -32,6 +35,17 @@ class App extends React.Component {
   }
   renderMenu() {
     var path = this.state.lastPath;
+    if (path == "/about-us" || path === "/about-the-team") {
+      return (
+        <NavLink to="/">
+          <img
+            src={white_logo}
+            alt="Wildflower PR Logo"
+            className="menu-logo  menu-logo-abs"
+          />
+        </NavLink>
+      );
+    }
     if (path !== "/") {
       return (
         <NavLink to="/">
@@ -45,13 +59,17 @@ class App extends React.Component {
     var path = this.state.lastPath;
     if (path == "/") {
       return { backgroundImage: "url(" + Background + ")" };
+    } else if (path == "/about-us") {
+      return { background: "#7fc3d6" };
+    } else if (path == "/about-the-team") {
+      return { background: "#f6cd68" };
     } else {
       return { background: "white" };
     }
   }
   renderExtraBorder() {
     var path = this.state.lastPath;
-    if (path !== "/") {
+    if (path !== "/" && path !== "/about-us" && path !== "/about-the-team") {
       return <ExtraBorder />;
     }
   }
@@ -61,6 +79,12 @@ class App extends React.Component {
       this.setState({ lastPath: window.location.pathname });
     }
     console.log(this.state.lastPath);
+  }
+  renderFooter() {
+    var path = this.state.lastPath;
+    if (path !== "/" && path !== "/about-us" && path !== "/about-the-team") {
+      return <Footer />;
+    }
   }
 
   render() {
@@ -84,11 +108,29 @@ class App extends React.Component {
                 />
                 <Route
                   exact
+                  path="/about-the-team"
+                  render={state => {
+                    // seems ok ?
+                    this.updateDate();
+                    return <TeamDescription match={state.match} />;
+                  }}
+                />
+                <Route
+                  exact
                   path="/"
                   render={state => {
                     // seems ok ?
                     this.updateDate();
                     return <Home match={state.match} />;
+                  }}
+                />
+                <Route
+                  exact
+                  path="/about-us"
+                  render={state => {
+                    // seems ok ?
+                    this.updateDate();
+                    return <AboutUs match={state.match} />;
                   }}
                 />
                 <Route
@@ -130,7 +172,7 @@ class App extends React.Component {
             </div>
             {this.renderExtraBorder()}
           </div>
-          <Footer />
+          {this.renderFooter()}
         </ScrollToTop>
       </BrowserRouter>
     );

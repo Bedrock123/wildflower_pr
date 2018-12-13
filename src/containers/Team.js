@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
+import { Link } from "react-router-dom";
 import catherine from "../assets/images/catherine.png";
 import icon_1 from "../assets/images/icon-1.png";
 import icon_2 from "../assets/images/icon-2.png";
@@ -8,7 +9,7 @@ import icon_3 from "../assets/images/icon-3.png";
 class Home extends React.Component {
   render() {
     return (
-      <div className="style-wrapper">
+      <Link className="style-wrapper" to="/about-the-team">
         <div className="style-container">
           <div className="content-container">
             <div className="content-header">
@@ -95,7 +96,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }
