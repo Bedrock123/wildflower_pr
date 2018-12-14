@@ -3,6 +3,7 @@ import "./assets/css/Normalize.css";
 import "./assets/css/App.css";
 import logo from "./assets/images/logo.gif";
 import blue_logo from "./assets/images/blue_logo.png";
+import blue_fuzz from "./assets/images/blue_fuz.png";
 import white_logo from "./assets/images/white_logo.png";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./containers/Home";
@@ -60,7 +61,7 @@ class App extends React.Component {
     if (path == "/") {
       return { backgroundImage: "url(" + Background + ")" };
     } else if (path == "/about-us") {
-      return { background: "#7fc3d6" };
+      return { backgroundImage: "url(" + blue_fuzz + ")" };
     } else if (path == "/about-the-team") {
       return { background: "#f6cd68" };
     } else {
