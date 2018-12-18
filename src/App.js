@@ -136,7 +136,7 @@ class App extends React.Component {
                 />
                 <Route
                   exact
-                  path="/style"
+                  path="/direction"
                   render={state => {
                     // seems ok ?
                     this.updateDate();

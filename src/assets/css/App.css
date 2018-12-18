@@ -59,13 +59,9 @@
   background-size: cover;
 }
 
-.content-wrapper {
-  margin-left: 128px;
-  margin-right: 128px;
-}
+.content-wrapper {}
 
-.menu-frame {
-}
+.menu-frame {}
 
 .menu-frame-inner {
   /* border: 16px solid #FDDEA8; */
@@ -267,6 +263,12 @@
   margin-bottom: 30px;
 }
 
+.style-wrapper .direction-container {
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
 .style-wrapper .style-container .content-container {
   position: relative;
   border: 2px solid #f7dade;
@@ -276,7 +278,12 @@
   padding: 61px;
 }
 
-.style-wrapper .style-container .content-container .content-header {
+.tight-container {
+  max-width: 876px !important;
+  margin: auto !important;
+}
+
+.style-wrapper .style-container .content-container .style-wrapper .style-container .content-container .content-header {
   font-size: 23px;
   background: white;
   max-width: 200px;
@@ -301,20 +308,12 @@
   margin-bottom: 30px;
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-small-icon {
+.style-wrapper .style-container .content-container .content-block .content-small-icon {
   margin: auto;
   max-width: 130px;
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-icon {
+.style-wrapper .style-container .content-container .content-block .content-icon {
   /* width: 100%; */
   background: #3366cc;
   height: 424px;
@@ -323,22 +322,13 @@
   margin: 20px;
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-title {
+.style-wrapper .style-container .content-container .content-block .content-title {
   font-weight: 800;
   letter-spacing: 1.5px;
   font-family: "Baron Neue";
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-paragraph {
-}
+.style-wrapper .style-container .content-container .content-block .content-paragraph {}
 
 .home-wrapper .home-main-image {
   width: 100%;
@@ -532,10 +522,7 @@
 }
 
 @media screen and (max-width: 1500px) {
-  .content-wrapper {
-    margin-left: 28px;
-    margin-right: 28px;
-  }
+  .content-wrapper {}
 }
 
 @media screen and (max-width: 768) {
@@ -558,10 +545,7 @@
     display: none;
   }
 
-  .content-wrapper {
-    margin-left: 28px;
-    margin-right: 28px;
-  }
+  .content-wrapper {}
 
   .menu-frame-inner {
     display: none;

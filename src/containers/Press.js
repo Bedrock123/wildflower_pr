@@ -3,14 +3,15 @@ import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
 
 var contentful = require("contentful");
-function slugify(text)
-{
-  return text.toString().toLowerCase()
-    .replace(/\s+/g, '-')           // Replace spaces with -
-    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-    .replace(/^-+/, '')             // Trim - from start of text
-    .replace(/-+$/, '');            // Trim - from end of text
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/[^\w\-]+/g, "") // Remove all non-word chars
+    .replace(/\-\-+/g, "-") // Replace multiple - with single -
+    .replace(/^-+/, "") // Trim - from start of text
+    .replace(/-+$/, ""); // Trim - from end of text
 }
 
 function sortProperties(obj) {
@@ -111,12 +112,12 @@ class Clients extends React.Component {
     }
     stateChange(that);
   }
-  
+
   renderPressObjects(entries) {
     if (entries) {
       var count = 0;
       return entries.map(entry => {
-        if (count <= 3 ) {
+        if (count <= 3) {
           count = count + 1;
           return (
             <Col
@@ -137,17 +138,15 @@ class Clients extends React.Component {
                 className="client-link"
               >
                 <div className="client-object">
-                { entry.fields.pressSource.fields.pressCompanyIcon ?
-                  <img
+                  {entry.fields.pressSource.fields.pressCompanyIcon ? (
+                    <img
                       className="press-logo"
                       src={
-                        entry.fields.pressSource.fields.pressCompanyIcon.fields.file
-                          .url + "?w=350&h=200&fit=pad"
+                        entry.fields.pressSource.fields.pressCompanyIcon.fields
+                          .file.url + "?w=350&h=200&fit=pad"
                       }
-                    /> 
-                    :
-                    null
-                }
+                    />
+                  ) : null}
                   <br />
                   <img
                     className="client-image"
@@ -173,15 +172,19 @@ class Clients extends React.Component {
       for (var category in this.state.cleanedEntries) {
         if (typeof this.state.cleanedEntries[category] !== "function") {
           titles.push(
-            <Row>
-              <h2> {category} </h2> 
-              <Link to={"/press/" + slugify(category)} style={{
-
-              textAlign: 'center',
-              display: 'block'
-
-              }}> See All Posts For {category} </Link> <br />
-
+            <Row className="tight-container">
+              <h2> {category} </h2>
+              <Link
+                to={"/press/" + slugify(category)}
+                style={{
+                  textAlign: "center",
+                  display: "block"
+                }}
+              >
+                {" "}
+                See All Posts For {category}{" "}
+              </Link>{" "}
+              <br />
               <Row>
                 {" "}
                 {this.renderPressObjects(
@@ -200,7 +203,7 @@ class Clients extends React.Component {
 
   render() {
     return (
-      <div className="home-wrapper company-listings">
+      <div className="home-wrapper company-listings tight-container">
         {" "}
         {this.renderPressCategorytObjects(this.state.cleanedEntries)}{" "}
       </div>

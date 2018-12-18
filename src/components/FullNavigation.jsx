@@ -74,12 +74,12 @@ class FullNavigation extends React.Component {
         <div className="menu-frame-inner">
           <NavLink
             activeClassName="fourcorner-active"
-            to="/style"
+            to="/direction"
             className="four-corner-link style-link"
             onMouseEnter={this.changeStyleBarState.bind(this)}
             onMouseLeave={this.changeStyleBarState.bind(this)}
           >
-            style{" "}
+            direction{" "}
           </NavLink>{" "}
           <NavLink
             activeClassName="fourcorner-active"
@@ -144,12 +144,12 @@ class FullNavigation extends React.Component {
               <br />
               <NavLink
                 activeClassName="active"
-                to="/style"
+                to="/direction"
                 className="four-corner-link "
                 onMouseEnter={this.changeStyleBarState.bind(this)}
                 onMouseLeave={this.changeStyleBarState.bind(this)}
               >
-                style{" "}
+                direction{" "}
               </NavLink>{" "}
               <br />
               <NavLink

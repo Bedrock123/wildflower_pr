@@ -9,8 +9,8 @@ import icon_3 from "../assets/images/icon-3.png";
 class Home extends React.Component {
   render() {
     return (
-      <Link className="style-wrapper" to="/about-the-team">
-        <div className="style-container">
+      <div className="style-wrapper" to="/about-the-team">
+        <div className="style-container tight-container">
           <Row>
             <Col lg={{ span: 24 }} md={{ span: 24 }} sm={{ span: 24 }}>
               <div className="content-container">
@@ -142,7 +142,7 @@ class Home extends React.Component {
             </Col>
           </Row>
         </div>
-      </Link>
+      </div>
     );
   }
 }

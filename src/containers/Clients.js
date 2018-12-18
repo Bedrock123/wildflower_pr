@@ -185,7 +185,7 @@ class Clients extends React.Component {
   scrollTo(id) {}
   render() {
     return (
-      <div className="home-wrapper company-listings">
+      <div className="home-wrapper company-listings tight-container">
         <div className="client-menu">
           <p>
             <span onClick={() => this.scrollTo("")}>VEGAN</span> /

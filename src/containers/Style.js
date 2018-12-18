@@ -6,7 +6,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="style-wrapper">
-        <div className="style-container">
+        <div className="style-container direction-container">
           <div className="content-container">
             <div className="content-header">
               <p>WHAT WE DO</p>
