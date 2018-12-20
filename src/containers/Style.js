@@ -15,40 +15,52 @@ class Home extends React.Component {
               <img src={media_relations} alt="Media" />
               <p className="content-title">STRATEGIC COMMUNICATION</p>
               <p className="content-paragraph">
-                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-                venenatis vestibulum. Maecenas faucibus mollis interdum.
+                We jump in to modernize your communications strategy through
+                innovation and creativity. We look at the key elements of a
+                traditional communications strategy and pump it up to achieve a
+                fresher approach.
               </p>
             </div>
             <div className="content-block">
               <img src={media_relations} alt="Media" />
               <p className="content-title">MEDIA RELATIONS</p>
               <p className="content-paragraph">
-                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-                venenatis vestibulum. Maecenas faucibus mollis interdum.
+                We'll pitch you to top-tier media outlets, planting a seed of
+                your brand and vision, in a uniquely impactful way that
+                generates buzz. This includes media in English and multicultural
+                outlets in Spanish too. Print, online, TV and radio. Influencers
+                too!
+              </p>
+            </div>
+
+            <div className="content-block">
+              <img src={media_relations} alt="Media" />
+              <p className="content-title">COPYWRITING</p>
+              <p className="content-paragraph">
+                We work with you to develop the right brand strategy for the era
+                we live in. We also create or rebrand your business and personal
+                look, feel and tone to take you to that higher level.
               </p>
             </div>
             <div className="content-block">
               <img src={media_relations} alt="Media" />
               <p className="content-title">PARTNERSHIPS & COLLOABORATIONS</p>
               <p className="content-paragraph">
-                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-                venenatis vestibulum. Maecenas faucibus mollis interdum.
+                From wellness to technology to politics to Fortune 500s, we've
+                built relationships that span almost every market. We'll
+                showcase your brand to stakeholders that can help you achieve
+                maximum impact.
               </p>
             </div>
             <div className="content-block">
               <img src={media_relations} alt="Media" />
-              <p className="content-title">COPYWRITING</p>
-              <p className="content-paragraph">
-                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-                venenatis vestibulum. Maecenas faucibus mollis interdum.
+              <p className="content-title">
+                EVENTS & EXPERIENTIAL ACTIVATIONS{" "}
               </p>
-            </div>
-            <div className="content-block">
-              <img src={media_relations} alt="Media" />
-              <p className="content-title">EVENTS</p>
               <p className="content-paragraph">
-                Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-                venenatis vestibulum. Maecenas faucibus mollis interdum.
+                From a speaking gig on a panel to hosting your own event, our
+                team will help with the logistics and strategy to maximize your
+                presence and results. We can create pop-up events too!
               </p>
             </div>
           </div>

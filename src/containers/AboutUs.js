@@ -8,9 +8,18 @@ class AboutUs extends React.Component {
         <Link className="logo-container" to="/">
           <h3 className="description-language">
             wildflower is a petite public relations firm for the eco-friendly,
-            conscientious & courageous. 🗽Brooklyn-based + bilingüe bebé✌🏼 🌾we
-            bloom among the wild✨ EST.2015
-          </h3>
+            conscientious and courageous.
+          </h3>{" "}
+          <br />
+          <h3 className="description-language">
+            🗽Brooklyn-based + bilingüe bebé✌🏼{" "}
+          </h3>{" "}
+          <br />
+          <h3 className="description-language">
+            🌾We bloom among the wild✨{" "}
+          </h3>{" "}
+          <br />
+          <h3 className="description-language">EST. 2015</h3>
         </Link>
       </div>
     );
