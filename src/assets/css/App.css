@@ -493,6 +493,11 @@
 
 .client-object {
   padding: 34px;
+
+}
+
+.client-only .client-object {
+  min-height: 351px;
 }
 
 .client-object .client-image {
@@ -603,6 +608,17 @@
   height: 50px;
   background: white;
   margin: 0 auto;
+}
+
+.client-press-container-thing {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+.client-press-container-thing .client-press-peice {
+  flex-basis: 25%;
 }
 
 .ant-input {

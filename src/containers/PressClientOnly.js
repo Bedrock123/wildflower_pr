@@ -52,7 +52,8 @@ class Clients extends React.Component {
     var that = this;
     this.client
       .getEntries({
-        content_type: "pressObject"
+        content_type: "pressObject",
+        limit: 500
       })
       .then(function(entries) {
         that.setState({
@@ -84,7 +85,6 @@ class Clients extends React.Component {
           cleanedEntries: sortedEntries
         });
 
-        console.log(sortedEntries);
         var arrayLength = entries.items.length;
         for (var i = 0; i < arrayLength; i++) {
           var singleClientObject = entries.items[i];
@@ -100,9 +100,7 @@ class Clients extends React.Component {
       });
   }
   componentDidMount() {
-    console.log("xxxxxxxx");
     this.setState({ client: this.props.match.params.clientName });
-    console.log("xxxxxxxx");
     this.findItems();
     var that = this;
 
@@ -117,168 +115,55 @@ class Clients extends React.Component {
   }
 
   renderPressObjects(entries) {
-    var allPressObjects = [];
-    var firstPressRow = [];
-    var secondPressRow = [];
-    var thirdPressRow = [];
-    var fourthPressRow = [];
     if (entries) {
-      var count = 0;
-      entries.map(entry => {
-        count = count + 1;
-        if (count <= 4) {
-          var singlePressObject = (
-            <Col
-              lg={{
-                span: 6
-              }}
-              md={{
-                span: 12
-              }}
-              sm={{
-                span: 24
-              }}
-              key={Math.random()}
+      return entries.map(entry => {
+        var singlePressObject = (
+          <div key={Math.random()} className="client-press-peice">
+            <a
+              href={entry.fields.pressUrl}
+              target="_blank"
+              className="client-link"
             >
-              <a
-                href={entry.fields.pressUrl}
-                target="_blank"
-                className="client-link"
-              >
-                <div className="client-object">
-                  {entry.fields.pressSource.fields.pressCompanyIcon ? (
-                    <img
-                      className="press-logo"
-                      src={
-                        entry.fields.pressSource.fields.pressCompanyIcon.fields
-                          .file.url + "?w=350&h=200&fit=pad"
-                      }
-                    />
-                  ) : null}
-                  <br />
+              <div className="client-object">
+                {entry.fields.pressSource.fields.pressCompanyIcon ? (
                   <img
-                    className="client-image"
+                    className="press-logo"
                     src={
-                      entry.fields.pressImage.fields.file.url +
-                      "?w=400&h=400&fit=fill"
+                      entry.fields.pressSource.fields.pressCompanyIcon.fields
+                        .file.url + "?w=350&h=200&fit=pad"
                     }
                   />
-                  <br />
-                  <h3 className="press-title"> {entry.fields.title}</h3>
-                </div>
-              </a>
-            </Col>
-          );
-          firstPressRow.push(singlePressObject);
-        }
-        if (count > 4 && count <= 8) {
-          var singlePressObject = (
-            <Col
-              lg={{
-                span: 6
-              }}
-              md={{
-                span: 12
-              }}
-              sm={{
-                span: 24
-              }}
-              key={Math.random()}
-            >
-              <a
-                href={entry.fields.pressUrl}
-                target="_blank"
-                className="client-link"
-              >
-                <div className="client-object">
-                  {entry.fields.pressSource.fields.pressCompanyIcon ? (
-                    <img
-                      className="press-logo"
-                      src={
-                        entry.fields.pressSource.fields.pressCompanyIcon.fields
-                          .file.url + "?w=350&h=200&fit=pad"
-                      }
-                    />
-                  ) : null}
-                  <br />
-                  <img
-                    className="client-image"
-                    src={
-                      entry.fields.pressImage.fields.file.url +
-                      "?w=400&h=400&fit=fill"
-                    }
-                  />
-                  <br />
-                  <h3 className="press-title"> {entry.fields.title}</h3>
-                </div>
-              </a>
-            </Col>
-          );
-          secondPressRow.push(singlePressObject);
-        }
-        if (count > 8 && count <= 12) {
-          var singlePressObject = (
-            <Col
-              lg={{
-                span: 6
-              }}
-              md={{
-                span: 12
-              }}
-              sm={{
-                span: 24
-              }}
-              key={Math.random()}
-            >
-              <a
-                href={entry.fields.pressUrl}
-                target="_blank"
-                className="client-link"
-              >
-                <div className="client-object">
-                  {entry.fields.pressSource.fields.pressCompanyIcon ? (
-                    <img
-                      className="press-logo"
-                      src={
-                        entry.fields.pressSource.fields.pressCompanyIcon.fields
-                          .file.url + "?w=350&h=200&fit=pad"
-                      }
-                    />
-                  ) : null}
-                  <br />
-                  <img
-                    className="client-image"
-                    src={
-                      entry.fields.pressImage.fields.file.url +
-                      "?w=400&h=400&fit=fill"
-                    }
-                  />
-                  <br />
-                  <h3 className="press-title"> {entry.fields.title}</h3>
-                </div>
-              </a>
-            </Col>
-          );
-          thirdPressRow.push(singlePressObject);
-        }
+                ) : null}
+                <br />
+                <img
+                  className="client-image"
+                  src={
+                    entry.fields.pressImage.fields.file.url +
+                    "?w=400&h=400&fit=fill"
+                  }
+                />
+                <br />
+                <h3 className="press-title"> {entry.fields.title}</h3>
+              </div>
+            </a>
+          </div>
+        );
+        return singlePressObject;
       });
     }
-    allPressObjects.push(<Row>{firstPressRow}</Row>);
-    allPressObjects.push(<Row>{secondPressRow}</Row>);
-    allPressObjects.push(<Row>{thirdPressRow}</Row>);
-    allPressObjects.push(<Row>{fourthPressRow}</Row>);
-
-    return allPressObjects;
   }
 
   renderPressCategorytObjects(cleanedEntries) {
     if (cleanedEntries) {
       var titles = [];
+      console.log("----------");
       for (var category in this.state.cleanedEntries) {
         if (typeof this.state.cleanedEntries[category] !== "function") {
+          console.log(category);
+          console.log(this.state.cleanedEntries[category]["array"]);
           if (slugify(category) === this.state.client) {
             titles.push(
-              <Row>
+              <div>
                 <h2> {category} </h2>
                 <Link
                   to={"/press/"}
@@ -291,14 +176,14 @@ class Clients extends React.Component {
                   See All Posts
                 </Link>{" "}
                 <br />
-                <Row>
+                <div className="client-press-container-thing">
                   {" "}
                   {this.renderPressObjects(
                     this.state.cleanedEntries[category]["array"]
                   )}{" "}
-                </Row>{" "}
+                </div>{" "}
                 <br />
-              </Row>
+              </div>
             );
           }
         }
@@ -310,7 +195,7 @@ class Clients extends React.Component {
 
   render() {
     return (
-      <div className="home-wrapper company-listings">
+      <div className="home-wrapper company-listings client-only">
         {" "}
         {this.renderPressCategorytObjects(this.state.cleanedEntries)}{" "}
       </div>

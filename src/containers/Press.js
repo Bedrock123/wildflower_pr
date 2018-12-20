@@ -44,6 +44,7 @@ class Clients extends React.Component {
   }
   client = contentful.createClient({
     space: "m7b48oankuyj",
+
     accessToken:
       "e6a73de0cbe113450d3bb4b02e54a0db2552cd57c390f8d1cb53e278c9075c8d"
   });
@@ -52,13 +53,15 @@ class Clients extends React.Component {
     var that = this;
     this.client
       .getEntries({
-        content_type: "pressObject"
+        content_type: "pressObject",
+        limit: 500
       })
       .then(function(entries) {
         that.setState({
           entries: entries.items
         });
         var arrayLength = entries.items.length;
+
         var cleanedEntries = {};
         for (var i = 0; i < arrayLength; i++) {
           var singleClientObject = entries.items[i];
@@ -171,6 +174,9 @@ class Clients extends React.Component {
       var titles = [];
       for (var category in this.state.cleanedEntries) {
         if (typeof this.state.cleanedEntries[category] !== "function") {
+          console.log("-----------------------------------------");
+          console.log(category);
+          console.log(this.state.cleanedEntries[category]["array"]);
           titles.push(
             <Row className="tight-container">
               <h2> {category} </h2>
