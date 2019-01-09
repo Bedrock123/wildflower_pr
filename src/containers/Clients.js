@@ -186,20 +186,6 @@ class Clients extends React.Component {
   render() {
     return (
       <div className="home-wrapper company-listings tight-container">
-        <div className="client-menu">
-          <p>
-            <span onClick={() => this.scrollTo("")}>VEGAN</span> /
-            <span
-              onClick={() => this.scrollTo("WELLNESS + ECO-FRIENDLY BRANDS")}
-            >
-              WELLNESS
-            </span>{" "}
-            /<span onClick={() => this.scrollTo("")}>FEMALE</span> /
-            <span onClick={() => this.scrollTo("")}>CONSCIENTIOUS</span> /
-            <span onClick={() => this.scrollTo("")}>SOCIAL IMPACT</span> /
-            <span onClick={() => this.scrollTo("")}>CORPORATE</span>
-          </p>
-        </div>
         {this.renderClientObjects(this.state.cleanedEntries)}
       </div>
     );

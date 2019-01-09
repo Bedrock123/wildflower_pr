@@ -13,7 +13,10 @@ class Home extends React.Component {
         <div
           className="logo-container"
           to="/about-us"
-          style={{ backgroundImage: "url(" + Background + ")" }}
+          style={{
+            backgroundImage: "url(" + Background + ")",
+            backgroundSize: "cover"
+          }}
         >
           <img src={logo} alt="Wild Flower" className="center-logo" />
           <p className="home-pagep-title">Public Relations</p>
