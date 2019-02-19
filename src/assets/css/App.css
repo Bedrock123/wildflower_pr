@@ -112,6 +112,7 @@
 .description-language {
   color: #fde392;
   max-width: 852px;
+  margin: 5px auto;
   font-size: 42px;
   font-family: "Print Bold";
   text-align: center;
@@ -257,6 +258,11 @@
 .style-wrapper {
   margin-top: 100px;
   margin-bottom: 70px;
+}
+
+.style-wrapper .logo-container {
+  padding: 60px 0px;
+  margin-bottom: 30px;
 }
 
 .style-wrapper .style-container {
@@ -502,19 +508,13 @@
 
 .client-object .client-image {
   width: 100%;
-  box-shadow: 0 3px 5px #ababab;
-  border-radius: 3px;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  border-radius: 3px;
   border: 0px solid white;
 }
 
 .client-object .client-image:hover {
   top: 10px;
-  box-shadow: 0 6px 20px #ababab;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   top: 10px;
   border: 13px solid white;
@@ -692,6 +692,11 @@
 
 .client-object .press-title {
   font-weight: 400 !important;
-  text-align: left !important;
+  text-align: center !important;
   font-size: 12px;
+  height: 109px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }

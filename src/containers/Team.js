@@ -4,12 +4,33 @@ import { Link } from "react-router-dom";
 import catherine from "../assets/images/catherine.png";
 import icon_1 from "../assets/images/icon-1.png";
 import icon_2 from "../assets/images/icon-2.png";
+import yellow_fuzz from "../assets/images/yellow_fuzz.png";
 import icon_3 from "../assets/images/icon-3.png";
 
 class Home extends React.Component {
   render() {
     return (
-      <div className="style-wrapper" to="/about-the-team">
+      <div
+        className="style-wrapper"
+        to="/about-the-team"
+        style={{ marginTop: "20px" }}
+      >
+        <div
+          className="logo-container"
+          to="/about-us"
+          style={{ backgroundImage: "url(" + yellow_fuzz + ")" }}
+        >
+          <h3 className="description-language" style={{ color: "#c5a1c9" }}>
+            Who we are{" "}
+          </h3>
+          <h3 className="description-language" style={{ color: "#c5a1c9" }}>
+            We're a loving team of independent, creative collaborators. We abide
+            by mindful storytelling, doing less to achieve more, and living a
+            life that's full of intention. We get things done and promise to
+            enjoy the ride from beginning to end. What can we say, we bloom
+            among the wild!
+          </h3>
+        </div>
         <div className="style-container tight-container">
           <Row>
             <Col lg={{ span: 24 }} md={{ span: 24 }} sm={{ span: 24 }}>
@@ -143,7 +164,7 @@ class Home extends React.Component {
                       />
                       <p className="content-title">CONTENT CREATION</p>
                       <p className="content-paragraph">
-                        carissa ann santos
+                        carissa-ann santos
                         <br />
                         veronica cintron
                         <br />
@@ -179,7 +200,7 @@ class Home extends React.Component {
                       />
                       <p className="content-title">PUBLICISTS</p>
                       <p className="content-paragraph">
-                        rocia guzman
+                        rocio guzman
                         <br />
                         georeen tanner
                         <br />

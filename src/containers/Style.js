@@ -2,6 +2,11 @@ import React from "react";
 import { Row, Col } from "antd";
 import media_relations from "../assets/images/media.png";
 
+import copyright from "../assets/images/style/copyright.png";
+import events from "../assets/images/style/events.png";
+import partnerships from "../assets/images/style/partnerships.png";
+import strategic_communication from "../assets/images/style/strategic_communication.png";
+
 class Home extends React.Component {
   render() {
     return (
@@ -12,7 +17,7 @@ class Home extends React.Component {
               <p>WHAT WE DO</p>
             </div>
             <div className="content-block">
-              <img src={media_relations} alt="Media" />
+              <img src={strategic_communication} alt="Media" />
               <p className="content-title">STRATEGIC COMMUNICATION</p>
               <p className="content-paragraph">
                 We jump in to modernize your communications strategy through
@@ -34,7 +39,7 @@ class Home extends React.Component {
             </div>
 
             <div className="content-block">
-              <img src={media_relations} alt="Media" />
+              <img src={copyright} alt="Media" />
               <p className="content-title">COPYWRITING</p>
               <p className="content-paragraph">
                 We work with you to develop the right brand strategy for the era
@@ -43,7 +48,7 @@ class Home extends React.Component {
               </p>
             </div>
             <div className="content-block">
-              <img src={media_relations} alt="Media" />
+              <img src={partnerships} alt="Media" />
               <p className="content-title">PARTNERSHIPS & COLLOABORATIONS</p>
               <p className="content-paragraph">
                 From wellness to technology to politics to Fortune 500s, we've
@@ -53,7 +58,7 @@ class Home extends React.Component {
               </p>
             </div>
             <div className="content-block">
-              <img src={media_relations} alt="Media" />
+              <img src={events} alt="Media" />
               <p className="content-title">
                 EVENTS & EXPERIENTIAL ACTIVATIONS{" "}
               </p>

@@ -149,13 +149,18 @@ class Clients extends React.Component {
                           .file.url + "?w=350&h=200&fit=pad"
                       }
                     />
-                  ) : null}
+                  ) : (
+                    <div style={{ height: "32px" }}>
+                      <br />
+                      <br />
+                    </div>
+                  )}
                   <br />
                   <img
                     className="client-image"
                     src={
                       entry.fields.pressImage.fields.file.url +
-                      "?w=400&h=400&fit=fill"
+                      "?w=400&h=600&fit=fill"
                     }
                   />
                   <br />
