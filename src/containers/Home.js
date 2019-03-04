@@ -20,8 +20,12 @@ class Home extends React.Component {
         >
           <img src={logo} alt="Wild Flower" className="center-logo" />
           <p className="home-pagep-title">Public Relations</p>
+          <a href="#about-us">
+            <i className="fal fa-angle-down scroll-down" />
+          </a>
         </div>
         <div
+          id="about-us"
           className="logo-container"
           to="/about-us"
           style={{ backgroundImage: "url(" + blue_fuzz + ")" }}
@@ -35,33 +39,6 @@ class Home extends React.Component {
           </h3>{" "}
           <h3 className="description-language">🌾We bloom among the wild✨ </h3>{" "}
           <h3 className="description-language">EST. 2015</h3>
-        </div>
-
-        <div
-          className="logo-container"
-          to="/about-us"
-          style={{ backgroundImage: "url(" + purple_fuzz + ")" }}
-        >
-          <h3 className="description-language" style={{ color: "#8adbc5" }}>
-            What we believe in
-          </h3>
-          <h3 className="description-language" style={{ color: "#8adbc5" }}>
-            We believe that all things are possible, even when they appear to be
-            at odds. Life is not static and neither are our needs — they vary
-            across a lifetime and across each situation. Through listening and
-            awareness, the universe reveals itself to you/us. We know that if we
-            can put our perceptions and impatience aside, we can create space
-            for alchemy, realizing that it’s not as complicated as we make it
-            out to be.{" "}
-          </h3>
-          <h3 className="description-language" style={{ color: "#8adbc5" }}>
-            We abide by qualities of awe and trust with a continual sense and
-            reverence towards the mystery of life. We work to keep a healthy
-            mind, because a healthy mind equals a healthy body — and life.
-          </h3>
-          <h3 className="description-language" style={{ color: "#8adbc5" }}>
-            This is our culture. This is our ethos. This is our human residence.
-          </h3>
         </div>
       </div>
     );

@@ -15,22 +15,6 @@ class Home extends React.Component {
         to="/about-the-team"
         style={{ marginTop: "20px" }}
       >
-        <div
-          className="logo-container"
-          to="/about-us"
-          style={{ backgroundImage: "url(" + yellow_fuzz + ")" }}
-        >
-          <h3 className="description-language" style={{ color: "#c5a1c9" }}>
-            Who we are{" "}
-          </h3>
-          <h3 className="description-language" style={{ color: "#c5a1c9" }}>
-            We're a loving team of independent, creative collaborators. We abide
-            by mindful storytelling, doing less to achieve more, and living a
-            life that's full of intention. We get things done and promise to
-            enjoy the ride from beginning to end. What can we say, we bloom
-            among the wild!
-          </h3>
-        </div>
         <div className="style-container tight-container">
           <Row>
             <Col lg={{ span: 24 }} md={{ span: 24 }} sm={{ span: 24 }}>
@@ -156,14 +140,14 @@ class Home extends React.Component {
                 </div>
                 <Row>
                   <Col md={{ span: 8 }} sm={{ span: 24 }}>
-                    <div className="content-block">
+                    <div className="content-block center">
                       <img
                         src={icon_1}
                         alt="Icon"
                         className="content-small-icon"
                       />
                       <p className="content-title">CONTENT CREATION</p>
-                      <p className="content-paragraph">
+                      <p className="content-paragraph center">
                         carissa-ann santos
                         <br />
                         veronica cintron
@@ -176,12 +160,12 @@ class Home extends React.Component {
                   <Col md={{ span: 8 }} sm={{ span: 24 }}>
                     <div className="content-block">
                       <img
-                        src={icon_2}
+                        src={icon_3}
                         alt="Icon"
                         className="content-small-icon"
                       />
                       <p className="content-title">DESIGN</p>
-                      <p className="content-paragraph">
+                      <p className="content-paragraph center">
                         andreas de camps
                         <br />
                         hélène de lourdes
@@ -194,16 +178,38 @@ class Home extends React.Component {
                   <Col md={{ span: 8 }} sm={{ span: 24 }}>
                     <div className="content-block">
                       <img
-                        src={icon_3}
+                        src={icon_2}
                         alt="Icon"
                         className="content-small-icon"
                       />
                       <p className="content-title">PUBLICISTS</p>
-                      <p className="content-paragraph">
+                      <p className="content-paragraph center">
                         rocio guzman
                         <br />
                         georeen tanner
                         <br />
+                      </p>
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+
+            <Col lg={{ span: 24 }} md={{ span: 24 }} sm={{ span: 24 }}>
+              <div className="content-container icon-container-thing">
+                <div className="content-header">
+                  <p>WHO WE ARE</p>
+                </div>
+                <Row>
+                  <Col md={{ span: 24 }} sm={{ span: 24 }}>
+                    <div className="content-block">
+                      <p className="content-paragraph">
+                        We're a loving team of independent, creative
+                        collaborators. We abide by mindful storytelling, doing
+                        less to achieve more, and living a life that's full of
+                        intention. We get things done and promise to enjoy the
+                        ride from beginning to end. What can we say, we bloom
+                        among the wild!
                       </p>
                     </div>
                   </Col>

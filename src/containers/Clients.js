@@ -116,7 +116,7 @@ class Clients extends React.Component {
                     className="client-image"
                     src={
                       entry.fields.clientImage.fields.file.url +
-                      "?w=400&h=600&fit=fill"
+                      "?w=400&h=400&fit=fill"
                     }
                   />
                 ) : null}
@@ -142,7 +142,7 @@ class Clients extends React.Component {
                     className="client-image"
                     src={
                       entry.fields.clientImage.fields.file.url +
-                      "?w=400&h=600&fit=fill"
+                      "?w=400&h=400&fit=fill"
                     }
                   />
                 ) : null}
@@ -186,38 +186,9 @@ class Clients extends React.Component {
   render() {
     return (
       <div className="style-wrapper" style={{ marginTop: "20px" }}>
-        <div
-          className="logo-container"
-          to="/about-us"
-          style={{ backgroundImage: "url(" + blue_fuzz + ")" }}
-        >
-          <h3 className="description-language">Who we work with </h3>
-          <h3 className="description-language">Agents of change.</h3>
-          <h3 className="description-language">
-            Lightworkers elevating the collective consciousness.{" "}
-          </h3>
-          <h3 className="description-language">
-            Entrepreneurs wearing their hearts on their sleeves.
-          </h3>
-          <h3 className="description-language">
-            Doers making the world a cleaner and safer place.
-          </h3>
-          <h3 className="description-language">
-            Activists influencing public policy for the better.
-          </h3>
-          <h3 className="description-language">
-            Fortune 500s targeting the millennial generation and multicultural
-            community.
-          </h3>
-          <h3 className="description-language">
-            Companies working to help women achieve their goals.
-          </h3>
-          <h3 className="description-language">
-            Mission-driven spirits, kind humans, and beautiful makers:
-          </h3>
-          <h3 className="description-language">They're our inspiration</h3>
-        </div>
         <div className="home-wrapper company-listings tight-container">
+          <br />
+          <br />
           {this.renderClientObjects(this.state.cleanedEntries)}
         </div>
       </div>

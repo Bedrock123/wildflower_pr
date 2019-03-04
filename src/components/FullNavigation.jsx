@@ -10,7 +10,7 @@ class FullNavigation extends React.Component {
     pressBarExposed: false,
     teamBarExposed: false,
     clientsBarExposed: false,
-    styleBarUrlActivate: false,
+    directionBarUrlActivate: false,
     pressBarUrlActivate: false,
     teamBarUrlActivate: false,
     clientsBarUrlActivate: false,
@@ -20,7 +20,7 @@ class FullNavigation extends React.Component {
     let activeOpenKey = `${this.props.location.pathname.split("/")[1]}`;
     activeOpenKey = activeOpenKey + "BarUrlActivate";
     this.setState({
-      styleBarUrlActivate: false,
+      directionBarUrlActivate: false,
       pressBarUrlActivate: false,
       teamBarUrlActivate: false,
       clientsBarUrlActivate: false
@@ -34,7 +34,7 @@ class FullNavigation extends React.Component {
     let activeOpenKey = `${nextProps.location.pathname.split("/")[1]}`;
     activeOpenKey = activeOpenKey + "BarUrlActivate";
     this.setState({
-      styleBarUrlActivate: false,
+      directionBarUrlActivate: false,
       pressBarUrlActivate: false,
       teamBarUrlActivate: false,
       clientsBarUrlActivate: false
@@ -68,46 +68,72 @@ class FullNavigation extends React.Component {
       clientsBarExposed: !this.state.clientsBarExposed
     });
   }
+  renderBottomBarClasses(ifDisplay) {
+    if (ifDisplay) {
+      return "bottom-bar bottom-bar-active";
+    } else {
+      return "bottom-bar";
+    }
+  }
   render() {
     return (
       <div className="menu-frame">
         <div className="menu-frame-inner">
           <NavLink
-            activeClassName="fourcorner-active"
+            activeClassName="active"
             to="/direction"
             className="four-corner-link style-link"
             onMouseEnter={this.changeStyleBarState.bind(this)}
             onMouseLeave={this.changeStyleBarState.bind(this)}
           >
             direction{" "}
+            <div
+              className={this.renderBottomBarClasses(
+                this.state.styleBarExposed || this.state.directionBarUrlActivate
+              )}
+            />
           </NavLink>{" "}
           <NavLink
-            activeClassName="fourcorner-active"
+            activeClassName="active"
             to="/press"
-            exact
             className="four-corner-link press-link"
             onMouseEnter={this.changePressBarState.bind(this)}
             onMouseLeave={this.changePressBarState.bind(this)}
           >
-            press{" "}
+            press
+            <div
+              className={this.renderBottomBarClasses(
+                this.state.pressBarExposed || this.state.pressBarUrlActivate
+              )}
+            />
           </NavLink>{" "}
           <NavLink
-            activeClassName="fourcorner-active"
+            activeClassName="active"
             to="/team"
             className="four-corner-link team-link"
             onMouseEnter={this.changeTeamBarState.bind(this)}
             onMouseLeave={this.changeTeamBarState.bind(this)}
           >
             team{" "}
+            <div
+              className={this.renderBottomBarClasses(
+                this.state.teamBarExposed || this.state.teamBarUrlActivate
+              )}
+            />
           </NavLink>{" "}
           <NavLink
-            activeClassName="fourcorner-active"
+            activeClassName="active"
             to="/clients"
             className="four-corner-link clients-link"
             onMouseEnter={this.changeClientsBarState.bind(this)}
             onMouseLeave={this.changeClientsBarState.bind(this)}
           >
             clients{" "}
+            <div
+              className={this.renderBottomBarClasses(
+                this.state.clientsBarExposed || this.state.clientsBarUrlActivate
+              )}
+            />
           </NavLink>{" "}
         </div>{" "}
         <i
@@ -155,7 +181,6 @@ class FullNavigation extends React.Component {
               <NavLink
                 activeClassName="active"
                 to="/press"
-                exact
                 className="four-corner-link "
                 onMouseEnter={this.changeStyleBarState.bind(this)}
                 onMouseLeave={this.changeStyleBarState.bind(this)}

@@ -146,7 +146,7 @@ class Clients extends React.Component {
                       className="press-logo"
                       src={
                         entry.fields.pressSource.fields.pressCompanyIcon.fields
-                          .file.url + "?w=350&h=200&fit=pad"
+                          .file.url + "?w=350&h=200&fit=pad&fm=jpg"
                       }
                     />
                   ) : (
@@ -156,15 +156,18 @@ class Clients extends React.Component {
                     </div>
                   )}
                   <br />
-                  <img
-                    className="client-image"
-                    src={
-                      entry.fields.pressImage.fields.file.url +
-                      "?w=400&h=600&fit=fill"
-                    }
-                  />
+                  <div className="press-image-container">
+                    <img
+                      className="client-image"
+                      src={
+                        entry.fields.pressImage.fields.file.url +
+                        "?w=400&h=400&fit=fill"
+                      }
+                    />
+                    <h3 className="press-title"> {entry.fields.title}</h3>
+                    <div className="press-image-overlay" />
+                  </div>
                   <br />
-                  <h3 className="press-title"> {entry.fields.title}</h3>
                 </div>
               </a>
             </Col>
@@ -187,13 +190,14 @@ class Clients extends React.Component {
               <h2> {category} </h2>
               <Link
                 to={"/press/" + slugify(category)}
+                className="see-all-posts"
                 style={{
                   textAlign: "center",
                   display: "block"
                 }}
               >
                 {" "}
-                See All Posts For {category}{" "}
+                See All Posts
               </Link>{" "}
               <br />
               <Row>
@@ -216,6 +220,9 @@ class Clients extends React.Component {
     return (
       <div className="home-wrapper company-listings tight-container">
         {" "}
+        <br />
+        <br />
+        <br />
         {this.renderPressCategorytObjects(this.state.cleanedEntries)}{" "}
       </div>
     );

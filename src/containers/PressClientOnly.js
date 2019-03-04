@@ -130,20 +130,22 @@ class Clients extends React.Component {
                     className="press-logo"
                     src={
                       entry.fields.pressSource.fields.pressCompanyIcon.fields
-                        .file.url + "?w=350&h=200&fit=pad"
+                        .file.url + "?w=350&h=200&fit=pad&fm=jpg"
                     }
                   />
                 ) : null}
                 <br />
-                <img
-                  className="client-image"
-                  src={
-                    entry.fields.pressImage.fields.file.url +
-                    "?w=400&h=600&fit=fill"
-                  }
-                />
-                <br />
-                <h3 className="press-title"> {entry.fields.title}</h3>
+                <div className="press-image-container">
+                  <img
+                    className="client-image"
+                    src={
+                      entry.fields.pressImage.fields.file.url +
+                      "?w=400&h=400&fit=fill"
+                    }
+                  />
+                  <h3 className="press-title"> {entry.fields.title}</h3>
+                  <div className="press-image-overlay" />
+                </div>
               </div>
             </a>
           </div>
@@ -165,16 +167,6 @@ class Clients extends React.Component {
             titles.push(
               <div>
                 <h2> {category} </h2>
-                <Link
-                  to={"/press/"}
-                  style={{
-                    textAlign: "center",
-                    display: "block"
-                  }}
-                >
-                  {" "}
-                  See All Posts
-                </Link>{" "}
                 <br />
                 <div className="client-press-container-thing">
                   {" "}
