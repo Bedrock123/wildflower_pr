@@ -121,7 +121,10 @@ class Clients extends React.Component {
                   />
                 ) : null}
                 <br />
-                <h3>{entry.fields.clientName}</h3>
+                <div className="border-container">
+                  <h3>{entry.fields.clientName}</h3>
+                  <div className="border" />
+                </div>
               </div>
             </a>
           </Col>
@@ -147,7 +150,11 @@ class Clients extends React.Component {
                   />
                 ) : null}
                 <br />
-                <h3>{entry.fields.clientName}</h3>
+                <div className="border-container">
+                  <h3>
+                    {entry.fields.clientName} <div className="border" />
+                  </h3>
+                </div>
               </div>
             </a>
           </Col>

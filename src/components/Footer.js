@@ -29,7 +29,7 @@ class CallOut extends React.Component {
           <div className="footer-footer-wrapper">
             <div className="icon-wrapper">
               <a
-                href="https://instagram.com/wildflower"
+                href="https://www.instagram.com/wildflowerpr.co/"
                 className="icon"
                 target="_blank"
                 style={{ paddingLeft: "8px", paddingRight: "8px" }}
@@ -37,7 +37,7 @@ class CallOut extends React.Component {
                 <i className="fab fa-instagram" />
               </a>
               <a
-                href="https://facebook.com/wildflower"
+                href="https://www.facebook.com/wildflowerpr.co"
                 className="icon"
                 target="_blank"
                 style={{ paddingLeft: "11px", paddingRight: "11px" }}
@@ -46,7 +46,7 @@ class CallOut extends React.Component {
               </a>
 
               <a
-                href="https://linkedin.com/wildflower"
+                href="https://www.linkedin.com/company/wildflowerpr"
                 className="icon"
                 target="_blank"
                 style={{ paddingLeft: "8px", paddingRight: "8px" }}

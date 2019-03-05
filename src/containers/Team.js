@@ -201,7 +201,19 @@ class Home extends React.Component {
                   <p>WHO WE ARE</p>
                 </div>
                 <Row>
-                  <Col md={{ span: 24 }} sm={{ span: 24 }}>
+                  <Col lg={{ span: 12 }} md={{ span: 24 }} sm={{ span: 24 }}>
+                    <div className="content-block">
+                      <p className="content-paragraph">
+                        We're a loving team of independent, creative
+                        collaborators. We abide by mindful storytelling, doing
+                        less to achieve more, and living a life that's full of
+                        intention. We get things done and promise to enjoy the
+                        ride from beginning to end. What can we say, we bloom
+                        among the wild!
+                      </p>
+                    </div>
+                  </Col>
+                  <Col lg={{ span: 12 }} md={{ span: 24 }} sm={{ span: 24 }}>
                     <div className="content-block">
                       <p className="content-paragraph">
                         We're a loving team of independent, creative
