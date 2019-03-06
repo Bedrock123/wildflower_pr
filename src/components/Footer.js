@@ -8,9 +8,9 @@ class CallOut extends React.Component {
     return (
       <div className="footer-wrapper">
         <div className="footer-wrapper-inner">
-          <h3>don't be shy - come bloom among the wild!</h3>
+          <h3>don't be shy, come bloom among the wild.</h3>
           <h4>
-            <a href="mailto:hello@wildflower.com">hello@wildflower.com</a>
+            <a href="mailto:hhi@wildflowerpr.co">hi@wildflowerpr.co</a>
           </h4>
           <div className="sign-up-wrapper">
             <p>sign up for our newsletter</p>
@@ -54,9 +54,13 @@ class CallOut extends React.Component {
                 <i className="fab fa-linkedin-in" />
               </a>
             </div>
-            <p>© 2019. All Rights Reserved wildflower.com</p>
+            <p>2019. all rights reserved wildflowerpr.co</p>
             <p>
-              Designed by Andreas De Camps German / Developed by Zach Bedrosian
+              designed by{" "}
+              <a href="http://wholebunchofbricks.tumblr.com/">
+                awholebunchofbricks
+              </a>{" "}
+              • developed by zach bedrosian
             </p>
           </div>
         </div>

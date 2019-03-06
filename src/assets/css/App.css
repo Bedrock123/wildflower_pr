@@ -64,11 +64,9 @@ html {
   background-size: cover;
 }
 
-.content-wrapper {
-}
+.content-wrapper {}
 
-.menu-frame {
-}
+.menu-frame {}
 
 .menu-frame-inner {
   /* border: 16px solid #FDDEA8; */
@@ -347,13 +345,7 @@ html {
   margin: auto !important;
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .style-wrapper
-  .style-container
-  .content-container
-  .content-header {
+.style-wrapper .style-container .content-container .style-wrapper .style-container .content-container .content-header {
   font-size: 23px;
   background: white;
   max-width: 200px;
@@ -378,20 +370,12 @@ html {
   margin-bottom: 30px;
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-small-icon {
+.style-wrapper .style-container .content-container .content-block .content-small-icon {
   margin: auto;
   max-width: 130px;
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-icon {
+.style-wrapper .style-container .content-container .content-block .content-icon {
   /* width: 100%; */
   background: #3366cc;
   height: 424px;
@@ -400,21 +384,13 @@ html {
   margin: 20px;
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-title {
+.style-wrapper .style-container .content-container .content-block .content-title {
   font-weight: 800;
   letter-spacing: 1.5px;
   font-family: "Baron Neue";
 }
 
-.style-wrapper
-  .style-container
-  .content-container
-  .content-block
-  .content-paragraph {
+.style-wrapper .style-container .content-container .content-block .content-paragraph {
   padding: 0px 20px;
   font-size: 18.5px !important;
   text-align: justify;
@@ -627,15 +603,22 @@ html {
 
   /* text-decoration: underline; */
 }
+
 .client-object .border-container {
   /* padding-top: 20px; */
 }
+
 .client-object .border-container .border {
   transition: all 0.5s ease;
   background-color: #3366cc;
   height: 7px;
   width: 0%;
   /* display: inherit; */
+}
+
+.content-paragraph a {
+  color: #3366cc;
+  text-decoration: underline;
 }
 
 .client-object:hover .border-container .border {
@@ -662,8 +645,7 @@ html {
 }
 
 @media screen and (max-width: 1500px) {
-  .content-wrapper {
-  }
+  .content-wrapper {}
 }
 
 @media screen and (max-width: 768) {
@@ -686,8 +668,7 @@ html {
     display: none;
   }
 
-  .content-wrapper {
-  }
+  .content-wrapper {}
 
   .menu-frame-inner {
     display: none;
@@ -891,4 +872,31 @@ html {
 .client-object:hover .press-title::-webkit-scrollbar-thumb:hover {
   background: #fff;
   width: 5px;
+}
+
+
+@media screen and (max-width: 989px) {
+  .style-wrapper .direction-container {
+    padding: 40px 25px;
+  }
+
+  .style-wrapper .style-container .content-container {
+    padding: 20px 30px;
+  }
+
+  .style-wrapper .direction-container {
+    margin-bottom: 10px;
+  }
+
+  .menu-frame .four-corner-link {
+    display: contents;
+  }
+
+  .link-container {
+    margin-right: 30px;
+  }
+
+  .tight-container {
+    padding: 40px;
+  }
 }
