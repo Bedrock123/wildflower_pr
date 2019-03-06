@@ -205,6 +205,12 @@ html {
 .scroll-down {
   color: #497cc0;
   font-size: 50px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -302,6 +308,7 @@ html {
   justify-content: center;
   display: flex;
   padding: 38px 0px;
+  position: relative;
   flex-direction: column;
 }
 
@@ -437,7 +444,8 @@ html {
 
 .home-pagep-title {
   position: absolute;
-  font-family: "Print Bold";
+  /* font-family: "Print Bold"; */
+  /* text-transform: capitalize; */
   margin-top: 105px !important;
 }
 
@@ -460,6 +468,9 @@ html {
   color: #222;
 }
 
+.blue-text {
+  color: #3366cc !important;
+}
 .social-icons a:hover {
   padding: 0px 15px;
   color: #222;
@@ -509,7 +520,7 @@ html {
 }
 
 .home-pagep-title {
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   letter-spacing: 4.8px;
   margin-top: 15px;
   font-size: 20px;
@@ -637,6 +648,7 @@ html {
   transition: all 0.5s ease;
   background-color: #3366cc;
   height: 7px;
+  margin: auto;
   width: 0%;
   /* display: inherit; */
 }
@@ -647,7 +659,8 @@ html {
 }
 
 .client-object:hover .border-container .border {
-  width: 100%;
+  width: 70%;
+  margin: auto;
   transition: all 0.5s ease;
 }
 

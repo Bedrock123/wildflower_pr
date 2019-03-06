@@ -10,12 +10,12 @@ class CallOut extends React.Component {
         <div className="footer-wrapper-inner">
           <h3>don't be shy, come bloom among the wild.</h3>
           <h4>
-            <a href="mailto:hhi@wildflowerpr.co">hi@wildflowerpr.co</a>
+            <a href="mailto:hi@wildflowerpr.co">hi@wildflowerpr.co</a>
           </h4>
           <div className="sign-up-wrapper">
             <p>sign up for our newsletter</p>
             <form
-              action="https://formspree.io/zachary@cleancult.com"
+              action="https://formspree.io/hi@wildflowerpr.co"
               method="POST"
             >
               <input

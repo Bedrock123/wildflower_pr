@@ -19,7 +19,7 @@ class Home extends React.Component {
           }}
         >
           <img src={logo} alt="Wild Flower" className="center-logo" />
-          <p className="home-pagep-title">Public Relations</p>
+          <p className="home-pagep-title">public relations</p>
           <a href="#about-us">
             <i className="fal fa-angle-down scroll-down" />
           </a>
@@ -43,6 +43,22 @@ class Home extends React.Component {
             🌾 we bloom among the wild ✨
           </h3>
           <h3 className="description-language">est. 2015</h3>
+          <a href="#team-info">
+            <i
+              className="fal fa-angle-down scroll-down"
+              style={{ color: "#fde392" }}
+            />
+          </a>
+        </div>
+        <div
+          id="team-info"
+          className="logo-container"
+          to="/about-us"
+          style={{ backgroundImage: "url(" + purple_fuzz + ")" }}
+        >
+          <h3 className="description-language ">
+            wildflower is a petite public relations firm for the{" "}
+          </h3>
         </div>
       </div>
     );

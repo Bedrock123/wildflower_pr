@@ -77,7 +77,7 @@ class Home extends React.Component {
             </div>
             <div className="content-block">
               <p className="content-paragraph">
-                we believe that all things are possible, even when they appear
+                ✨we believe that all things are possible, even when they appear
                 to be at odds. life is not static and neither are our needs —
                 they vary across a lifetime and across each situation. through
                 listening and awareness, the universe reveals itself to you/us.
@@ -86,8 +86,12 @@ class Home extends React.Component {
                 we make it out to be. we abide by qualities of awe and trust
                 with a continual sense and reverence towards the mystery of
                 life. we work to keep a healthy mind because a healthy mind is a
-                healthy life. this is our culture. this is our ethos. this is
-                our human residence.
+                healthy life.✨
+                <br />
+                <br />
+                this is our culture. <br />
+                this is our ethos. <br />
+                this is our human residence.
               </p>
             </div>
           </div>
