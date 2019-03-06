@@ -2,10 +2,10 @@ import React from "react";
 import { Row, Col } from "antd";
 import media_relations from "../assets/images/media.png";
 
-import copyright from "../assets/images/style/copyright.png";
-import events from "../assets/images/style/events.png";
-import partnerships from "../assets/images/style/partnerships.png";
-import strategic_communication from "../assets/images/style/strategic_communication.png";
+import copyright from "../assets/images/style/copyright.jpg";
+import events from "../assets/images/style/events.jpg";
+import partnerships from "../assets/images/style/partnerships.jpg";
+import strategic_communication from "../assets/images/style/strategic_communication.jpg";
 
 class Home extends React.Component {
   render() {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
-import catherine from "../assets/images/catherine.png";
+import catherine from "../assets/images/catherine.jpg";
 import icon_1 from "../assets/images/icon-1.png";
 import icon_2 from "../assets/images/icon-2.png";
 import yellow_fuzz from "../assets/images/yellow_fuzz.png";
@@ -38,15 +38,14 @@ class Home extends React.Component {
                     <div className="content-block">
                       <p className="content-title">THE JOURNEY</p>
                       <p className="content-paragraph">
-                        I experienced my divine awakening at the age of 23.
-                        After being misdiagnosed and over-treated in emergency
-                        surgery where I lost my left ovary out of "precaution",
-                        I opted out of undergoing “preventive chemotherapy”
-                        (thank you forever Kris Carr!) and changed my life and
-                        diet from the inside out. I asked myself how a young
-                        body, with no signs of malignancy, could undergo such
-                        severe and invasive treatment...and so began my
-                        life-changing journey.
+                        I experienced my awakening at the age of 23. After being
+                        misdiagnosed and over-treated in emergency surgery where
+                        I lost my left ovary out of "precaution", I opted out of
+                        undergoing “preventive chemotherapy” (thank you forever
+                        Kris Carr!) and changed my life and diet from the inside
+                        out. I asked myself how a young body, with no signs of
+                        malignancy, could undergo such severe and invasive
+                        treatment... and so began my life-changing journey.
                         <br />
                         <br />
                         I now know, that it is not our experience that makes our

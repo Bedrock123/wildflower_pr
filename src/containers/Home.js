@@ -1,10 +1,10 @@
 import React from "react";
 import logo from "../assets/images/logo.gif";
 import { Link } from "react-router-dom";
-import blue_fuzz from "../assets/images/blue_fuz.png";
-import yellow_fuzz from "../assets/images/yellow_fuzz.png";
-import purple_fuzz from "../assets/images/purple_fuzz.png";
-import Background from "../assets/images/background_v1.png";
+import blue_fuzz from "../assets/images/blue_fuz.jpg";
+
+import purple_fuzz from "../assets/images/purple_fuzz.jpg";
+import Background from "../assets/images/background_v1.jpg";
 
 class Home extends React.Component {
   render() {
