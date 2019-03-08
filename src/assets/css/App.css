@@ -425,6 +425,7 @@ html {
   padding: 0px 20px;
   font-size: 18.5px !important;
   text-align: justify;
+  line-height: 31px;
 }
 
 .center {
@@ -656,6 +657,8 @@ html {
 
 .content-paragraph a {
   color: #3366cc;
+  padding-bottom: 0px;
+  border-bottom: 3px solid currentColor;
   /* text-decoration: underline; */
 }
 

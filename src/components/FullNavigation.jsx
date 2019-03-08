@@ -95,15 +95,15 @@ class FullNavigation extends React.Component {
           </NavLink>{" "}
           <NavLink
             activeClassName="active"
-            to="/press"
+            to="/clients"
             className="four-corner-link press-link"
-            onMouseEnter={this.changePressBarState.bind(this)}
-            onMouseLeave={this.changePressBarState.bind(this)}
+            onMouseEnter={this.changeClientsBarState.bind(this)}
+            onMouseLeave={this.changeClientsBarState.bind(this)}
           >
-            press
+            clients
             <div
               className={this.renderBottomBarClasses(
-                this.state.pressBarExposed || this.state.pressBarUrlActivate
+                this.state.clientsBarExposed || this.state.clientsBarUrlActivate
               )}
             />
           </NavLink>{" "}
@@ -123,15 +123,15 @@ class FullNavigation extends React.Component {
           </NavLink>{" "}
           <NavLink
             activeClassName="active"
-            to="/clients"
+            to="/press"
             className="four-corner-link clients-link"
-            onMouseEnter={this.changeClientsBarState.bind(this)}
-            onMouseLeave={this.changeClientsBarState.bind(this)}
+            onMouseEnter={this.changePressBarState.bind(this)}
+            onMouseLeave={this.changePressBarState.bind(this)}
           >
-            clients{" "}
+            press{" "}
             <div
               className={this.renderBottomBarClasses(
-                this.state.clientsBarExposed || this.state.clientsBarUrlActivate
+                this.state.pressBarExposed || this.state.pressBarUrlActivate
               )}
             />
           </NavLink>{" "}
