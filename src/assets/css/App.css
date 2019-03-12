@@ -427,6 +427,7 @@ html {
   font-size: 18.5px !important;
   text-align: justify;
   line-height: 31px;
+  hyphens: auto;
 }
 
 .center {
@@ -657,7 +658,7 @@ html {
 }
 
 .content-paragraph a {
-  color: #3366cc;
+  color: #009688;
   padding-bottom: 0px;
   border-bottom: 3px solid currentColor;
   /* text-decoration: underline; */

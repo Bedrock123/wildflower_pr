@@ -56,15 +56,12 @@ class Home extends React.Component {
           to="/about-us"
           style={{ backgroundImage: "url(" + purple_fuzz + ")" }}
         >
-          <h3 className="description-language ">we work with:</h3>
+          <h3 className="description-language ">we work with: </h3>
           <h3 className="description-language ">
-            agents of change • activists
+            agents of change • activists • mothers
           </h3>
           <h3 className="description-language ">
-            companies helping women achieve their goals
-          </h3>
-          <h3 className="description-language ">
-            lightworkers • mission-driven spirits • kind humans
+            lightworkers • companies empowering women
           </h3>
           <h3 className="description-language ">
             fortune 500s targeting millennials + multicultural communities
@@ -78,7 +75,7 @@ class Home extends React.Component {
           <h3 className="description-language ">
             influencing public policy for the better.
           </h3>
-          <h3 className="description-language ">they're our inspiration. ⚡</h3>
+          <h3 className="description-language ">they're our inspiration⚡</h3>
         </div>
       </div>
     );

@@ -33,7 +33,7 @@ class Home extends React.Component {
                 we love to pitch the media, it's our bread and butter. we get to
                 plant a seed on your behalf about your brand and vision in a way
                 that they'll remember. this includes mainstream general market
-                media in english, as well as, multicultural outlets in spanish
+                media in english, as well as, multicultural outlets in spanish,
                 too: inclusive of print, online, tv, radio and influencers.
               </p>
             </div>
