@@ -58,7 +58,7 @@ class CallOut extends React.Component {
             <p>
               designed by{" "}
               <a href="http://wholebunchofbricks.tumblr.com/">
-                awholebunchofbricks
+                Andreas De Camps German
               </a>
             </p>
           </div>

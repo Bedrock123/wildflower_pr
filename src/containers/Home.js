@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import blue_fuzz from "../assets/images/blue_fuz.jpg";
 
 import purple_fuzz from "../assets/images/purple_fuzz.jpg";
+import yellow_fuzz from "../assets/images/yellow_fuzz.jpg";
 import Background from "../assets/images/background_v1.jpg";
 
 class Home extends React.Component {
@@ -54,28 +55,32 @@ class Home extends React.Component {
           id="team-info"
           className="logo-container"
           to="/about-us"
-          style={{ backgroundImage: "url(" + purple_fuzz + ")" }}
+          style={{ backgroundImage: "url(" + yellow_fuzz + ")" }}
         >
-          <h3 className="description-language ">we work with: </h3>
-          <h3 className="description-language ">
+          <h3 className="description-language " style={{ color: "#b08ad6" }}>
+            we work with:{" "}
+          </h3>
+          <h3 className="description-language " style={{ color: "#b08ad6" }}>
             agents of change • activists • mothers
           </h3>
-          <h3 className="description-language ">
+          <h3 className="description-language " style={{ color: "#b08ad6" }}>
             lightworkers • companies empowering women
           </h3>
-          <h3 className="description-language ">
+          <h3 className="description-language " style={{ color: "#b08ad6" }}>
             fortune 500s targeting millennials + multicultural communities
           </h3>
-          <h3 className="description-language ">
+          <h3 className="description-language " style={{ color: "#b08ad6" }}>
             doers elevating the collective consciousness
           </h3>
-          <h3 className="description-language ">
+          <h3 className="description-language " style={{ color: "#b08ad6" }}>
             making the world a cleaner & safer place
           </h3>
-          <h3 className="description-language ">
+          <h3 className="description-language " style={{ color: "#b08ad6" }}>
             influencing public policy for the better.
           </h3>
-          <h3 className="description-language ">they're our inspiration⚡</h3>
+          <h3 className="description-language " style={{ color: "#b08ad6" }}>
+            they're our inspiration⚡
+          </h3>
         </div>
       </div>
     );

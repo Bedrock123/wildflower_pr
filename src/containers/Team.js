@@ -45,31 +45,32 @@ class Home extends React.Component {
                         Kris Carr!) and changed my life and diet from the inside
                         out. I asked myself how a young body, with no signs of
                         malignancy, could undergo such severe and invasive
-                        treatment... and so began my life-changing journey.
+                        treatment.
                         <br />
                         <br />
                         I now know, that it is not our experience that makes our
                         life, it is what we do with the experience. After the
                         health scare, I packed my bags in New York, moved to
-                        Miami to fulfill my dreams of working on a presidential
+                        Miami to fulfill my desire of working on a presidential
                         campaign, went raw vegan, started juicing, ate under the
-                        warm sun, got fresh air daily, met the love of my life,
-                        and subsequently, started to feel whole again. I gave
-                        myself the opportunity to live slower and with more
-                        intention.
+                        warm sun, got fresh air daily, met the love of my
+                        life... and subsequently, started to feel whole again. I
+                        gave myself the opportunity to live slower and with more
+                        intention. This, in turn, shifted my perspective, and
+                        perspective is, really, all that matters.
                         <br />
-                        <br />I am proud to say that I was named a "top food
-                        tech entrepreneur to watch in New York City" by Alley
-                        Watch after launching my first startup,{" "}
+                        <br />I was named a "top food tech entrepreneur to watch
+                        in New York City" by AlleyWatch after launching my first
+                        startup,{" "}
                         <a href="https://greenhoppingapp.com/" target="_blank">
                           GreenHopping
                         </a>
-                        . GH was a semi-finalist of NYU'S $200,000 competition,
+                        . We were a semi-finalist of NYU'S $200,000 competition,
                         selected by SXSW for the Startup Village Spotlight, and
-                        TechWeek's launch competitor in 2013. I launched
-                        GreenHopping out of my own personal necessity to live
-                        greener. It didn't "make it" but it opened me up to a
-                        whole new world of skillsets. It allowed me to expand my
+                        TechWeek's launch competitor. I launched GreenHopping
+                        out of my own personal necessity to live greener. It
+                        didn't "make it" but it opened me up to a whole new
+                        world of skillsets. It allowed me to expand my
                         creativity and search for new paths. Ultimately,
                         bringing me "home" to "me" through new challenges,
                         knowledge, and leadership.
@@ -91,16 +92,16 @@ class Home extends React.Component {
                         won. She's worked on the social corporate responsibility
                         teams for the Hispanic Agencies of Record (The Vox
                         Collective + MullenLowe Profero) representing top
-                        Fortune 500 companies.
+                        Fortune 500 companies in pharma, food, and retail.
                         <br />
                         <br />
                         Independently, Catherine spearheaded the launch of
                         accelerator programs empowering women of color in
-                        technology, plant-based restaurants & brands in
-                        Manhattan, startups in the consumer household space, and
-                        national emergency programs for disaster relief.
-                        Catherine has expertise in landing high-profile public
-                        engagements, ranging from interviews to panels.
+                        technology, plant-based restaurants & brands, startups
+                        in the consumer household space, and national emergency
+                        programs for disaster relief. Catherine has expertise in
+                        landing high-profile public engagements, ranging from
+                        interviews to panels.
                         <br />
                         <br />
                         Catherine earned her BA in International Relations and
@@ -195,30 +196,15 @@ class Home extends React.Component {
                   <p>WHO WE ARE</p>
                 </div>
                 <Row>
-                  <Col lg={{ span: 12 }} md={{ span: 24 }} sm={{ span: 24 }}>
+                  <Col lg={{ span: 24 }} md={{ span: 24 }} sm={{ span: 24 }}>
                     <div className="content-block">
                       <p className="content-paragraph">
                         we're a rad team of independent, creative collaborators
-                        with diverse life experiences that make us who we are.
-                        we abide by mindful storytelling, doing less to achieve
-                        more, and living a life that's full of intention. we
-                        like to get things done all while enjoying the ride.
-                        what can we say, we bloom among the wild.
-                      </p>
-                    </div>
-                  </Col>
-                  <Col lg={{ span: 12 }} md={{ span: 24 }} sm={{ span: 24 }}>
-                    <div className="content-block">
-                      <p className="content-paragraph">
-                        we work with: agents of change. lightworkers elevating
-                        the collective consciousness. entrepreneurs wearing
-                        their hearts on their sleeves. doers making the world a
-                        cleaner & safer place. activists influencing public
-                        policy for the better. companies helping women achieve
-                        their goals. fortune 500s targeting the millennial
-                        generation & multicultural community. ✨ mission-driven
-                        spirits, kind humans, & beautiful makers: they're our
-                        inspiration. ✨
+                        with diverse life experiences and international
+                        backgrounds that make us who we are. our thought process
+                        is unique. we live by mindful storytelling and a life
+                        full of intention. what can we say, we bloom with you,
+                        among the wild.
                       </p>
                     </div>
                   </Col>
