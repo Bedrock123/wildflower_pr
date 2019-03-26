@@ -116,7 +116,7 @@ class Clients extends React.Component {
                     className="client-image"
                     src={
                       entry.fields.clientImage.fields.file.url +
-                      "?w=400&h=400&fit=fill"
+                      "?w=400&h=400&fit=fill&q=60"
                     }
                   />
                 ) : null}
@@ -145,7 +145,7 @@ class Clients extends React.Component {
                     className="client-image"
                     src={
                       entry.fields.clientImage.fields.file.url +
-                      "?w=400&h=400&fit=fill"
+                      "?w=400&h=400&fit=fill&q=60"
                     }
                   />
                 ) : null}

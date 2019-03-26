@@ -57,8 +57,8 @@ class CallOut extends React.Component {
             <p>2019. all rights reserved wildflowerpr.co</p>
             <p>
               designed by{" "}
-              <a href="http://wholebunchofbricks.tumblr.com/">
-                Andreas De Camps German
+              <a href="http://wholebunchofbricks.tumblr.com/" target="_blank">
+                andreas de camps german
               </a>
             </p>
           </div>
