@@ -130,7 +130,8 @@ class Clients extends React.Component {
               className="client-link"
             >
               <div className="client-object">
-                {entry.fields.pressSource.fields.pressCompanyIcon ? (
+                {entry.fields.pressSource.fields.pressCompanyIcon.fields &&
+                entry.fields.pressSource.fields.pressCompanyIcon ? (
                   <img
                     className="press-logo"
                     src={
