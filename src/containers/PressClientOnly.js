@@ -65,16 +65,20 @@ class Clients extends React.Component {
           var singleClientObject = entries.items[i];
           if (
             !(
+              singleClientObject.fields.pressClient.fields &&
               singleClientObject.fields.pressClient.fields.clientName in
-              that.state.cleanedEntries
+                that.state.cleanedEntries
             )
           ) {
-            cleanedEntries[
-              singleClientObject.fields.pressClient.fields.clientName
-            ] = {
-              array: [],
-              order: singleClientObject.fields.pressClient.fields.order
-            };
+            if (singleClientObject.fields.pressClient.fields) {
+              cleanedEntries[
+                singleClientObject.fields.pressClient.fields.clientName
+              ] = {
+                array: [],
+                order: singleClientObject.fields.pressClient.fields.order
+              };
+            }
+
             that.setState({
               cleanedEntries: cleanedEntries
             });
@@ -89,8 +93,9 @@ class Clients extends React.Component {
         for (var i = 0; i < arrayLength; i++) {
           var singleClientObject = entries.items[i];
           if (
+            singleClientObject.fields.pressClient.fields &&
             singleClientObject.fields.pressClient.fields.clientName in
-            that.state.cleanedEntries
+              that.state.cleanedEntries
           ) {
             that.state.cleanedEntries[
               singleClientObject.fields.pressClient.fields.clientName

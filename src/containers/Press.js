@@ -33,7 +33,7 @@ class Clients extends React.Component {
     this.client
       .getEntries({
         content_type: "ordering",
-        limit: 1,
+        limit: 500,
         include: 5
       })
       .then(function(entries) {
@@ -47,8 +47,8 @@ class Clients extends React.Component {
     this.client
       .getEntries({
         content_type: "pressObject",
-        limit: 350,
-        include: 3
+        limit: 500,
+        include: 5
       })
       .then(function(entries) {
         console.log(entries);
@@ -130,7 +130,9 @@ class Clients extends React.Component {
       return null;
     }
   }
-  renderPress(sysID) {
+  renderPress(sysID, clientName) {
+    console.log(clientName);
+    console.log(sysID);
     var that = this;
     return this.state.entries.includes.Entry.map(function(pressEntry) {
       if (
@@ -161,9 +163,15 @@ class Clients extends React.Component {
             }}
           >
             See All Posts
+            <div className="border" />
           </Link>
           <br />
-          <Row>{that.renderPress(pressObject.sys.id)}</Row>
+          <Row>
+            {that.renderPress(
+              pressObject.sys.id,
+              pressObject.fields.clientName
+            )}
+          </Row>
           <br />
         </Row>
       );
