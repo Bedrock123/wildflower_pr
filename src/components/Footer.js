@@ -29,7 +29,7 @@ class CallOut extends React.Component {
           <div className="footer-footer-wrapper">
             <div className="icon-wrapper">
               <a
-                href="https://www.instagram.com/wildflowerpr.co/"
+                href="https://www.instagram.com/wLDFLWRPR/"
                 className="icon"
                 target="_blank"
                 style={{ paddingLeft: "8px", paddingRight: "8px" }}
@@ -55,6 +55,7 @@ class CallOut extends React.Component {
               </a>
             </div>
             <p>2019. all rights reserved wildflowerpr.co</p>
+            <p>proudly based out of - the wing - dumbo and soho, new york</p>
             <p>
               designed by{" "}
               <a href="http://andreasdecamps.com/ " target="_blank">

@@ -7,7 +7,7 @@ class AboutUs extends React.Component {
       <div className="home-wrapper">
         <Link className="logo-container" to="/">
           <h3 className="description-language">
-            wildflower is a petite public relations firm for the eco-friendly,
+            wildflower is a do-good public relations firm for the eco-friendly,
             conscientious and courageous.
           </h3>{" "}
           <br />
