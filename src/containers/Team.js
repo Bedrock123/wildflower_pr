@@ -81,7 +81,7 @@ class Home extends React.Component {
                     <div className="content-block">
                       <p className="content-title">THE CREDENTIALS</p>
                       <p className="content-paragraph">
-                        Catherine is wildflower's founder and head publicist.
+                        Catherine is wldflwr's founder and head publicist.
                         She's been working in communications for a decade. Her
                         passion for communications stems from the desire to
                         build, unite, and inspire. Catherine served as assistant

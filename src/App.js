@@ -41,7 +41,7 @@ class App extends React.Component {
         <NavLink to="/">
           <img
             src={white_logo}
-            alt="Wildflower PR Logo"
+            alt="Wldflwr PR Logo"
             className="menu-logo  menu-logo-abs"
           />
         </NavLink>
@@ -50,7 +50,7 @@ class App extends React.Component {
     if (path !== "/") {
       return (
         <NavLink to="/">
-          <img src={blue_logo} alt="Wildflower PR Logo" className="menu-logo" />
+          <img src={blue_logo} alt="Wldflwr PR Logo" className="menu-logo" />
         </NavLink>
       );
     }
