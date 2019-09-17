@@ -32,7 +32,7 @@ class Home extends React.Component {
           style={{ backgroundImage: "url(" + blue_fuzz + ")" }}
         >
           <h3 className="description-language">
-            wildflower is a do-good public relations firm for the{" "}
+          wldflwr is a do-good public relations firm for the{" "}
           </h3>
           <h3 className="description-language">
             eco-friendly, conscientious and courageous.
