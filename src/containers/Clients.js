@@ -1,201 +1,255 @@
 import React from "react";
 import { Row, Col } from "antd";
-import blue_fuzz from "../assets/images/blue_fuz.png";
 var contentful = require("contentful");
 
+/**
+ * Safely sort a map of { [key]: { order: number } } by order (missing order -> Infinity).
+ */
 function sortProperties(obj) {
-  // convert object into array
-  var sortable = [];
-  for (var key in obj)
-    if (obj.hasOwnProperty(key)) sortable.push([key, obj[key]]); // each item is an array in format [key, value]
-
-  // sort items by value
-  sortable.sort(function(a, b) {
-    var x = a[1]["order"],
-      y = b[1]["order"];
-    return x < y ? -1 : x > y ? 1 : 0;
+  obj = obj || {};
+  var sortable = Object.keys(obj).map(function (key) {
+    return [key, obj[key] || {}];
   });
+
+  sortable.sort(function (a, b) {
+    var x = a && a[1] && Number.isFinite(a[1].order) ? a[1].order : Infinity;
+    var y = b && b[1] && Number.isFinite(b[1].order) ? b[1].order : Infinity;
+    return x - y;
+  });
+
   var newList = {};
-  var arrayLength = sortable.length;
-  for (var i = 0; i < arrayLength; i++) {
+  for (var i = 0; i < sortable.length; i++) {
     newList[sortable[i][0]] = sortable[i][1];
   }
-  return newList; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
+  return newList;
 }
 
 class Clients extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       entries: [],
-      cleanedEntries: {}
+      cleanedEntries: {},
+      readyToRender: false,
+      error: null,
     };
-  }
-  client = contentful.createClient({
-    space: "m7b48oankuyj",
-    accessToken:
-      "e6a73de0cbe113450d3bb4b02e54a0db2552cd57c390f8d1cb53e278c9075c8d"
-  });
 
+    // ✅ No class field syntax — define client here
+    this.client = contentful.createClient({
+      space: "m7b48oankuyj",
+      accessToken:
+        "e6a73de0cbe113450d3bb4b02e54a0db2552cd57c390f8d1cb53e278c9075c8d",
+    });
+
+    // ✅ Bind methods (instead of arrow properties)
+    this.findItems = this.findItems.bind(this);
+    this.renderClientObjects = this.renderClientObjects.bind(this);
+    this.renderCategoryObjects = this.renderCategoryObjects.bind(this);
+    this.renderClientCard = this.renderClientCard.bind(this);
+  }
+
+  // --- Defensive getters (no optional chaining) ---
+  getClientTypeName(entry) {
+    return (
+      (entry &&
+        entry.fields &&
+        entry.fields.clientType &&
+        entry.fields.clientType.fields &&
+        entry.fields.clientType.fields.name) ||
+      "Other"
+    );
+  }
+
+  getClientTypeOrder(entry) {
+    var order =
+      entry &&
+      entry.fields &&
+      entry.fields.clientType &&
+      entry.fields.clientType.fields &&
+      entry.fields.clientType.fields.order;
+
+    return Number.isFinite(order) ? order : Infinity;
+  }
+
+  getClientName(entry) {
+    return (
+      (entry && entry.fields && entry.fields.clientName) || "Untitled Client"
+    );
+  }
+
+  getClientUrl(entry) {
+    return (entry && entry.fields && entry.fields.clientUrl) || null;
+  }
+
+  getClientImageUrl(entry) {
+    var url =
+      entry &&
+      entry.fields &&
+      entry.fields.clientImage &&
+      entry.fields.clientImage.fields &&
+      entry.fields.clientImage.fields.file &&
+      entry.fields.clientImage.fields.file.url;
+
+    if (!url) return null;
+
+    // Contentful often returns protocol-relative URLs like //images.ctfassets.net/...
+    var normalized = url.indexOf("//") === 0 ? "https:" + url : url;
+
+    return normalized + "?w=400&h=400&fit=fill&q=60";
+  }
+
+  // ✅ No async/await — use Promises
   findItems() {
     var that = this;
+
     this.client
       .getEntries({ content_type: "client", order: "fields.clientName" })
-      .then(function(entries) {
-        that.setState({ entries: entries.items });
-        var arrayLength = entries.items.length;
-        var cleanedEntries = {};
-        for (var i = 0; i < arrayLength; i++) {
-          var singleClientObject = entries.items[i];
-          if (
-            !(
-              singleClientObject.fields.clientType.fields.name in
-              that.state.cleanedEntries
-            )
-          ) {
-            cleanedEntries[singleClientObject.fields.clientType.fields.name] = {
-              array: [],
-              order: singleClientObject.fields.clientType.fields.order
-            };
-            that.setState({ cleanedEntries: cleanedEntries });
-          }
-        }
-        var sortedEntries = sortProperties(that.state.cleanedEntries);
-        that.setState({ cleanedEntries: sortedEntries });
+      .then(function (entriesResp) {
+        var items = (entriesResp && entriesResp.items) || [];
+        if (!Array.isArray(items)) items = [];
 
-        console.log(sortedEntries);
-        var arrayLength = entries.items.length;
-        for (var i = 0; i < arrayLength; i++) {
-          var singleClientObject = entries.items[i];
-          if (
-            singleClientObject.fields.clientType.fields.name in
-            that.state.cleanedEntries
-          ) {
-            that.state.cleanedEntries[
-              singleClientObject.fields.clientType.fields.name
-            ]["array"].push(singleClientObject);
+        var cleanedEntries = {};
+
+        for (var i = 0; i < items.length; i++) {
+          var entry = items[i];
+          var typeName = that.getClientTypeName(entry);
+          var typeOrder = that.getClientTypeOrder(entry);
+
+          if (!cleanedEntries[typeName]) {
+            cleanedEntries[typeName] = { array: [], order: typeOrder };
           }
+
+          cleanedEntries[typeName].array.push(entry);
         }
+
+        var sortedEntries = sortProperties(cleanedEntries);
+
+        that.setState({
+          entries: items,
+          cleanedEntries: sortedEntries,
+          error: null,
+        });
+      })
+      .catch(function (err) {
+        that.setState({
+          entries: [],
+          cleanedEntries: {},
+          error: (err && err.message) || "Failed to load clients.",
+        });
       });
   }
+
   componentDidMount() {
     this.findItems();
+
     var that = this;
-    function stateChange(that) {
-      setTimeout(function() {
-        that.setState({ readyToRender: true });
-      }, 1000);
-    }
-    stateChange(that);
+    this._readyTimer = setTimeout(function () {
+      that.setState({ readyToRender: true });
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    if (this._readyTimer) clearTimeout(this._readyTimer);
+  }
+
+  renderClientCard(entry, idx) {
+    var name = this.getClientName(entry);
+    var href = this.getClientUrl(entry);
+    var imgSrc = this.getClientImageUrl(entry);
+
+    var key =
+      entry && entry.sys && entry.sys.id ? entry.sys.id : name + "-" + idx;
+
+    var cardInner = (
+      <div className="client-object">
+        {imgSrc ? (
+          <img className="client-image" src={imgSrc} alt={name} />
+        ) : null}
+        <br />
+        <div className="border-container">
+          <h3>{name}</h3>
+          <div className="border" />
+        </div>
+      </div>
+    );
+
+    return (
+      <Col lg={{ span: 6 }} md={{ span: 12 }} sm={{ span: 24 }} key={key}>
+        {href ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            className="client-link"
+          >
+            {cardInner}
+          </a>
+        ) : (
+          <div className="client-link" style={{ cursor: "default" }}>
+            {cardInner}
+          </div>
+        )}
+      </Col>
+    );
   }
 
   renderCategoryObjects(entries) {
-    var count = 0;
-    var allCategoryClients = [];
-    var singleClientRow = [];
-    var secondClientRow = [];
+    var safeEntries = Array.isArray(entries) ? entries : [];
 
-    entries.map(entry => {
-      count = count + 1;
-      if (count == 1 || count == 2 || count == 3 || count == 4) {
-        var clientObject = (
-          <Col
-            lg={{ span: 6 }}
-            md={{ span: 12 }}
-            sm={{ span: 24 }}
-            key={Math.random()}
-          >
-            <a
-              href={entry.fields.clientUrl}
-              target="_blank"
-              className="client-link"
-            >
-              <div className="client-object">
-                {entry.fields.clientImage.fields ? (
-                  <img
-                    className="client-image"
-                    src={
-                      entry.fields.clientImage.fields.file.url +
-                      "?w=400&h=400&fit=fill&q=60"
-                    }
-                  />
-                ) : null}
-                <br />
-                <div className="border-container">
-                  <h3>{entry.fields.clientName}</h3>
-                  <div className="border" />
-                </div>
-              </div>
-            </a>
-          </Col>
-        );
-        singleClientRow.push(clientObject);
-      }
-      if (count == 5 || count == 6 || count == 7 || count == 8) {
-        var clientObject = (
-          <Col lg={{ span: 6 }} md={{ span: 12 }} sm={{ span: 24 }}>
-            <a
-              href={entry.fields.clientUrl}
-              target="_blank"
-              className="client-link"
-            >
-              <div className="client-object">
-                {entry.fields.clientImage.fields ? (
-                  <img
-                    className="client-image"
-                    src={
-                      entry.fields.clientImage.fields.file.url +
-                      "?w=400&h=400&fit=fill&q=60"
-                    }
-                  />
-                ) : null}
-                <br />
-                <div className="border-container">
-                  <h3>
-                    {entry.fields.clientName} <div className="border" />
-                  </h3>
-                </div>
-              </div>
-            </a>
-          </Col>
-        );
-        secondClientRow.push(clientObject);
-      }
-    });
-    allCategoryClients.push(<Row>{singleClientRow}</Row>);
-    allCategoryClients.push(<Row>{secondClientRow}</Row>);
-    return allCategoryClients;
+    var firstRow = safeEntries
+      .slice(0, 4)
+      .map((e, idx) => this.renderClientCard(e, idx));
+    var secondRow = safeEntries
+      .slice(4, 8)
+      .map((e, idx) => this.renderClientCard(e, idx + 4));
+
+    return (
+      <div>
+        <Row>{firstRow}</Row>
+        <Row>{secondRow}</Row>
+      </div>
+    );
   }
+
   renderClientObjects(cleanedEntries) {
-    if (cleanedEntries) {
-      var titles = [];
-      for (var category in this.state.cleanedEntries) {
-        if (typeof this.state.cleanedEntries[category] !== "function") {
-          titles.push(
-            <Row>
-              <h2 id={category}>{category}</h2>
-              <br />
-              <Row>
-                {this.renderCategoryObjects(
-                  this.state.cleanedEntries[category]["array"]
-                )}
-              </Row>
-              <br />
-            </Row>
-          );
-        }
-      }
-    }
+    var safe =
+      cleanedEntries && typeof cleanedEntries === "object"
+        ? cleanedEntries
+        : {};
+    var categories = Object.keys(safe);
 
-    return titles;
+    return categories.map((category) => {
+      var bucket = safe[category] || {};
+      var arr = Array.isArray(bucket.array) ? bucket.array : [];
+
+      return (
+        <Row key={category}>
+          <h2 id={category}>{category}</h2>
+          <br />
+          <Row>{this.renderCategoryObjects(arr)}</Row>
+          <br />
+        </Row>
+      );
+    });
   }
-  scrollTo(id) {}
+
   render() {
+    var error = this.state.error;
+
     return (
       <div className="style-wrapper" style={{ marginTop: "20px" }}>
         <div className="home-wrapper company-listings tight-container">
           <br />
           <br />
+
+          {error ? (
+            <div style={{ marginBottom: 12 }}>
+              <strong>Couldn’t load clients.</strong>
+              <div>{error}</div>
+            </div>
+          ) : null}
+
           {this.renderClientObjects(this.state.cleanedEntries)}
         </div>
       </div>
