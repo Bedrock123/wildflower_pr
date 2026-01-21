@@ -243,8 +243,8 @@ html {
     padding-bottom: 20px;
     background: white;
     position: relative;
-    background: #f7dade;
-    border-top: 16px solid #f7dade;
+    background: #fff;
+    border-top: 16px solid #fff;
 }
 
 .footer-wrapper .footer-wrapper-inner {
@@ -263,7 +263,7 @@ html {
 }
 
 .footer-wrapper .footer-wrapper-inner h4 a {
-    color: #fff;
+    color: #1e2d80;
     font-family: "Print Bold";
     font-size: 35px;
     margin-top: 0px;

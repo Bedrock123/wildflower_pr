@@ -37,7 +37,7 @@ class CallOut extends React.Component {
                 <i className="fab fa-linkedin-in" />
               </a>
             </div>
-            <p>2019. all rights reserved wildflowerpr.co</p>
+            <p>2026. all rights reserved wildflowerpr.co</p>
 
             <p>
               designed by{" "}
