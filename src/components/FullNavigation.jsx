@@ -2,7 +2,6 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Dock from "react-dock";
-var classNames = require("classnames");
 
 class FullNavigation extends React.Component {
   state = {
