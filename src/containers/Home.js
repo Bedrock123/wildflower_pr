@@ -6,6 +6,7 @@ import blue_fuzz from "../assets/images/blue_fuz.jpg";
 import purple_fuzz from "../assets/images/purple_fuzz.jpg";
 import yellow_fuzz from "../assets/images/yellow_fuzz.jpg";
 import Background from "../assets/images/background_v1.jpg";
+import Footer from "../components/Footer";
 
 class Home extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class Home extends React.Component {
           to="/about-us"
           style={{
             backgroundImage: "url(" + Background + ")",
-            backgroundSize: "cover"
+            backgroundSize: "cover",
           }}
         >
           <img src={logo} alt="Wild Flower" className="center-logo" />
@@ -32,16 +33,16 @@ class Home extends React.Component {
           style={{ backgroundImage: "url(" + blue_fuzz + ")" }}
         >
           <h3 className="description-language">
-          wldflwr is a do-good public relations firm for the{" "}
+            wldflwr is a do-good communciations firm for the{" "}
           </h3>
           <h3 className="description-language">
             eco-friendly, conscientious and courageous.
           </h3>
           <h3 className="description-language">
-            🗽 brooklyn-based + bilingüe bebé ✌🏼
+            🗽 nyc-based + bilingüe bebé ✌🏼
           </h3>
           <h3 className="description-language">
-            🌾 we bloom among the wild ✨
+            🎤 we bring mission-driven brands to life.
           </h3>
           <h3 className="description-language">est. 2015</h3>
           <a href="#team-info">
@@ -61,13 +62,13 @@ class Home extends React.Component {
             we work with:{" "}
           </h3>
           <h3 className="description-language " style={{ color: "#b08ad6" }}>
-            agents of change • activists • mothers
+            agents of change • activists • parents
           </h3>
           <h3 className="description-language " style={{ color: "#b08ad6" }}>
-            lightworkers • companies empowering women
+            maternal healthcare advocates & innovators
           </h3>
           <h3 className="description-language " style={{ color: "#b08ad6" }}>
-            fortune 500s targeting millennials + multicultural communities
+            future of food companies
           </h3>
           <h3 className="description-language " style={{ color: "#b08ad6" }}>
             doers elevating the collective consciousness
@@ -82,6 +83,7 @@ class Home extends React.Component {
             they're our inspiration⚡
           </h3>
         </div>
+        <Footer />
       </div>
     );
   }

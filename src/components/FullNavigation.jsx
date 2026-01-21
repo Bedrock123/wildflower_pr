@@ -14,7 +14,7 @@ class FullNavigation extends React.Component {
     pressBarUrlActivate: false,
     teamBarUrlActivate: false,
     clientsBarUrlActivate: false,
-    isVisible: false
+    isVisible: false,
   };
   componentWillMount() {
     let activeOpenKey = `${this.props.location.pathname.split("/")[1]}`;
@@ -23,10 +23,10 @@ class FullNavigation extends React.Component {
       directionBarUrlActivate: false,
       pressBarUrlActivate: false,
       teamBarUrlActivate: false,
-      clientsBarUrlActivate: false
+      clientsBarUrlActivate: false,
     });
     this.setState({
-      [activeOpenKey]: true
+      [activeOpenKey]: true,
     });
   }
   componentWillReceiveProps(nextProps) {
@@ -37,35 +37,35 @@ class FullNavigation extends React.Component {
       directionBarUrlActivate: false,
       pressBarUrlActivate: false,
       teamBarUrlActivate: false,
-      clientsBarUrlActivate: false
+      clientsBarUrlActivate: false,
     });
     this.setState({
-      [activeOpenKey]: true
+      [activeOpenKey]: true,
     });
     if (oldOpenKey !== activeOpenKey) {
       this.setState({
-        isVisible: false
+        isVisible: false,
       });
     }
   }
   changeStyleBarState(barName) {
     this.setState({
-      styleBarExposed: !this.state.styleBarExposed
+      styleBarExposed: !this.state.styleBarExposed,
     });
   }
   changePressBarState(barName) {
     this.setState({
-      pressBarExposed: !this.state.pressBarExposed
+      pressBarExposed: !this.state.pressBarExposed,
     });
   }
   changeTeamBarState(barName) {
     this.setState({
-      teamBarExposed: !this.state.teamBarExposed
+      teamBarExposed: !this.state.teamBarExposed,
     });
   }
   changeClientsBarState(barName) {
     this.setState({
-      clientsBarExposed: !this.state.clientsBarExposed
+      clientsBarExposed: !this.state.clientsBarExposed,
     });
   }
   renderBottomBarClasses(ifDisplay) {
@@ -89,7 +89,8 @@ class FullNavigation extends React.Component {
             direction{" "}
             <div
               className={this.renderBottomBarClasses(
-                this.state.styleBarExposed || this.state.directionBarUrlActivate
+                this.state.styleBarExposed ||
+                  this.state.directionBarUrlActivate,
               )}
             />
           </NavLink>{" "}
@@ -103,35 +104,8 @@ class FullNavigation extends React.Component {
             clients
             <div
               className={this.renderBottomBarClasses(
-                this.state.clientsBarExposed || this.state.clientsBarUrlActivate
-              )}
-            />
-          </NavLink>{" "}
-          <NavLink
-            activeClassName="active"
-            to="/team"
-            className="four-corner-link team-link"
-            onMouseEnter={this.changeTeamBarState.bind(this)}
-            onMouseLeave={this.changeTeamBarState.bind(this)}
-          >
-            team{" "}
-            <div
-              className={this.renderBottomBarClasses(
-                this.state.teamBarExposed || this.state.teamBarUrlActivate
-              )}
-            />
-          </NavLink>{" "}
-          <NavLink
-            activeClassName="active"
-            to="/press"
-            className="four-corner-link clients-link"
-            onMouseEnter={this.changePressBarState.bind(this)}
-            onMouseLeave={this.changePressBarState.bind(this)}
-          >
-            press{" "}
-            <div
-              className={this.renderBottomBarClasses(
-                this.state.pressBarExposed || this.state.pressBarUrlActivate
+                this.state.clientsBarExposed ||
+                  this.state.clientsBarUrlActivate,
               )}
             />
           </NavLink>{" "}
@@ -140,7 +114,7 @@ class FullNavigation extends React.Component {
           className="fas fa-bars menu-icon "
           onClick={() =>
             this.setState({
-              isVisible: !this.state.isVisible
+              isVisible: !this.state.isVisible,
             })
           }
         />{" "}

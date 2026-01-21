@@ -28,7 +28,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       newKey: new Date(),
-      lastPath: ""
+      lastPath: "",
     };
   }
   componentWillMount() {
@@ -101,7 +101,7 @@ class App extends React.Component {
                 <Route
                   exact
                   path="/team"
-                  render={state => {
+                  render={(state) => {
                     // seems ok ?
                     this.updateDate();
                     return <Team match={state.match} />;
@@ -110,7 +110,7 @@ class App extends React.Component {
                 <Route
                   exact
                   path="/about-the-team"
-                  render={state => {
+                  render={(state) => {
                     // seems ok ?
                     this.updateDate();
                     return <TeamDescription match={state.match} />;
@@ -119,7 +119,7 @@ class App extends React.Component {
                 <Route
                   exact
                   path="/"
-                  render={state => {
+                  render={(state) => {
                     // seems ok ?
                     this.updateDate();
                     return <Home match={state.match} />;
@@ -128,7 +128,7 @@ class App extends React.Component {
                 <Route
                   exact
                   path="/about-us"
-                  render={state => {
+                  render={(state) => {
                     // seems ok ?
                     this.updateDate();
                     return <AboutUs match={state.match} />;
@@ -137,7 +137,7 @@ class App extends React.Component {
                 <Route
                   exact
                   path="/direction"
-                  render={state => {
+                  render={(state) => {
                     // seems ok ?
                     this.updateDate();
                     return <Style match={state.match} />;
@@ -146,7 +146,7 @@ class App extends React.Component {
                 <Route
                   exact
                   path="/clients"
-                  render={state => {
+                  render={(state) => {
                     // seems ok ?
                     this.updateDate();
                     return <Clients match={state.match} />;
@@ -155,12 +155,11 @@ class App extends React.Component {
                 <Route
                   exact
                   path="/press"
-                  render={state => {
+                  render={(state) => {
                     // seems ok ?
                     this.updateDate();
                     return <Press match={state.match} />;
                   }}
-                  exact
                 />
                 <Route
                   exact

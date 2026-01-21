@@ -39,59 +39,21 @@ class Home extends React.Component {
             </div>
 
             <div className="content-block">
-              <img src={copyright} alt="Media" />
-              <p className="content-title">COPYWRITING</p>
-              <p className="content-paragraph">
-                we work with you to develop the right brand strategy for the era
-                that we live in. we can also create or rebrand your look and
-                feel to take you to that higher level.
-              </p>
-            </div>
-            <div className="content-block">
               <img src={partnerships} alt="Media" />
               <p className="content-title">PARTNERSHIPS & COLLOABORATIONS</p>
               <p className="content-paragraph">
                 from wellness to technology to politics to fortune 500s, we've
                 built relationships that span almost every market. we'll
-                showcase your brand to stakeholders and influencers to achieve
-                maximum impact.
+                showcase your brand to stakeholders and advocates to achieve
+                impact.
               </p>
             </div>
             <div className="content-block">
               <img src={events} alt="Media" />
-              <p className="content-title">
-                EVENTS & EXPERIENTIAL ACTIVATIONS{" "}
-              </p>
+              <p className="content-title">THOUGHT LEADERSHIP</p>
               <p className="content-paragraph">
-                from a speaking gig on a panel to hosting your own pop-up event,
-                our team will help with the logistics and strategy to maximize
-                your presence and results.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="style-container direction-container">
-          <div className="content-container">
-            <div className="content-header">
-              <p>WHAT WE ARE ALL ABOUT</p>
-            </div>
-            <div className="content-block">
-              <p className="content-paragraph">
-                ✨we believe that all things are possible, even when they appear
-                to be at odds. life is not static and neither are our needs —
-                they vary across a lifetime and across each situation. through
-                listening and awareness, the universe reveals itself to you/us.
-                we know that if we can put our perceptions and impatience aside,
-                we can create space, realizing that it’s not as complicated as
-                we make it out to be. we abide by qualities of awe and trust
-                with a continual sense and reverence towards the mystery of
-                life. we work to keep a healthy mind because a healthy mind is a
-                healthy life.✨
-                <br />
-                <br />
-                this is our culture. <br />
-                this is our ethos. <br />
-                this is our human residence.
+                from speaking gigs to award submissions, our team will help with
+                the roadmap to elevate your presence.
               </p>
             </div>
           </div>
