@@ -6,7 +6,6 @@
     "animated": "^0.2.0",
     "antd": "^3.6.3",
     "classnames": "^2.2.5",
-    "contentful": "^5.0.5",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-cookie": "0.4.5",
